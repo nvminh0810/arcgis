@@ -1,18 +1,18 @@
 import React from "react";
 import { Scene } from "@esri/react-arcgis";
-import BermudaTriangle from "./components/triangle";
+import Building from "./components/Building";
 
 function App() {
   return (
     <Scene
       style={{ width: "100vw", height: "100vh" }}
-      mapProperties={{ basemap: "satellite" }}
+      mapProperties={{ basemap: "topo-vector", ground: "world-elevation" }}
       viewProperties={{
-        center: [-122.4443, 47.2529],
-        zoom: 6,
+        center: [106.69839762657362, 10.776631901390154],
+        zoom: 17,
       }}
     >
-      <BermudaTriangle />
+      <Building />
     </Scene>
   );
 }
