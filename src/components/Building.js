@@ -1,9 +1,9 @@
-import { Fragment, useEffect, useState } from "react";
-import Block from "./Block/Block";
-import Roof from "./Roof";
-import Foundation from "./Foundation";
-import Stair from "./Stair";
-import { getBlocks, getRoof, getFoundation, getStairs } from "../utils/api";
+import { Fragment, useEffect, useState } from 'react';
+import Block from './Block/Block';
+import Roof from './Roof';
+import Foundation from './Foundation';
+import Stair from './Stair';
+import { getBlocks, getRoof, getFoundation, getStairs } from '../utils/api';
 
 const Building = (props) => {
   const [blocks, setBlocks] = useState([]);
