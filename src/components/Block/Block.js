@@ -1,6 +1,6 @@
-import React, { Fragment, useState, useEffect } from "react";
-import Surface from "./Surface";
-import Door from "./Door";
+import React, { Fragment, useState, useEffect } from 'react';
+import Surface from './Surface';
+import Door from './Door';
 
 export default function Block(props) {
   const [surfaces, setsurfaces] = useState([]);
