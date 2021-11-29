@@ -49,6 +49,7 @@ export const calLineSegment = (p1, p2, distance, direction) => {
 export const movePoint = (p1, o1, o2, distance, direction) => {
   const o = [o2[0] - o1[0], o2[1] - o1[1]];
   const point = calPoint([...p1], [...o], distance, direction);
+  point[2] = p1[2];
   return point;
 };
 
@@ -57,6 +58,7 @@ export const moveMultiplePoint = (listPoint, o1, o2, distance, direction) => {
   const points = [];
   listPoint.forEach((p) => {
     const point = calPoint([...p], [...o], distance, direction);
+    point[2] = p[2];
     points.push(point);
   });
   return points;
