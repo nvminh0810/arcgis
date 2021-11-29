@@ -4,6 +4,8 @@ import Roof from './Roof';
 import Foundation from './Foundation';
 import Stair from './Stair';
 import Window from './Layer/Window';
+import Windows from './Layer/Windows';
+
 import {
   getBlocks,
   getRoof,
@@ -54,6 +56,7 @@ const Building = (props) => {
       {glasses.length && <Glasses view={props.view} glasses={glasses} />}
       {/* <Stair view={props.view} stairs={stairs} /> */}
       <Window view={props.view} />
+      <Windows view={props.view} />
     </Fragment>
   );
 };
