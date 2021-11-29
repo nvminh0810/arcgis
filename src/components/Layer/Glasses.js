@@ -12,13 +12,13 @@ export default function Glasses(props) {
       drawGlasses(C, D, false);
       drawWalls(B, C, false);
       drawWalls(C, D, false);
-      props.glasses.forEach((item) =>
-        drawGlasses(item.fPoint, item.lPoint, item.oz, item.direct)
-      );
+      //   props.glasses.forEach((item) =>
+      //     drawGlasses(item.fPoint, item.lPoint, item.oz, item.direct)
+      //   );
     })();
   }, [props.view]);
 
-  const drawGlasses = (A, B, oz, direction) => {
+  const drawGlasses = (A, B, direction) => {
     A[2] = oz;
 
     const vector = calVector(A, B);
@@ -28,7 +28,7 @@ export default function Glasses(props) {
     var segment1 = calLineSegment(p1, p2, 3, direction);
     console.log(segment1);
     var segment2 = calLineSegment(segment1[0], segment1[1], 3, direction);
-
+    console.log([...segment1, ...segment2]);
     createPolygon(props, {
       height: 25,
       nodes: [...segment1, ...segment2],

@@ -1,3 +1,5 @@
+import { POINT } from '../constants/commons';
+
 /**
  * Caculate point which is perpendicular to p1 or p2
  *
@@ -80,4 +82,8 @@ export const calVector = (o1, o2, isSquare = false) => {
   return isSquare
     ? [o2[1] - o1[1], -o2[0] + o1[0]]
     : [o2[0] - o1[0], o2[1] - o1[1]];
+};
+
+export const getPoint = (key, oz) => {
+  return [...POINT[key], oz];
 };
