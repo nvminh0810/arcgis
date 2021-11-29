@@ -1,5 +1,5 @@
-import React, { Fragment, useEffect, useState } from "react";
-import Layer from "../Layer/Layer";
+import React, { Fragment, useEffect, useState } from 'react';
+import Layer from '../Layer/Layer';
 
 export default function Surface(props) {
   const [layers, setLayers] = useState([]);

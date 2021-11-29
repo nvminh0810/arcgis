@@ -57,3 +57,12 @@ export const getLines = async () => {
     console.log(error);
   }
 };
+
+export const getGlasses = async () => {
+  try {
+    const response = await axios.get("/glasses");
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
