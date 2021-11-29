@@ -5,6 +5,7 @@
  * @param {*} p2
  * @param {*} o1: first point of vector
  * @param {*} o2: last point of vector
+ * @param {*} vector:
  * @param {*} listPoint: list point
  * @param {*} distance: distance from point to p1p2
  * @param {*} direction (boolean): direction of point
@@ -46,18 +47,16 @@ export const calLineSegment = (p1, p2, distance, direction) => {
   return [point1, point2];
 };
 
-export const movePoint = (p1, o1, o2, distance, direction) => {
-  const o = [o2[0] - o1[0], o2[1] - o1[1]];
-  const point = calPoint([...p1], [...o], distance, direction);
+export const movePoint = (p1, vector, distance, direction) => {
+  const point = calPoint([...p1], [...vector], distance, direction, true);
   point[2] = p1[2];
   return point;
 };
 
-export const moveMultiplePoint = (listPoint, o1, o2, distance, direction) => {
-  const o = [o2[0] - o1[0], o2[1] - o1[1]];
+export const moveMultiplePoint = (listPoint, vector, distance, direction) => {
   const points = [];
   listPoint.forEach((p) => {
-    const point = calPoint([...p], [...o], distance, direction);
+    const point = calPoint([...p], [...vector], distance, direction, true);
     point[2] = p[2];
     points.push(point);
   });
@@ -75,4 +74,10 @@ export const renderSubPoints = (startPoint, endPoint, numPart) => {
       startPoint[2],
     ]);
   return [startPoint, ...subPoints, endPoint];
+};
+
+export const calVector = (o1, o2, isSquare = false) => {
+  return isSquare
+    ? [o2[1] - o1[1], -o2[0] + o1[0]]
+    : [o2[0] - o1[0], o2[1] - o1[1]];
 };

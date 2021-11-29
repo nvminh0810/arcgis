@@ -24,6 +24,7 @@ export default function Window(props) {
         nodes: [subPoints[12], subPoints[18], ...segment2],
         color: 'gray',
       });
+
       // lines.forEach((item) => {
       //   createPolygon(props, item);
       // });
