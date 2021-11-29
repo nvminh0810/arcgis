@@ -6,21 +6,18 @@ import { createPolygon } from '../../utils/util';
 export default function Glasses(props) {
   useEffect(() => {
     (async () => {
-      const { B, C, D } = POINT;
-
-      drawGlasses(B, C, false);
-      drawGlasses(C, D, false);
-      drawWalls(B, C, false);
-      drawWalls(C, D, false);
-      //   props.glasses.forEach((item) =>
-      //     drawGlasses(item.fPoint, item.lPoint, item.oz, item.direct)
-      //   );
+      //   drawGlasses(B, C, false);
+      //   drawGlasses(C, D, false);
+      //   drawWalls(B, C, false);
+      //   drawWalls(C, D, false);
+      props.glasses.forEach((item) => {
+        drawGlasses(item.fPoint, item.lPoint, item.oz, item.direct);
+      });
     })();
   }, [props.view]);
 
-  const drawGlasses = (A, B, direction) => {
+  const drawGlasses = (A, B, oz, direction) => {
     A[2] = oz;
-
     const vector = calVector(A, B);
     const p1 = movePoint(A, vector, 1, true);
     const p2 = movePoint(B, vector, 1, false);

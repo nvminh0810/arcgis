@@ -33,6 +33,7 @@ const Building = (props) => {
       setRoof(roof);
       setFoundation(foundation);
       setStairs(stairs);
+      setGlasses(glasses);
     })();
     return () => {};
   }, []);
@@ -50,7 +51,7 @@ const Building = (props) => {
       {/* <Roof view={props.view} roof={roof} /> */}
       {/* {renderBlocks(blocks)} */}
       <Foundation view={props.view} foundation={foundation} />
-      <Glasses view={props.view} glasses={glasses} />
+      {glasses.length && <Glasses view={props.view} glasses={glasses} />}
       {/* <Stair view={props.view} stairs={stairs} /> */}
       <Window view={props.view} />
     </Fragment>
