@@ -1,24 +1,33 @@
-import { Fragment, useEffect, useState } from "react";
-import Block from "./Block/Block";
-import Roof from "./Roof";
-import Foundation from "./Foundation";
-import Stair from "./Stair";
-import Window from "./Layer/Window";
-import { getBlocks, getRoof, getFoundation, getStairs } from "../utils/api";
+import { Fragment, useEffect, useState } from 'react';
+import Block from './Block/Block';
+import Roof from './Roof';
+import Foundation from './Foundation';
+import Stair from './Stair';
+import Window from './Layer/Window';
+import {
+  getBlocks,
+  getRoof,
+  getFoundation,
+  getStairs,
+  getGlasses,
+} from '../utils/api';
+import Glasses from './Layer/Glasses';
 
 const Building = (props) => {
   const [blocks, setBlocks] = useState([]);
   const [roof, setRoof] = useState([]);
   const [foundation, setFoundation] = useState([]);
+  const [glasses, setGlasses] = useState([]);
   const [stairs, setStairs] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const [blocks, roof, foundation, stairs] = await Promise.all([
+      const [blocks, roof, foundation, stairs, glasses] = await Promise.all([
         getBlocks(),
         getRoof(),
         getFoundation(),
         getStairs(),
+        getGlasses(),
       ]);
       setBlocks(blocks);
       setRoof(roof);
@@ -41,6 +50,7 @@ const Building = (props) => {
       {/* <Roof view={props.view} roof={roof} /> */}
       {/* {renderBlocks(blocks)} */}
       <Foundation view={props.view} foundation={foundation} />
+      <Glasses view={props.view} />
       {/* <Stair view={props.view} stairs={stairs} /> */}
       <Window view={props.view} />
     </Fragment>
