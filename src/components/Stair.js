@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { createPolygon } from "../utils";
+import { createPolygon } from "../utils/util";
 
 export default function Stair(props) {
   useEffect(() => {

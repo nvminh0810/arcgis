@@ -17,26 +17,20 @@ export const renderSubPoints = (startPoint, endPoint, numPart) => {
   return [startPoint, ...subPoints, endPoint];
 };
 
-export const createPolygon = async (
-  props,
-  data,
-  symbolSize,
-  color = "gray",
-  polygonType = "polygon",
-  symbolType = "polygon-3d"
-) => {
+export const createPolygon = async (props, data) => {
   const [Graphic] = await loadModules(["esri/Graphic"]);
+  const { nodes, color, height } = data;
   var polygon = {
-    type: polygonType,
-    rings: data,
+    type: "polygon",
+    rings: nodes,
   };
 
   let symbol = {
-    type: symbolType,
+    type: "polygon-3d",
     symbolLayers: [
       {
         type: "extrude",
-        size: symbolSize,
+        size: height,
         material: { color },
       },
     ],
@@ -48,4 +42,31 @@ export const createPolygon = async (
   props.view.graphics.add(polygonGraphic);
 };
 
-export const createLine = async () => {};
+export const createLine = async (props, data) => {
+  const [Graphic, Polyline] = await loadModules([
+    "esri/Graphic",
+    "esri/geometry/Polyline",
+  ]);
+  const { paths, color, height } = data;
+  let line = new Polyline({
+    paths: [paths],
+  });
+
+  const symbol = {
+    type: "line-3d",
+    symbolLayers: [
+      {
+        type: "line",
+        size: 5,
+        material: { color: "black" },
+        cap: "round",
+        join: "round",
+      },
+    ],
+  };
+  var lineGraphic = new Graphic({
+    geometry: line,
+    symbol: symbol,
+  });
+  props.view.graphics.add(lineGraphic);
+};

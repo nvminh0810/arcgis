@@ -39,3 +39,21 @@ export const getStairs = async () => {
     console.log(error);
   }
 };
+
+export const getWindows = async () => {
+  try {
+    const response = await axios.get("/windows");
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getLines = async () => {
+  try {
+    const response = await axios.get("/lines");
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

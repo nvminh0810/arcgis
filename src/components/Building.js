@@ -3,6 +3,7 @@ import Block from "./Block/Block";
 import Roof from "./Roof";
 import Foundation from "./Foundation";
 import Stair from "./Stair";
+import Window from "./Layer/Window";
 import { getBlocks, getRoof, getFoundation, getStairs } from "../utils/api";
 
 const Building = (props) => {
@@ -37,10 +38,11 @@ const Building = (props) => {
 
   return (
     <Fragment>
-      <Roof view={props.view} roof={roof} />
+      {/* <Roof view={props.view} roof={roof} /> */}
       {/* {renderBlocks(blocks)} */}
       <Foundation view={props.view} foundation={foundation} />
-      <Stair view={props.view} stairs={stairs} />
+      {/* <Stair view={props.view} stairs={stairs} /> */}
+      <Window view={props.view} />
     </Fragment>
   );
 };
