@@ -46,7 +46,7 @@ export default function Glasses(props) {
       case 0:
         return {
           back: 1,
-          height: 25,
+          height: 13,
           oz: 20,
         };
       case 1:
@@ -58,7 +58,7 @@ export default function Glasses(props) {
       case 2:
         return {
           back: 1,
-          height: 20,
+          height: 9,
           oz: 24,
         };
       default:

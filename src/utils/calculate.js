@@ -84,6 +84,23 @@ export const calVector = (o1, o2, isSquare = false) => {
     : [o2[0] - o1[0], o2[1] - o1[1]];
 };
 
-export const getPoint = (key, oz) => {
-  return [...POINT[key], oz];
+export const calLineSegmentBaseVector = (
+  p,
+  vector,
+  distace,
+  pIsMidPoint = false,
+  direction = false
+) => {
+  let p1 = [];
+  let p2 = [];
+
+  if (pIsMidPoint) {
+    p1 = movePoint(p, vector, distace / 2, true);
+    p2 = movePoint(p, vector, distace / 2, false);
+  } else {
+    p1 = p;
+    p2 = movePoint(p, vector, distace, direction);
+  }
+
+  return [p1, p2];
 };

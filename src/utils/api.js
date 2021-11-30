@@ -1,12 +1,12 @@
-import Axios from "axios";
+import Axios from 'axios';
 
 const axios = Axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: 'http://localhost:3000',
 });
 
 export const getBlocks = async () => {
   try {
-    const response = await axios.get("/blocks");
+    const response = await axios.get('/blocks');
     return response.data;
   } catch (error) {
     console.log(error);
@@ -15,7 +15,7 @@ export const getBlocks = async () => {
 
 export const getRoof = async () => {
   try {
-    const response = await axios.get("/roof");
+    const response = await axios.get('/roof');
     return response.data;
   } catch (error) {
     console.log(error);
@@ -24,7 +24,7 @@ export const getRoof = async () => {
 
 export const getFoundation = async () => {
   try {
-    const response = await axios.get("/foundation");
+    const response = await axios.get('/foundation');
     return response.data;
   } catch (error) {
     console.log(error);
@@ -33,7 +33,7 @@ export const getFoundation = async () => {
 
 export const getStairs = async () => {
   try {
-    const response = await axios.get("/stairs");
+    const response = await axios.get('/stairs');
     return response.data;
   } catch (error) {
     console.log(error);
@@ -42,7 +42,7 @@ export const getStairs = async () => {
 
 export const getWindows = async () => {
   try {
-    const response = await axios.get("/windows");
+    const response = await axios.get('/windows');
     return response.data;
   } catch (error) {
     console.log(error);
@@ -51,7 +51,7 @@ export const getWindows = async () => {
 
 export const getLines = async () => {
   try {
-    const response = await axios.get("/lines");
+    const response = await axios.get('/lines');
     return response.data;
   } catch (error) {
     console.log(error);
@@ -60,7 +60,32 @@ export const getLines = async () => {
 
 export const getGlasses = async () => {
   try {
-    const response = await axios.get("/glasses");
+    const response = await axios.get('/glasses');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getFirstFloorWindows = async () => {
+  try {
+    const response = await axios.get('/firstFloorwindows');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSecondFloorWindows = async () => {
+  try {
+    const response = await axios.get('/secondFloorwindows');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getSideDoors = async () => {
+  try {
+    const response = await axios.get('/sideDoors');
     return response.data;
   } catch (error) {
     console.log(error);
