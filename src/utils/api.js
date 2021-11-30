@@ -91,3 +91,12 @@ export const getSideDoors = async () => {
     console.log(error);
   }
 };
+
+export const getLineBetweenFloors = async () => {
+  try {
+    const response = await axios.get('/lineBetweenFloors');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -15,7 +15,7 @@ export default function Glasses(props) {
     const info = handleGlassFloor(floor);
     const dGlass = 3;
     const vector = calVector(fPoint, lPoint);
-    const back = checkSegment(segment) ? 1 : info.back;
+    const back = checkSegment(segment) ? 2 : info.back;
     fPoint[2] = info.oz;
 
     const p1 = movePoint(
@@ -45,7 +45,7 @@ export default function Glasses(props) {
     switch (floor) {
       case 0:
         return {
-          back: 1,
+          back: 2,
           height: 13,
           oz: 20,
         };
@@ -57,9 +57,9 @@ export default function Glasses(props) {
         };
       case 2:
         return {
-          back: 1,
+          back: 2,
           height: 9,
-          oz: 24,
+          oz: 24.5,
         };
       default:
         break;
