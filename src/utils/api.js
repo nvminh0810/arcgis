@@ -4,15 +4,6 @@ const axios = Axios.create({
   baseURL: 'http://localhost:3000',
 });
 
-export const getBlocks = async () => {
-  try {
-    const response = await axios.get('/blocks');
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const getRoof = async () => {
   try {
     const response = await axios.get('/roof');
@@ -95,6 +86,15 @@ export const getSideDoors = async () => {
 export const getLineBetweenFloors = async () => {
   try {
     const response = await axios.get('/lineBetweenFloors');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getFloors = async () => {
+  try {
+    const response = await axios.get('/floors');
     return response.data;
   } catch (error) {
     console.log(error);

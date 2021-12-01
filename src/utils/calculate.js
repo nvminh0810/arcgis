@@ -1,5 +1,3 @@
-import { POINT } from '../constants/commons';
-
 /**
  * Caculate point which is perpendicular to p1 or p2
  *
