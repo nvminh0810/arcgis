@@ -100,3 +100,12 @@ export const getFloors = async () => {
     console.log(error);
   }
 };
+
+export const getColumns = async () => {
+  try {
+    const response = await axios.get('/columns');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

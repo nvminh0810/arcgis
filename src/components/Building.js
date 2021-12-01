@@ -15,12 +15,14 @@ import {
   getSecondFloorWindows,
   getLineBetweenFloors,
   getFloors,
+  getColumns,
 } from '../utils/api';
 import Glasses from './Layer/Glasses';
 import FirstFloorWindows from './Layer/FirstFloorWindows';
 import SecondFloorWindows from './Layer/SecondFloorWindows';
 import SideDoors from './Layer/SideDoors';
 import LineBetweenFloors from './Layer/LineBetweenFloors';
+import Columns from './Layer/Columns';
 
 const Building = (props) => {
   const [roof, setRoof] = useState([]);
@@ -32,7 +34,7 @@ const Building = (props) => {
   const [secondFloorWindows, setSecondFloorWindows] = useState([]);
   const [lineBetweenFloors, setLineBetweenFloors] = useState([]);
   const [floors, setFloors] = useState([]);
-
+  const [columns, setColumns] = useState([]);
   const [stairs, setStairs] = useState([]);
 
   useEffect(() => {
@@ -47,6 +49,7 @@ const Building = (props) => {
         sideDoors,
         lineBetweenFloors,
         floors,
+        columns,
       ] = await Promise.all([
         getRoof(),
         getFoundation(),
@@ -57,6 +60,7 @@ const Building = (props) => {
         getSideDoors(),
         getLineBetweenFloors(),
         getFloors(),
+        getColumns(),
       ]);
       setRoof(roof);
       setFoundation(foundation);
@@ -67,6 +71,7 @@ const Building = (props) => {
       setSideDoors(sideDoors);
       setLineBetweenFloors(lineBetweenFloors);
       setFloors(floors);
+      setColumns(columns);
     })();
     return () => {};
   }, []);
@@ -92,7 +97,7 @@ const Building = (props) => {
         />
       )}
       {floors.length && <Floors view={props.view} floors={floors} />}
-      {/* <Stair view={props.view} stairs={stairs} /> */}
+      {columns.length && <Columns view={props.view} columns={columns} />}
       <Window view={props.view} />
     </Fragment>
   );
