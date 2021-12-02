@@ -23,8 +23,8 @@ export default function LineBetweenFloors(props) {
 
   const drawCol = (line) => {
     const { fPoint, lPoint, direct, count, isLong } = line;
-    const B = [...fPoint, 24];
-    const C = [...lPoint, 24];
+    const B = [...fPoint, 23.5];
+    const C = [...lPoint, 23.5];
 
     const subPoints = renderSubPoints(B, C, count);
     for (let index = 0; index < subPoints.length - 1; index++) {
@@ -48,7 +48,7 @@ export default function LineBetweenFloors(props) {
         !direct
       );
       createPolygon(props, {
-        height: 0.5,
+        height: 1,
         nodes: [...segment1, ...segment2],
         color: 'white',
       });

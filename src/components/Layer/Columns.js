@@ -37,7 +37,7 @@ export default function Columns(props) {
           const segment2 = calLineSegment(segment1[0], segment1[1], 2, false);
 
           createPolygon(props, {
-            height: isBorder ? 14.5 : 11,
+            height: isBorder ? 14 : 11,
             nodes: [...segment1, ...segment2],
             color: 'white',
           });
@@ -46,7 +46,7 @@ export default function Columns(props) {
         const segment1 = calLineSegmentBaseVector(point, vector, 1, true);
         const segment2 = calLineSegment(segment1[0], segment1[1], 2, direct);
         createPolygon(props, {
-          height: isLong ? 11 : 8,
+          height: isLong ? 10.5 : 8,
           nodes: [...segment1, ...segment2],
           color: 'white',
         });
