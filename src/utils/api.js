@@ -127,3 +127,12 @@ export const getSubWalls = async () => {
     console.log(error);
   }
 };
+
+export const getRoofWindows = async () => {
+  try {
+    const response = await axios.get('/roofWindows');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

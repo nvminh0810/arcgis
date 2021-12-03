@@ -12,10 +12,9 @@ export default function Glasses(props) {
   const drawGlasses = (glass) => {
     const { fPoint, lPoint, direct, floor, shrink, mDirect, segment } = glass;
 
-    const info = handleGlassFloor(floor);
+    const info = handleGlassFloor(floor, segment);
     const dGlass = 3;
     const vector = calVector(fPoint, lPoint);
-    const back = checkSegment(segment) ? 2 : info.back;
     fPoint[2] = info.oz;
 
     const p1 = movePoint(
@@ -31,7 +30,7 @@ export default function Glasses(props) {
       mDirect ? shrink : !shrink
     );
 
-    var segment1 = calLineSegment(p1, p2, back, direct);
+    var segment1 = calLineSegment(p1, p2, info.back, direct);
     var segment2 = calLineSegment(segment1[0], segment1[1], dGlass, direct);
 
     createPolygon(props, {
@@ -41,12 +40,12 @@ export default function Glasses(props) {
     });
   };
 
-  const handleGlassFloor = (floor) => {
+  const handleGlassFloor = (floor, segment) => {
     switch (floor) {
       case 0:
         return {
           back: 2,
-          height: 13,
+          height: 14,
           oz: 20,
         };
       case 1:
@@ -58,7 +57,7 @@ export default function Glasses(props) {
       case 2:
         return {
           back: 2,
-          height: 9,
+          height: checkSegment(segment) ? 10 : 7,
           oz: 24.5,
         };
       default:
@@ -67,13 +66,12 @@ export default function Glasses(props) {
   };
 
   const calDMove = (glass) => {
-    const { shrink, floor, segment } = glass;
-    if (checkSegment(segment)) return 1;
+    const { shrink, floor } = glass;
     return shrink ? (floor === 1 ? 13 : 1) : 13;
   };
 
   const checkSegment = (segment) => {
-    return segment === "AA'" || segment === "B'B";
+    return segment === 'EF' || segment === 'MN';
   };
   return null;
 }
