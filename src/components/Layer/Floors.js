@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import {
   calLineSegment,
   calLineSegmentBaseVector,
   calVector,
   movePoint,
   renderSubPoints,
-} from '../../utils/calculate';
-import { POINT } from '../../constants/commons';
-import { createPolygon } from '../../utils/util';
+} from "../../utils/calculate";
+import { POINT } from "../../constants/commons";
+import { createPolygon } from "../../utils/util";
 
 export default function Floors(props) {
   useEffect(() => {
@@ -16,14 +16,14 @@ export default function Floors(props) {
     const nodes = [];
 
     floors.forEach(({ polygon, center }, index) => {
-      const points = polygon.split('').map((point) => ({
+      const points = polygon.split("").map((point) => ({
         point,
         node: POINT[point],
       }));
 
       points.forEach(({ point, node }) => {
         const vector = calVector(node, center, false);
-        const p = movePoint(node, vector, 2, 'ABFGH'.includes(point));
+        const p = movePoint(node, vector, 2, "ABFGH".includes(point));
         data.push({ point, node: p });
       });
     });
@@ -43,11 +43,11 @@ export default function Floors(props) {
       node[2] = oz;
       return node;
     });
-    console.log(data);
+    // console.log(data);
     createPolygon(props, {
       height: 0.1,
       nodes: data,
-      color: 'white',
+      color: "white",
     });
   };
 
