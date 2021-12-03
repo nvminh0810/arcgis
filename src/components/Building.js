@@ -15,6 +15,7 @@ import {
   getLineBetweenFloors,
   getFloors,
   getColumns,
+<<<<<<< HEAD
   getSubDoors,
   getSubWalls,
 } from "../utils/api";
@@ -26,6 +27,17 @@ import LineBetweenFloors from "./Layer/LineBetweenFloors";
 import Columns from "./Layer/Columns";
 import SubDoor from "./Layer/SubDoor";
 import SubWall from "./Layer/SubWall";
+=======
+  getRoofWindows,
+} from '../utils/api';
+import Glasses from './Layer/Glasses';
+import FirstFloorWindows from './Layer/FirstFloorWindows';
+import SecondFloorWindows from './Layer/SecondFloorWindows';
+import SideDoors from './Layer/SideDoors';
+import LineBetweenFloors from './Layer/LineBetweenFloors';
+import Columns from './Layer/Columns';
+import RoofWindows from './Layer/roofWindows';
+>>>>>>> 359e1c6bded32c39cfbe78598d3043386d4d10ee
 
 const Building = (props) => {
   const [roof, setRoof] = useState([]);
@@ -38,6 +50,7 @@ const Building = (props) => {
   const [lineBetweenFloors, setLineBetweenFloors] = useState([]);
   const [floors, setFloors] = useState([]);
   const [columns, setColumns] = useState([]);
+  const [roofWindows, setRoofWindows] = useState([]);
   const [stairs, setStairs] = useState([]);
   const [subDoors, setSubDoors] = useState([]);
   const [subWalls, setSubWalls] = useState([]);
@@ -55,8 +68,12 @@ const Building = (props) => {
         lineBetweenFloors,
         floors,
         columns,
+<<<<<<< HEAD
         subDoors,
         subWalls,
+=======
+        roofWindows,
+>>>>>>> 359e1c6bded32c39cfbe78598d3043386d4d10ee
       ] = await Promise.all([
         getRoof(),
         getFoundation(),
@@ -70,6 +87,7 @@ const Building = (props) => {
         getColumns(),
         getSubDoors(),
         getSubWalls(),
+        getRoofWindows(),
       ]);
       setRoof(roof);
       setFoundation(foundation);
@@ -83,6 +101,7 @@ const Building = (props) => {
       setColumns(columns);
       setSubDoors(subDoors);
       setSubWalls(subWalls);
+      setRoofWindows(roofWindows);
     })();
     return () => {};
   }, []);
@@ -109,8 +128,15 @@ const Building = (props) => {
       )}
       {floors.length && <Floors view={props.view} floors={floors} />}
       {columns.length && <Columns view={props.view} columns={columns} />}
+<<<<<<< HEAD
       {subDoors.length && <SubDoor view={props.view} subDoors={subDoors} />}
       {subWalls.length && <SubWall view={props.view} subWalls={subWalls} />}
+=======
+      {roofWindows.length && (
+        <RoofWindows view={props.view} roofWindows={roofWindows} />
+      )}
+      <Window view={props.view} />
+>>>>>>> 359e1c6bded32c39cfbe78598d3043386d4d10ee
     </Fragment>
   );
 };

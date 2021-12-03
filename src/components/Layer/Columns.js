@@ -16,7 +16,7 @@ export default function Columns(props) {
   }, [props.view]);
 
   const drawColumn = (column) => {
-    const { segment, fPoint, lPoint, count, direct } = column;
+    const { segment, fPoint, lPoint, count, direct, isLong } = column;
 
     const subPoints = renderSubPoints(
       [...fPoint, 23.5],
@@ -35,8 +35,9 @@ export default function Columns(props) {
 
           const segment1 = calLineSegmentBaseVector(p, vector, 0.5, true);
           const segment2 = calLineSegment(segment1[0], segment1[1], 2, false);
+
           createPolygon(props, {
-            height: isBorder ? 11.5 : 8,
+            height: isBorder ? 14 : 11,
             nodes: [...segment1, ...segment2],
             color: 'white',
           });
@@ -45,7 +46,7 @@ export default function Columns(props) {
         const segment1 = calLineSegmentBaseVector(point, vector, 1, true);
         const segment2 = calLineSegment(segment1[0], segment1[1], 2, direct);
         createPolygon(props, {
-          height: 8,
+          height: isLong ? 10.5 : 8,
           nodes: [...segment1, ...segment2],
           color: 'white',
         });
