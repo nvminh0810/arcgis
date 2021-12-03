@@ -22,7 +22,7 @@ export default function Floors(props) {
 
       points.forEach(({ point, node }) => {
         const vector = calVector(node, center, false);
-        const p = movePoint(node, vector, 2.5, 'ABFGH'.includes(point));
+        const p = movePoint(node, vector, 2.5, "ABFGH".includes(point));
         data.push({ point, node: p });
       });
     });
@@ -47,10 +47,7 @@ export default function Floors(props) {
       node[2] = oz;
       return node;
     });
-<<<<<<< HEAD
     // console.log(data);
-=======
->>>>>>> 359e1c6bded32c39cfbe78598d3043386d4d10ee
     createPolygon(props, {
       height: 0.5,
       nodes: data,
