@@ -17,6 +17,7 @@ import {
   getFloors,
   getColumns,
   getRoofWindows,
+  getRoofHeads,
 } from '../utils/api';
 import Glasses from './Layer/Glasses';
 import FirstFloorWindows from './Layer/FirstFloorWindows';
@@ -25,6 +26,8 @@ import SideDoors from './Layer/SideDoors';
 import LineBetweenFloors from './Layer/LineBetweenFloors';
 import Columns from './Layer/Columns';
 import RoofWindows from './Layer/roofWindows';
+import BackDoor from './Layer/BackDoor';
+import RoofHead from './Layer/RoofHead';
 
 const Building = (props) => {
   const [roof, setRoof] = useState([]);
@@ -38,6 +41,7 @@ const Building = (props) => {
   const [floors, setFloors] = useState([]);
   const [columns, setColumns] = useState([]);
   const [roofWindows, setRoofWindows] = useState([]);
+  const [roofHeads, setRoofHeads] = useState(null);
   const [stairs, setStairs] = useState([]);
 
   useEffect(() => {
@@ -54,6 +58,7 @@ const Building = (props) => {
         floors,
         columns,
         roofWindows,
+        roofHeads,
       ] = await Promise.all([
         getRoof(),
         getFoundation(),
@@ -66,6 +71,7 @@ const Building = (props) => {
         getFloors(),
         getColumns(),
         getRoofWindows(),
+        getRoofHeads(),
       ]);
       setRoof(roof);
       setFoundation(foundation);
@@ -78,6 +84,7 @@ const Building = (props) => {
       setFloors(floors);
       setColumns(columns);
       setRoofWindows(roofWindows);
+      setRoofHeads(roofHeads);
     })();
     return () => {};
   }, []);
@@ -102,11 +109,15 @@ const Building = (props) => {
           lineBetweenFloors={lineBetweenFloors}
         />
       )}
-      {floors.length && <Floors view={props.view} floors={floors} />}
+      {floors.length && (
+        <Floors view={props.view} floors={floors} foundation={foundation} />
+      )}
       {columns.length && <Columns view={props.view} columns={columns} />}
       {roofWindows.length && (
         <RoofWindows view={props.view} roofWindows={roofWindows} />
       )}
+      <BackDoor view={props.view} />
+      {roofHeads && <RoofHead view={props.view} roofHeads={roofHeads} />}
       <Window view={props.view} />
     </Fragment>
   );

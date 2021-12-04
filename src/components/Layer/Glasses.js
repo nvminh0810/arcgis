@@ -57,8 +57,14 @@ export default function Glasses(props) {
       case 2:
         return {
           back: 2,
-          height: checkSegment(segment) ? 10 : 7,
+          height: checkSegment(segment) ? 9.5 : 7,
           oz: 24.5,
+        };
+      case 3:
+        return {
+          back: 2,
+          height: 2.5,
+          oz: 31.5,
         };
       default:
         break;
@@ -67,7 +73,7 @@ export default function Glasses(props) {
 
   const calDMove = (glass) => {
     const { shrink, floor } = glass;
-    return shrink ? (floor === 1 ? 13 : 1) : 13;
+    return shrink ? (floor === 1 ? 13 : 1) : floor === 3 ? 1 : 13;
   };
 
   const checkSegment = (segment) => {

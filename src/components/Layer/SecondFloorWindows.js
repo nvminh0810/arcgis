@@ -9,7 +9,7 @@ export default function SecondFloorWindows(props) {
   }, [props.view]);
 
   const drawWindows = (window) => {
-    const { fPoint, lPoint, count, direct } = window;
+    const { fPoint, lPoint, count, direct, segment: sg } = window;
     const subPoints = renderSubPoints(
       [...fPoint, 24.5],
       [...lPoint, 24.5],
@@ -32,19 +32,19 @@ export default function SecondFloorWindows(props) {
         p1 = [...points[i]];
         p2 = [...points[i + 1]];
 
-        if (i % 2 === 0) {
+        if (checkIsWall(sg, subPoints.length, points.length, index, i)) {
           height = 7;
         } else {
-          height = 0.5;
           if (flag) {
             height = 1;
             p1[2] = 30.5;
             p2[2] = 30.5;
           } else {
-            flag = true;
+            height = 0.5;
             i--;
+            flag = true;
           }
-          drawWoodsInWindow(p1, p2, direct);
+          drawWoodsInWindow(p1, p2, direct, sg);
         }
 
         segment = calLineSegment(p1, p2, 3, direct);
@@ -57,12 +57,12 @@ export default function SecondFloorWindows(props) {
     }
   };
 
-  const drawWoodsInWindow = (point1, point2, direct) => {
+  const drawWoodsInWindow = (point1, point2, direct, sg) => {
     let segment = [];
     for (let index = 0; index < 2; index++) {
       let p1 = [...point1];
       let p2 = [...point2];
-      if (index === 0) {
+      if (index === 0 && sg !== 'I1I2') {
         p1[2] = 25;
         p2[2] = 25;
       } else {
@@ -79,5 +79,18 @@ export default function SecondFloorWindows(props) {
     }
   };
 
+  const checkIsWall = (sg, length1, length2, index, i) => {
+    if (sg === 'I1I2') {
+      if (
+        (index === 0 && i === 0) ||
+        (index === length1 - 2 && i === length2 - 2)
+      )
+        return true;
+      return false;
+    } else {
+      if (i % 2 === 0) return true;
+      else return false;
+    }
+  };
   return null;
 }

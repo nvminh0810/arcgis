@@ -118,3 +118,11 @@ export const getRoofWindows = async () => {
     console.log(error);
   }
 };
+export const getRoofHeads = async () => {
+  try {
+    const response = await axios.get('/roofHeads');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

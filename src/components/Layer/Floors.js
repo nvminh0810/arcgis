@@ -11,7 +11,8 @@ import { createPolygon } from '../../utils/util';
 
 export default function Floors(props) {
   useEffect(() => {
-    const { floors } = props;
+    const { floors, foundation } = props;
+    drawFloor([...foundation[0].nodes], 20);
     const data = [];
     const nodes = [];
     floors.forEach(({ polygon, center }, index) => {
@@ -32,7 +33,6 @@ export default function Floors(props) {
       nodes.push(node);
     }
 
-    drawFloor([...nodes], 20);
     drawFloor([...nodes], 24.5);
     drawFloor([...nodes], 31.5);
     drawFloor([...nodes], 34);
@@ -48,7 +48,7 @@ export default function Floors(props) {
       return node;
     });
     createPolygon(props, {
-      height: 0.5,
+      height: 0.1,
       nodes: data,
       color: 'white',
     });
