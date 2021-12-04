@@ -1,17 +1,17 @@
-import { Fragment, useEffect } from "react";
-import Foundation from "./Foundation";
-import Block from "./Blocks/Block";
-import Stair from "./Stair";
-import Roof from "./Roof";
+import { Fragment, useEffect } from 'react';
+import Foundation from './Foundation';
+import Block from './Blocks/Block';
+import Stair from './Stair';
+import Roof from './Roof';
 import {
   setFoundation,
   setBlocks,
   setStairs,
   setRoof,
   setView,
-} from "../actions/action_commons";
-import { getFoundation, getRoof, getBlocks, getStairs } from "../utils/api";
-import { useDispatch } from "react-redux";
+} from '../actions/action_commons';
+import { getFoundation, getRoof, getBlocks, getStairs } from '../utils/api';
+import { useDispatch } from 'react-redux';
 
 const Building = (props) => {
   const dispatch = useDispatch();
@@ -36,9 +36,9 @@ const Building = (props) => {
   return (
     <Fragment>
       <Foundation />
-      <Block />
-      <Stair />
-      <Roof />
+      {/* <Block /> */}
+      {/* <Stair /> */}
+      {/* <Roof /> */}
     </Fragment>
   );
 };
