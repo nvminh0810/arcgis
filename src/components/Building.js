@@ -1,14 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
-import Roof from './Roof';
-import Foundation from './Foundation';
-import Stair from './Stair';
-import Window from './Layer/Window';
-import Floors from './Layer/Floors';
 
 import {
-  getRoof,
   getFoundation,
-  getStairs,
   getGlasses,
   getSideDoors,
   getFirstFloorWindows,
@@ -16,24 +9,28 @@ import {
   getLineBetweenFloors,
   getFloors,
   getColumns,
+  getSubDoors,
+  getSubWalls,
   getRoofWindows,
   getRoofHeads,
 } from '../utils/api';
+import Foundation from './Foundation';
+import Floors from './Layer/Floors';
+import BackDoor from './Layer/BackDoor';
+import RoofHead from './Layer/RoofHead';
 import Glasses from './Layer/Glasses';
 import FirstFloorWindows from './Layer/FirstFloorWindows';
 import SecondFloorWindows from './Layer/SecondFloorWindows';
 import SideDoors from './Layer/SideDoors';
 import LineBetweenFloors from './Layer/LineBetweenFloors';
 import Columns from './Layer/Columns';
+import SubDoor from './Layer/SubDoor';
+import SubWall from './Layer/SubWall';
 import RoofWindows from './Layer/roofWindows';
-import BackDoor from './Layer/BackDoor';
-import RoofHead from './Layer/RoofHead';
 
 const Building = (props) => {
-  const [roof, setRoof] = useState([]);
   const [foundation, setFoundation] = useState([]);
   const [glasses, setGlasses] = useState([]);
-  const [windows, setWindows] = useState([]);
   const [sideDoors, setSideDoors] = useState([]);
   const [firstFloorWindows, setFirstFloorWindows] = useState([]);
   const [secondFloorWindows, setSecondFloorWindows] = useState([]);
@@ -42,14 +39,13 @@ const Building = (props) => {
   const [columns, setColumns] = useState([]);
   const [roofWindows, setRoofWindows] = useState([]);
   const [roofHeads, setRoofHeads] = useState(null);
-  const [stairs, setStairs] = useState([]);
+  const [subDoors, setSubDoors] = useState([]);
+  const [subWalls, setSubWalls] = useState([]);
 
   useEffect(() => {
     (async () => {
       const [
-        roof,
         foundation,
-        stairs,
         glasses,
         firstFloorWindows,
         secondFloorWindows,
@@ -57,12 +53,12 @@ const Building = (props) => {
         lineBetweenFloors,
         floors,
         columns,
+        subDoors,
+        subWalls,
         roofWindows,
         roofHeads,
       ] = await Promise.all([
-        getRoof(),
         getFoundation(),
-        getStairs(),
         getGlasses(),
         getFirstFloorWindows(),
         getSecondFloorWindows(),
@@ -70,12 +66,12 @@ const Building = (props) => {
         getLineBetweenFloors(),
         getFloors(),
         getColumns(),
+        getSubDoors(),
+        getSubWalls(),
         getRoofWindows(),
         getRoofHeads(),
       ]);
-      setRoof(roof);
       setFoundation(foundation);
-      setStairs(stairs);
       setGlasses(glasses);
       setFirstFloorWindows(firstFloorWindows);
       setSecondFloorWindows(secondFloorWindows);
@@ -83,6 +79,8 @@ const Building = (props) => {
       setLineBetweenFloors(lineBetweenFloors);
       setFloors(floors);
       setColumns(columns);
+      setSubDoors(subDoors);
+      setSubWalls(subWalls);
       setRoofWindows(roofWindows);
       setRoofHeads(roofHeads);
     })();
@@ -91,8 +89,9 @@ const Building = (props) => {
 
   return (
     <Fragment>
-      {/* <Roof view={props.view} roof={roof} /> */}
-      <Foundation view={props.view} foundation={foundation} />
+      {foundation.length && (
+        <Foundation view={props.view} foundation={foundation} />
+      )}
       {glasses.length && <Glasses view={props.view} glasses={glasses} />}
       {firstFloorWindows.length && (
         <FirstFloorWindows view={props.view} windows={firstFloorWindows} />
@@ -113,12 +112,13 @@ const Building = (props) => {
         <Floors view={props.view} floors={floors} foundation={foundation} />
       )}
       {columns.length && <Columns view={props.view} columns={columns} />}
+      {subDoors.length && <SubDoor view={props.view} subDoors={subDoors} />}
+      {subWalls.length && <SubWall view={props.view} subWalls={subWalls} />}
       {roofWindows.length && (
         <RoofWindows view={props.view} roofWindows={roofWindows} />
       )}
       <BackDoor view={props.view} />
       {roofHeads && <RoofHead view={props.view} roofHeads={roofHeads} />}
-      <Window view={props.view} />
     </Fragment>
   );
 };

@@ -36,7 +36,7 @@ export default function Glasses(props) {
     createPolygon(props, {
       height: info.height,
       nodes: [...segment1, ...segment2],
-      color: [0, 0, 0, 0.5],
+      color: [100, 100, 100, 0.8],
     });
   };
 

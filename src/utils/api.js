@@ -4,36 +4,9 @@ const axios = Axios.create({
   baseURL: 'http://localhost:3000',
 });
 
-export const getRoof = async () => {
-  try {
-    const response = await axios.get('/roof');
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const getFoundation = async () => {
   try {
     const response = await axios.get('/foundation');
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const getStairs = async () => {
-  try {
-    const response = await axios.get('/stairs');
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const getWindows = async () => {
-  try {
-    const response = await axios.get('/windows');
     return response.data;
   } catch (error) {
     console.log(error);
@@ -104,6 +77,24 @@ export const getFloors = async () => {
 export const getColumns = async () => {
   try {
     const response = await axios.get('/columns');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getSubDoors = async () => {
+  try {
+    const response = await axios.get('/subDoors');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getSubWalls = async () => {
+  try {
+    const response = await axios.get('/subWalls');
     return response.data;
   } catch (error) {
     console.log(error);
