@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
 import { createPolygon } from "../utils/util";
+import { useSelector } from "react-redux";
 
-export default function Foundation(props) {
+export default function Foundation() {
+  const { foundation, view } = useSelector((state) => state.commons);
   useEffect(() => {
-    props.foundation.forEach((item) => {
-      createPolygon(props, item);
+    console.log(foundation);
+    if (!foundation) return;
+    foundation.forEach((item) => {
+      createPolygon(view, item);
     });
     return () => {};
-  }, [props.foundation]);
-  return null;
+  }, [foundation]);
+  return <div></div>;
 }

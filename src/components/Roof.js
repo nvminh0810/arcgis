@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { createPolygon } from "../utils/util";
+import { useSelector } from "react-redux";
 
-export default function Roof(props) {
+export default function Roof() {
+  const { roof, view } = useSelector((state) => state.commons);
   useEffect(() => {
-    props.roof.forEach((item) => {
-      createPolygon(props, item.nodes, item.height, item.color);
+    roof.forEach((item) => {
+      createPolygon(view, item);
     });
     return () => {};
-  }, [props.roof]);
+  }, [roof]);
   return null;
 }

@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { calLineSegment, calVector, movePoint } from '../../utils/calculate';
-import { createPolygon } from '../../utils/util';
+import { useEffect } from "react";
+import { calLineSegment, calVector, movePoint } from "../../utils/calculate";
+import { createPolygon } from "../../utils/util";
 
 export default function Glasses(props) {
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function Glasses(props) {
       case 1:
         return {
           back: 30,
-          height: 4,
+          height: 3,
           oz: 20,
         };
       case 2:
@@ -77,7 +77,7 @@ export default function Glasses(props) {
   };
 
   const checkSegment = (segment) => {
-    return segment === 'EF' || segment === 'MN';
+    return segment === "EF" || segment === "MN";
   };
   return null;
 }

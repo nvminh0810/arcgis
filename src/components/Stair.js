@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { createPolygon } from "../utils/util";
+import { useSelector } from "react-redux";
 
-export default function Stair(props) {
+export default function Stair() {
+  const { stairs, view } = useSelector((state) => state.commons);
   useEffect(() => {
-    props.stairs.forEach((item) => {
-      createPolygon(props, item.nodes, item.height, item.color);
+    stairs.forEach((item) => {
+      createPolygon(view, item);
     });
     return () => {};
-  }, [props.stairs]);
+  }, [stairs]);
   return null;
 }
