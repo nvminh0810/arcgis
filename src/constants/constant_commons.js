@@ -26,8 +26,12 @@ export const POINT = {
   Y: [106.6951292847377, 10.777306750749297],
   Z: [106.69518982664073, 10.777373072768112],
 };
+
 export const SET_VIEW = 'SET_VIEW';
 export const SET_BLOCKS = 'SET_BLOCKS';
+export const SET_SURFACES = 'SET_SURFACES';
+export const SET_LAYERS = 'SET_LAYERS';
 export const SET_FOUNDATION = 'SET_FOUNDATION';
 export const SET_ROOF = 'SET_ROOF';
 export const SET_STAIRS = 'SET_STAIRS';
+export const SET_WINDOWS = 'SET_WINDOWS';

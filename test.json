@@ -1,128 +1,560 @@
-"lineBetweenFloors": [
+{
+  "blocks": [
     {
-      "segment": "AA1",
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69533311915342, 10.777363738407193],
-      "count": 3,
-      "direct": false,
-      "mDirect": true,
-      "isLong": false
+      "name": "ABWX",
+      "surfaces": [
+        {
+          "segment": "AB",
+          "fPoint": [106.69525036854375, 10.777439394786926],
+          "lPoint": [106.69533311915342, 10.777363738407193],
+          "floors": [
+            {
+              "id": 0,
+              "glass": {
+                "direct": true,
+                "shrink": true,
+                "mDirect": true
+              },
+              "lineBetweenFloor": {
+                "count": 3,
+                "direct": false,
+                "mDirect": true,
+                "isLong": false
+              },
+              "column": { "count": 3, "direct": false, "isLong": true }
+            },
+            {
+              "id": 1,
+              "window": {
+                "count": 3,
+                "direct": true
+              }
+            },
+            {
+              "id": 2,
+              "window": {
+                "count": 3,
+                "direct": true
+              }
+            }
+          ]
+        },
+        {
+          "segment": "AX",
+          "fPoint": [106.69525036854375, 10.777439394786926],
+          "lPoint": [106.69506874283468, 10.777240428730483],
+          "floors": [
+            {
+              "id": 0,
+              "glass": {
+                "direct": true,
+                "shrink": true,
+                "mDirect": false
+              },
+              "lineBetweenFloor": {
+                "count": 6,
+                "direct": false,
+                "mDirect": false,
+                "isLong": false
+              },
+              "column": { "count": 6, "direct": false, "isLong": true }
+            },
+            {
+              "id": 1,
+              "window": {
+                "count": 6,
+                "direct": true
+              },
+              "door": {
+                "direct": false
+              }
+            },
+            {
+              "id": 2,
+              "window": {
+                "count": 6,
+                "direct": true
+              }
+            }
+          ]
+        },
+        {
+          "segment": "XW",
+          "fPoint": [106.69515764102977, 10.777160014981181],
+          "lPoint": [106.69506874283468, 10.777240428730483],
+          "floors": [
+            {
+              "id": 0,
+              "glass": {
+                "direct": false,
+                "shrink": true,
+                "mDirect": false
+              },
+              "lineBetweenFloor": {
+                "count": 3,
+                "direct": true,
+                "mDirect": false,
+                "isLong": false
+              },
+              "column": { "count": 3, "direct": true, "isLong": true }
+            },
+            {
+              "id": 1,
+              "window": {
+                "count": 3,
+                "direct": false
+              }
+            },
+            {
+              "id": 2,
+              "window": {
+                "count": 3,
+                "direct": false
+              }
+            }
+          ]
+        }
+      ]
     },
     {
-      "segment": "A1A2",
-      "fPoint": [106.69533311915342, 10.777363738407193],
-      "lPoint": [106.69574687220174, 10.776985456508523],
-      "count": 15,
-      "direct": false,
-      "mDirect": false,
-      "isLong": true
+      "name": "BCUV",
+      "surfaces": [
+        {
+          "segment": "BC",
+          "fPoint": [106.69533311915342, 10.777363738407193],
+          "lPoint": [106.69549862037275, 10.777212425647726],
+          "floors": [
+            {
+              "id": 0,
+              "lineBetweenFloor": {
+                "count": 6,
+                "direct": false,
+                "mDirect": true,
+                "isLong": true
+              },
+              "column": { "count": 6, "direct": false, "isLong": true }
+            },
+            {
+              "id": 1,
+              "glass": { "direct": true, "shrink": false, "mDirect": true }
+            },
+            {
+              "id": 2,
+              "glass": { "direct": true, "shrink": false, "mDirect": true }
+            }
+          ]
+        },
+        {
+          "segment": "UV",
+          "fPoint": [106.69530005194365, 10.777088053002764],
+          "lPoint": [106.69518658871506, 10.777191986534389],
+          "floors": [
+            {
+              "id": 0,
+              "lineBetweenFloor": {
+                "count": 5,
+                "direct": true,
+                "mDirect": false,
+                "isLong": true
+              },
+              "column": { "count": 5, "direct": true, "isLong": true }
+            },
+            {
+              "id": 1,
+              "glass": { "direct": false, "shrink": false, "mDirect": false }
+            },
+            {
+              "id": 2,
+              "glass": { "direct": false, "shrink": true, "mDirect": false }
+            }
+          ]
+        }
+      ]
     },
     {
-      "segment": "A2B",
-      "fPoint": [106.69574687220174, 10.776985456508523],
-      "lPoint": [106.6958296228114, 10.77690980012879],
-      "count": 3,
-      "direct": false,
-      "mDirect": true,
-      "isLong": false
+      "name": "CDLU",
+      "surfaces": [
+        {
+          "segment": "CD",
+          "fPoint": [106.69549862037275, 10.777212425647726],
+          "lPoint": [106.69558137098241, 10.77713676926799],
+          "floors": [
+            {
+              "id": 0,
+              "lineBetweenFloor": {
+                "count": 3,
+                "direct": false,
+                "mDirect": true,
+                "isLong": true
+              },
+              "column": { "count": 3, "direct": false, "isLong": true }
+            },
+            {
+              "id": 1,
+              "glass": { "direct": true, "shrink": false, "mDirect": true }
+            },
+            {
+              "id": 2,
+              "glass": { "direct": true, "shrink": false, "mDirect": true }
+            }
+          ]
+        }
+      ]
     },
     {
-      "segment": "BC",
-      "fPoint": [106.6958296228114, 10.77690980012879],
-      "lPoint": [106.69564771432609, 10.776710834324252],
-      "count": 6,
-      "direct": true,
-      "mDirect": true,
-      "isLong": false
+      "name": "DEKL",
+      "surfaces": [
+        {
+          "segment": "DE",
+          "fPoint": [106.69558137098241, 10.77713676926799],
+          "lPoint": [106.69574687220174, 10.776985456508523],
+          "floors": [
+            {
+              "id": 0,
+              "lineBetweenFloor": {
+                "count": 6,
+                "direct": false,
+                "mDirect": true,
+                "isLong": true
+              },
+              "column": { "count": 6, "direct": false, "isLong": true }
+            },
+            {
+              "id": 1,
+              "glass": { "direct": true, "shrink": false, "mDirect": true }
+            },
+            {
+              "id": 2,
+              "glass": { "direct": true, "shrink": false, "mDirect": true }
+            }
+          ]
+        },
+        {
+          "segment": "KL",
+          "fPoint": [106.69558845188774, 10.776823712210602],
+          "lPoint": [106.69546522998012, 10.776935348242986],
+          "floors": [
+            {
+              "id": 0,
+              "lineBetweenFloor": {
+                "count": 5,
+                "direct": true,
+                "mDirect": false,
+                "isLong": true
+              },
+              "column": { "count": 5, "direct": true, "isLong": true }
+            },
+            {
+              "id": 1,
+              "glass": { "direct": false, "shrink": false, "mDirect": false }
+            },
+            {
+              "id": 2,
+              "glass": { "direct": false, "shrink": true, "mDirect": false }
+            }
+          ]
+        }
+      ]
     },
     {
-      "segment": "CD",
-      "fPoint": [106.69564771432609, 10.776710834324252],
-      "lPoint": [106.69555922142621, 10.7767917409093],
-      "count": 3,
-      "direct": true,
-      "mDirect": false,
-      "isLong": false
+      "name": "EFIJ",
+      "surfaces": [
+        {
+          "segment": "EF",
+          "fPoint": [106.69574687220174, 10.776985456508523],
+          "lPoint": [106.6958296228114, 10.77690980012879],
+          "floors": [
+            {
+              "id": 0,
+              "glass": {
+                "direct": true,
+                "shrink": true,
+                "mDirect": true
+              },
+              "lineBetweenFloor": {
+                "count": 3,
+                "direct": false,
+                "mDirect": true,
+                "isLong": false
+              },
+              "column": { "count": 3, "direct": false, "isLong": true }
+            },
+            {
+              "id": 1,
+              "window": {
+                "count": 3,
+                "direct": true
+              }
+            },
+            {
+              "id": 2,
+              "window": {
+                "count": 3,
+                "direct": true
+              }
+            }
+          ]
+        },
+        {
+          "segment": "FI",
+          "fPoint": [106.6958296228114, 10.77690980012879],
+          "lPoint": [106.69564771432609, 10.776710834324252],
+          "floors": [
+            {
+              "id": 0,
+              "glass": {
+                "direct": false,
+                "shrink": true,
+                "mDirect": false
+              },
+              "lineBetweenFloor": {
+                "count": 6,
+                "direct": true,
+                "mDirect": true,
+                "isLong": false
+              },
+              "column": { "count": 6, "direct": true, "isLong": true }
+            },
+            {
+              "id": 1,
+              "window": {
+                "count": 6,
+                "direct": false
+              },
+              "door": {
+                "direct": true
+              }
+            },
+            {
+              "id": 2,
+              "window": {
+                "count": 6,
+                "direct": false
+              }
+            }
+          ]
+        },
+        {
+          "segment": "IJ",
+          "fPoint": [106.69564771432609, 10.776710834324252],
+          "lPoint": [106.69555922142621, 10.7767917409093],
+          "floors": [
+            {
+              "id": 0,
+              "glass": {
+                "direct": false,
+                "shrink": true,
+                "mDirect": false
+              },
+              "lineBetweenFloor": {
+                "count": 3,
+                "direct": true,
+                "mDirect": false,
+                "isLong": false
+              },
+              "column": { "count": 3, "direct": true, "isLong": true }
+            },
+            {
+              "id": 1,
+              "window": {
+                "count": 3,
+                "direct": false
+              }
+            },
+            {
+              "id": 2,
+              "window": {
+                "count": 3,
+                "direct": false
+              }
+            }
+          ]
+        }
+      ]
     },
     {
-      "segment": "EF",
-      "fPoint": [106.69558845188774, 10.776823712210602],
-      "lPoint": [106.69546522998012, 10.776935348242986],
-      "count": 6,
-      "direct": true,
-      "mDirect": false,
-      "isLong": true
+      "name": "LMTU",
+      "surfaces": [
+        {
+          "segment": "LM",
+          "fPoint": [106.69546522998012, 10.776935348242986],
+          "lPoint": [106.695326562816, 10.776785354425362],
+          "floors": [
+            {
+              "id": 0,
+              "lineBetweenFloor": {
+                "count": 6,
+                "direct": true,
+                "mDirect": true,
+                "isLong": true
+              },
+              "column": { "count": 6, "direct": true, "isLong": false }
+            },
+            {
+              "id": 1,
+              "glass": { "direct": false, "shrink": false, "mDirect": false }
+            },
+            {
+              "id": 2,
+              "glass": { "direct": false, "shrink": true, "mDirect": false }
+            }
+          ]
+        },
+        {
+          "segment": "TU",
+          "fPoint": [106.69516138477954, 10.776938059185138],
+          "lPoint": [106.69530005194365, 10.777088053002764],
+          "floors": [
+            {
+              "id": 0,
+              "lineBetweenFloor": {
+                "count": 6,
+                "direct": false,
+                "mDirect": false,
+                "isLong": true
+              },
+              "column": { "count": 6, "direct": false, "isLong": false }
+            },
+            {
+              "id": 1,
+              "glass": { "direct": true, "shrink": false, "mDirect": true }
+            },
+            {
+              "id": 2,
+              "glass": { "direct": true, "shrink": true, "mDirect": true }
+            }
+          ]
+        }
+      ]
     },
     {
-      "segment": "FG",
-      "fPoint": [106.69546522998012, 10.776935348242986],
-      "lPoint": [106.695326562816, 10.776785354425362],
-      "count": 6,
-      "direct": true,
-      "mDirect": false,
-      "isLong": true
-    },
-    {
-      "segment": "HI",
-      "fPoint": [106.69536038940274, 10.776756082775604],
-      "lPoint": [106.69516856195087, 10.776546087143391],
-      "count": 7,
-      "direct": true,
-      "mDirect": false,
-      "isLong": true
-    },
-    {
-      "segment": "IJ",
-      "fPoint": [106.69516856195087, 10.776546087143391],
-      "lPoint": [106.69493595731674, 10.776758567535412],
-      "count": 7,
-      "direct": true,
-      "mDirect": false,
-      "isLong": true
-    },
-    {
-      "segment": "JK",
-      "fPoint": [106.69493595731674, 10.776758567535412],
-      "lPoint": [106.69512778476862, 10.776968563167625],
-      "count": 7,
-      "direct": false,
-      "mDirect": false,
-      "isLong": true
-    },
-    {
-      "segment": "LM",
-      "fPoint": [106.69516138477954, 10.776938059185138],
-      "lPoint": [106.69530005194365, 10.777088053002764],
-      "count": 6,
-      "direct": false,
-      "mDirect": false,
-      "isLong": true
-    },
-    {
-      "segment": "MN",
-      "fPoint": [106.69530005194365, 10.777088053002764],
-      "lPoint": [106.69518658871506, 10.777191986534389],
-      "count": 6,
-      "direct": true,
-      "mDirect": false,
-      "isLong": true
-    },
-    {
-      "segment": "OP",
-      "fPoint": [106.69515764102977, 10.777160014981181],
-      "lPoint": [106.69506874283468, 10.777240428730483],
-      "count": 3,
-      "direct": true,
-      "mDirect": false,
-      "isLong": false
-    },
-    {
-      "segment": "PA",
-      "fPoint": [106.69506874283468, 10.777240428730483],
-      "lPoint": [106.69525036854375, 10.777439394786926],
-      "count": 6,
-      "direct": false,
-      "mDirect": false,
-      "isLong": false
+      "name": "NORS",
+      "surfaces": [
+        {
+          "segment": "NO",
+          "fPoint": [106.69536038940274, 10.776756082775604],
+          "lPoint": [106.69516856195087, 10.776546087143391],
+          "floors": [
+            {
+              "id": 0,
+              "lineBetweenFloor": {
+                "count": 7,
+                "direct": true,
+                "mDirect": true,
+                "isLong": true
+              },
+              "column": { "count": 7, "direct": true, "isLong": false }
+            },
+            {
+              "id": 1,
+              "glass": {
+                "direct": false,
+                "shrink": true,
+                "mDirect": false
+              }
+            },
+            {
+              "id": 2,
+              "glass": { "direct": false, "shrink": true, "mDirect": false },
+              "window": { "count": 7, "direct": false }
+            }
+          ]
+        },
+        {
+          "segment": "OR",
+          "fPoint": [106.69516856195087, 10.776546087143391],
+          "lPoint": [106.69493595731674, 10.776758567535412],
+          "floors": [
+            {
+              "id": 0,
+              "column": { "_comment": "chưa làm" },
+              "lineBetweenFloor": {
+                "count": 7,
+                "direct": true,
+                "mDirect": false,
+                "isLong": true
+              }
+            },
+            {
+              "id": 1,
+              "glass": {
+                "direct": false,
+                "shrink": true,
+                "mDirect": false
+              }
+            },
+            {
+              "id": 2,
+              "window": { "count": 7, "direct": false },
+              "glass": {
+                "direct": false,
+                "shrink": true,
+                "mDirect": false
+              }
+            }
+          ]
+        },
+        {
+          "segment": "RS",
+          "fPoint": [106.69493595731674, 10.776758567535412],
+          "lPoint": [106.69512778476862, 10.776968563167625],
+          "floors": [
+            {
+              "id": 0,
+              "column": { "count": 7, "direct": false, "isLong": false },
+              "lineBetweenFloor": {
+                "count": 7,
+                "direct": false,
+                "mDirect": false,
+                "isLong": true
+              }
+            },
+            {
+              "id": 1,
+              "glass": {
+                "direct": true,
+                "shrink": true,
+                "mDirect": true
+              }
+            },
+            {
+              "id": 2,
+              "window": { "count": 7, "direct": true },
+              "glass": {
+                "direct": true,
+                "shrink": true,
+                "mDirect": true
+              }
+            }
+          ]
+        }
+      ]
     }
   ],
+  "foundation": [
+    {
+      "height": 5,
+      "color": [139, 128, 104],
+      "nodes": [
+        [106.69525036854375, 10.777439394786926, 15],
+        [106.6958296228114, 10.77690980012879, 15],
+        [106.69564771432609, 10.776710834324252, 15],
+        [106.69555922142621, 10.7767917409093, 15],
+        [106.69558845188774, 10.776823712210602, 15],
+        [106.69546522998012, 10.776935348242986, 15],
+        [106.695326562816, 10.776785354425362, 15],
+        [106.69536038940274, 10.776756082775604, 15],
+        [106.69516856195087, 10.776546087143391, 15],
+        [106.69493595731674, 10.776758567535412, 15],
+        [106.69512778476862, 10.776968563167625, 15],
+        [106.69516138477954, 10.776938059185138, 15],
+        [106.69530005194365, 10.777088053002764, 15],
+        [106.69518658871506, 10.777191986534389, 15],
+        [106.69515764102977, 10.777160014981181, 15],
+        [106.69506874283468, 10.777240428730483, 15]
+      ]
+    }
+  ],
+  "stairs": [],
+  "roof": []
+}

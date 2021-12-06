@@ -7,9 +7,8 @@ export default function FirstFloorWindows(props) {
   const { view } = useSelector((state) => state.commons);
 
   useEffect(() => {
-    const { window, data } = props;
-    const { fPoint, lPoint, segment } = data;
-    const { count, direct } = window;
+    const { window, segment } = props;
+    const { fPoint, lPoint, count, direct } = window;
 
     const ignore = segment === 'AX' || segment === 'FI' ? [2, 3] : [];
 

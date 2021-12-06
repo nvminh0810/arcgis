@@ -1,34 +1,39 @@
-import * as Def from "../constants/constant_commons";
+import * as Def from '../constants/constant_commons';
 
 let initialState = {
   view: null,
-  blocks: null,
   foundation: null,
-  roof: null,
-  stairs: null,
+  blocks: null,
+  surfaces: null,
+  layers: null,
+  windows: null,
 };
 
-export default function commons(state = initialState, action) {
-  switch (action.type) {
+export default function commons(state = initialState, { type, payload }) {
+  switch (type) {
     case Def.SET_VIEW:
-      const { view } = action.payload;
+      const { view } = payload;
       return { ...state, view };
 
-    case Def.SET_BLOCKS:
-      const { blocks } = action.payload;
-      return { ...state, blocks };
-
     case Def.SET_FOUNDATION:
-      const { foundation } = action.payload;
+      const { foundation } = payload;
       return { ...state, foundation };
 
-    case Def.SET_ROOF:
-      const { roof } = action.payload;
-      return { ...state, roof };
+    case Def.SET_BLOCKS:
+      const { blocks } = payload;
+      return { ...state, blocks };
 
-    case Def.SET_STAIRS:
-      const { stairs } = action.payload;
-      return { ...state, stairs };
+    case Def.SET_SURFACES:
+      const { surfaces } = payload;
+      return { ...state, surfaces };
+
+    case Def.SET_LAYERS:
+      const { layers } = payload;
+      return { ...state, layers };
+
+    case Def.SET_WINDOWS:
+      const { windows } = payload;
+      return { ...state, windows };
 
     default:
       return { ...state };
