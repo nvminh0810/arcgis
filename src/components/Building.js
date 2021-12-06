@@ -36,7 +36,7 @@ const Building = (props) => {
   return (
     <Fragment>
       <Foundation />
-      {/* <Block /> */}
+      <Block />
       {/* <Stair /> */}
       {/* <Roof /> */}
     </Fragment>

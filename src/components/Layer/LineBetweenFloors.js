@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { POINT } from '../../constants/commons';
+import { useSelector } from 'react-redux';
 import {
   calLineSegment,
   renderSubPoints,
@@ -10,19 +10,21 @@ import {
 import { createPolygon } from '../../utils/util';
 
 export default function LineBetweenFloors(props) {
+  const { view } = useSelector((state) => state.commons);
+
   useEffect(() => {
-    const { lineBetweenFloors } = props;
-    lineBetweenFloors.forEach((line) => drawLine(line));
-  }, [props.view]);
+    const { lineBetweenFloor, data } = props;
+    const { fPoint, lPoint } = data;
+    const { count, direct, isLong, mDirect } = lineBetweenFloor;
 
-  const drawLine = (line) => {
-    drawCol(line);
-    drawFrontWall(line);
-    !line.isLong && drawBackWall(line);
-  };
+    drawCol(fPoint, lPoint, direct, count, isLong);
+    drawFrontWall(fPoint, lPoint, direct);
+    isLong
+      ? drawBackall(fPoint, lPoint, direct, mDirect)
+      : drawMidWall(fPoint, lPoint, direct, mDirect);
+  }, []);
 
-  const drawCol = (line) => {
-    const { fPoint, lPoint, direct, count, isLong } = line;
+  const drawCol = (fPoint, lPoint, direct, count, isLong) => {
     const B = [...fPoint, 23.5];
     const C = [...lPoint, 23.5];
 
@@ -30,6 +32,7 @@ export default function LineBetweenFloors(props) {
     for (let index = 0; index < subPoints.length - 1; index++) {
       const p1 = subPoints[index];
       const p2 = subPoints[index + 1];
+
       const midPoint = renderSubPoints(p1, p2, 2)[1];
 
       const vector = calVector(p1, p2, false);
@@ -47,7 +50,7 @@ export default function LineBetweenFloors(props) {
         isLong ? 30 : 0.5,
         !direct
       );
-      createPolygon(props, {
+      createPolygon(view, {
         height: 1,
         nodes: [...segment1, ...segment2],
         color: 'white',
@@ -55,21 +58,19 @@ export default function LineBetweenFloors(props) {
     }
   };
 
-  const drawFrontWall = (line) => {
-    const { fPoint, lPoint, direct } = line;
+  const drawFrontWall = (fPoint, lPoint, direct) => {
     const B = [...fPoint, 23.5];
     const C = [...lPoint, 23.5];
 
     let segment1 = calLineSegment(B, C, 0.5, direct);
-    createPolygon(props, {
+    createPolygon(view, {
       height: 0.5,
       nodes: [B, C, ...segment1],
       color: [201, 201, 201],
     });
   };
 
-  const drawBackWall = (line) => {
-    const { fPoint, lPoint, direct, mDirect } = line;
+  const drawMidWall = (fPoint, lPoint, direct, mDirect) => {
     const B = [...fPoint, 24];
     const C = [...lPoint, 24];
 
@@ -77,12 +78,25 @@ export default function LineBetweenFloors(props) {
     const p1 = movePoint(B, vector, 1, mDirect);
     const p2 = movePoint(C, vector, 1, mDirect);
     let segment2 = calLineSegment(p1, p2, 0.5, direct);
-    createPolygon(props, {
+    createPolygon(view, {
       height: 0.5,
       nodes: [p1, p2, ...segment2],
       color: [201, 201, 201],
     });
   };
 
+  const drawBackall = (fPoint, lPoint, direct, mDirect) => {
+    const vector = calVector(fPoint, lPoint, true);
+
+    const p1 = movePoint([...fPoint, 23], vector, 13, mDirect);
+    const p2 = movePoint([...lPoint, 23], vector, 13, mDirect);
+
+    let segment1 = calLineSegment(p1, p2, 1, direct);
+    createPolygon(view, {
+      height: 1,
+      nodes: [p1, p2, ...segment1],
+      color: [201, 201, 201],
+    });
+  };
   return null;
 }

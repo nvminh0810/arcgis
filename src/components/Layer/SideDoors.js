@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import {
   calLineSegment,
   calLineSegmentBaseVector,
@@ -9,13 +10,16 @@ import {
 import { createPolygon } from '../../utils/util';
 
 export default function SideDoors(props) {
-  useEffect(() => {
-    const { sideDoors } = props;
-    sideDoors.forEach((sideDoor) => drawSideDoor(sideDoor));
-  }, [props.view]);
+  const { view } = useSelector((state) => state.commons);
 
-  const drawSideDoor = (sideDoor) => {
-    let { fPoint, lPoint, direct } = sideDoor;
+  useEffect(() => {
+    const { door, data } = props;
+    let { fPoint, lPoint } = data;
+    const { direct } = door;
+
+    const subPoints = renderSubPoints(fPoint, lPoint, 6);
+    fPoint = subPoints[2];
+    lPoint = subPoints[4];
     fPoint[2] = 20;
     lPoint[2] = 20;
 
@@ -26,11 +30,11 @@ export default function SideDoors(props) {
     drawGlass(fPoint, lPoint, direct);
     drawColunms(fPoint, lPoint, direct);
     drawTopDoor([...fPoint], [...lPoint], direct);
-  };
+  }, []);
 
   const drawGlass = (fPoint, lPoint, direct) => {
     const segment = calLineSegment(fPoint, lPoint, 1, direct);
-    createPolygon(props, {
+    createPolygon(view, {
       height: 5,
       nodes: [fPoint, lPoint, ...segment],
       color: [0, 0, 0, 0.6],
@@ -41,7 +45,7 @@ export default function SideDoors(props) {
     fPoint[2] = 23.5;
     lPoint[2] = 23.5;
     const segment = calLineSegment(fPoint, lPoint, 5, direct);
-    createPolygon(props, {
+    createPolygon(view, {
       height: 1.5,
       nodes: [fPoint, lPoint, ...segment],
       color: 'white',
@@ -60,7 +64,7 @@ export default function SideDoors(props) {
         index !== subPoints.length - 1
       );
       const segment2 = calLineSegment(segment1[0], segment1[1], 5, direct);
-      createPolygon(props, {
+      createPolygon(view, {
         height: 5,
         nodes: [...segment1, ...segment2],
         color: 'white',

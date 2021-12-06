@@ -1,68 +1,65 @@
-import { useEffect } from "react";
-import { calLineSegment, calVector, movePoint } from "../../utils/calculate";
-import { createPolygon } from "../../utils/util";
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { calLineSegment, calVector, movePoint } from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function Glasses(props) {
+  const { view } = useSelector((state) => state.commons);
   useEffect(() => {
-    props.glasses.forEach((glass) => {
-      drawGlasses(glass);
-    });
-  }, [props.view]);
-
-  const drawGlasses = (glass) => {
-    const { fPoint, lPoint, direct, floor, shrink, mDirect, segment } = glass;
+    const { glass, floor, data } = props;
+    const { fPoint, lPoint, segment } = data;
+    const { direct, shrink, mDirect } = glass;
 
     const info = handleGlassFloor(floor, segment);
     const dGlass = 3;
     const vector = calVector(fPoint, lPoint);
-    fPoint[2] = info.oz;
 
     const p1 = movePoint(
-      fPoint,
+      [...fPoint, info.oz],
       vector,
-      calDMove(glass),
+      calDMove(shrink, floor),
       mDirect ? !shrink : shrink
     );
     const p2 = movePoint(
-      lPoint,
+      [...lPoint, info.oz],
       vector,
-      calDMove(glass),
+      calDMove(shrink, floor),
       mDirect ? shrink : !shrink
     );
 
     var segment1 = calLineSegment(p1, p2, info.back, direct);
     var segment2 = calLineSegment(segment1[0], segment1[1], dGlass, direct);
 
-    createPolygon(props, {
+    createPolygon(view, {
       height: info.height,
       nodes: [...segment1, ...segment2],
-      color: [100, 100, 100, 0.8],
+      color: [100, 100, 100, 0.6],
     });
-  };
+  }, []);
 
   const handleGlassFloor = (floor, segment) => {
     switch (floor) {
       case 0:
         return {
-          back: 2,
+          back: 3,
           height: 14,
           oz: 20,
         };
       case 1:
         return {
-          back: 30,
+          back: 32,
           height: 3,
           oz: 20,
         };
       case 2:
         return {
-          back: 2,
+          back: 3,
           height: checkSegment(segment) ? 9.5 : 7,
           oz: 24.5,
         };
       case 3:
         return {
-          back: 2,
+          back: 3,
           height: 2.5,
           oz: 31.5,
         };
@@ -71,13 +68,12 @@ export default function Glasses(props) {
     }
   };
 
-  const calDMove = (glass) => {
-    const { shrink, floor } = glass;
-    return shrink ? (floor === 1 ? 13 : 1) : floor === 3 ? 1 : 13;
+  const calDMove = (shrink, floor) => {
+    return shrink ? (floor === 1 ? 15 : 1) : floor === 1 ? 1 : 15;
   };
 
   const checkSegment = (segment) => {
-    return segment === "EF" || segment === "MN";
+    return segment === 'EF' || segment === 'MN';
   };
   return null;
 }

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { POINT } from '../../constants/commons';
+import { useSelector } from 'react-redux';
 import {
   calLineSegment,
   calLineSegmentBaseVector,
@@ -10,13 +10,12 @@ import {
 import { createPolygon } from '../../utils/util';
 
 export default function Columns(props) {
-  useEffect(() => {
-    const { columns } = props;
-    columns.forEach((column) => handleData(column));
-  }, [props.view]);
+  const { view } = useSelector((state) => state.commons);
 
-  const handleData = (column) => {
-    const { segment, fPoint, lPoint, count, direct, isLong } = column;
+  useEffect(() => {
+    const { column, data } = props;
+    const { fPoint, lPoint, segment } = data;
+    const { count, direct, isLong } = column;
 
     const subPoints = renderSubPoints(
       [...fPoint, 23.5],
@@ -26,7 +25,7 @@ export default function Columns(props) {
 
     const vector = calVector(fPoint, lPoint, false);
     subPoints.forEach((point, index) => {
-      if (segment === "A1'A2'") {
+      if (segment === 'CD') {
         [...Array(2)].forEach((item, i) => {
           const isBorder = index === 0 || index === subPoints.length - 1;
 
@@ -37,22 +36,26 @@ export default function Columns(props) {
           drawColumn(p, vector, 0.5, isBorder ? 14 : 10.5, direct);
         });
       } else {
-        drawColumn(point, vector, 1, isLong ? 10.5 : 8, direct);
+        if (
+          !(segment === 'BC' && index === subPoints.length - 1) &&
+          !(segment === 'DE' && index === 0)
+        )
+          drawColumn(point, vector, 1, isLong ? 10.5 : 8, direct);
       }
     });
-  };
+  }, []);
 
   const drawColumn = (point, vector, distance, height, direct) => {
     const segment1 = calLineSegmentBaseVector(point, vector, distance, true);
     const segment2 = calLineSegment(segment1[0], segment1[1], 2, direct);
     const segment3 = calLineSegment(segment1[0], segment1[1], 2, !direct);
 
-    createPolygon(props, {
+    createPolygon(view, {
       height,
       nodes: [...segment1, ...segment2],
       color: 'white',
     });
-    createPolygon(props, {
+    createPolygon(view, {
       height,
       nodes: [...segment1, ...segment3],
       color: 'white',
