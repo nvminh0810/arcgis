@@ -6,9 +6,8 @@ import { createPolygon } from '../../utils/util';
 export default function Glasses(props) {
   const { view } = useSelector((state) => state.commons);
   useEffect(() => {
-    const { glass, floor, data } = props;
-    const { fPoint, lPoint, segment } = data;
-    const { direct, shrink, mDirect } = glass;
+    const { glass, segment } = props;
+    const { fPoint, lPoint, direct, shrink, mDirect, idFloor: floor } = glass;
 
     const info = handleGlassFloor(floor, segment);
     const dGlass = 3;

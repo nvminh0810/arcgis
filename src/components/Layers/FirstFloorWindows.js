@@ -11,7 +11,7 @@ export default function FirstFloorWindows(props) {
     const { fPoint, lPoint, count, direct } = window;
 
     const ignore = segment === 'AX' || segment === 'FI' ? [2, 3] : [];
-
+    console.log(segment, ignore);
     const subPoints = renderSubPoints([...fPoint, 20], [...lPoint, 20], count);
 
     for (let index = 0; index < subPoints.length - 1; index++) {

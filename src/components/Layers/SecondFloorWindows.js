@@ -7,9 +7,8 @@ export default function SecondFloorWindows(props) {
   const { view } = useSelector((state) => state.commons);
 
   useEffect(() => {
-    const { window, data } = props;
-    const { fPoint, lPoint, segment: sg } = data;
-    const { count, direct } = window;
+    const { window, segment: sg } = props;
+    const { fPoint, lPoint, count, direct } = window;
 
     const subPoints = renderSubPoints(
       [...fPoint, 24.5],

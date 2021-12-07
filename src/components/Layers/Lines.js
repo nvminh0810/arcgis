@@ -9,13 +9,12 @@ import {
 } from '../../utils/calculate';
 import { createPolygon } from '../../utils/util';
 
-export default function LineBetweenFloors(props) {
+export default function Lines(props) {
   const { view } = useSelector((state) => state.commons);
 
   useEffect(() => {
-    const { lineBetweenFloor, data } = props;
-    const { fPoint, lPoint } = data;
-    const { count, direct, isLong, mDirect } = lineBetweenFloor;
+    const { line } = props;
+    const { fPoint, lPoint, count, direct, isLong, mDirect } = line;
 
     drawCol(fPoint, lPoint, direct, count, isLong);
     drawFrontWall(fPoint, lPoint, direct);

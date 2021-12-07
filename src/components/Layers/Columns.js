@@ -13,9 +13,8 @@ export default function Columns(props) {
   const { view } = useSelector((state) => state.commons);
 
   useEffect(() => {
-    const { column, data } = props;
-    const { fPoint, lPoint, segment } = data;
-    const { count, direct, isLong } = column;
+    const { column, segment } = props;
+    const { fPoint, lPoint, count, direct, isLong } = column;
 
     const subPoints = renderSubPoints(
       [...fPoint, 23.5],

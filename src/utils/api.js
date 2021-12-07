@@ -65,3 +65,30 @@ export const getWindows = async () => {
     console.log(error);
   }
 };
+
+export const getGlasses = async () => {
+  try {
+    const response = await axios.get('/glasses');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getLines = async () => {
+  try {
+    const response = await axios.get('/lines');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getColumns = async () => {
+  try {
+    const response = await axios.get('/columns');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

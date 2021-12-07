@@ -35,3 +35,6 @@ export const SET_FOUNDATION = 'SET_FOUNDATION';
 export const SET_ROOF = 'SET_ROOF';
 export const SET_STAIRS = 'SET_STAIRS';
 export const SET_WINDOWS = 'SET_WINDOWS';
+export const SET_LINES = 'SET_LINES';
+export const SET_COLUMNS = 'SET_COLUMNS';
+export const SET_GLASSES = 'SET_GLASSES';

@@ -7,7 +7,7 @@ export default function Surfaces({ surface }) {
 
   useEffect(() => {
     layers &&
-      setLayersFilter(layers.filter((layer) => layer.id === surface.id));
+      setLayersFilter(layers.filter((layer) => layer.idSurface === surface.id));
   }, [layers]);
 
   const rederLayers = () => {
