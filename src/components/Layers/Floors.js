@@ -1,42 +1,37 @@
-import { useEffect } from "react";
-import {
-  calLineSegment,
-  calLineSegmentBaseVector,
-  calVector,
-  movePoint,
-  renderSubPoints,
-} from "../../utils/calculate";
-import { POINT } from "../../constants/commons";
-import { createPolygon } from "../../utils/util";
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { POINT } from '../../constants/constant_commons';
+import { calLineSegment, calVector, movePoint } from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
-export default function Floors(props) {
+export default function Floors() {
+  const { floorBases } = useSelector((state) => state.commons);
   useEffect(() => {
-    const { floors, foundation } = props;
-    drawFloor([...foundation[0].nodes], 20);
-    const data = [];
-    const nodes = [];
-    floors.forEach(({ polygon, center }, index) => {
-      const points = polygon.split("").map((point) => ({
-        point,
-        node: POINT[point],
-      }));
-
-      points.forEach(({ point, node }) => {
-        const vector = calVector(node, center, false);
-        const p = movePoint(node, vector, 2.5, "ABFGH".includes(point));
-        data.push({ point, node: p });
+    if (floorBases) {
+      const nodes = [];
+      const data = floorBases.map((floorBase) => handleData(floorBase));
+      Object.keys(POINT).forEach((key) => {
+        const seg = data.find((obj) => key in obj);
+        seg && nodes.push(seg[key]);
       });
-    });
-
-    for (const key in POINT) {
-      const { node } = data.find((item) => item.point === key);
-      nodes.push(node);
+      drawFloor([...nodes], 20);
+      drawFloor([...nodes], 24.5);
+      drawFloor([...nodes], 31.5);
+      drawFloor([...nodes], 34);
     }
+  }, [floorBases]);
 
-    drawFloor([...nodes], 24.5);
-    drawFloor([...nodes], 31.5);
-    drawFloor([...nodes], 34);
-  }, [props.view]);
+  const handleData = (floorBase) => {
+    const { fPoint, lPoint, direct, shink, segment } = floorBase;
+    const vector = calVector(fPoint, lPoint, false);
+
+    const p1 = movePoint(fPoint, vector, 1, !shink);
+    const p2 = movePoint(lPoint, vector, 1, shink);
+
+    const seg = calLineSegment(p1, p2, 3, direct);
+    const points = segment.split('');
+    return { [points[0]]: seg[1], [points[1]]: seg[0] };
+  };
 
   const drawFloor = (nodes, oz) => {
     if (oz === 34) {
@@ -47,11 +42,10 @@ export default function Floors(props) {
       node[2] = oz;
       return node;
     });
-    // console.log(data);
     createPolygon({
       height: 0.1,
       nodes: data,
-      color: "white",
+      color: [179, 179, 179],
     });
   };
 

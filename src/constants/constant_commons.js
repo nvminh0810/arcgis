@@ -27,16 +27,17 @@ export const POINT = {
   Z: [106.69518982664073, 10.777373072768112],
 };
 
-export const SET_VIEW = "SET_VIEW";
-export const SET_BLOCKS = "SET_BLOCKS";
-export const SET_SURFACES = "SET_SURFACES";
-export const SET_LAYERS = "SET_LAYERS";
-export const SET_FOUNDATION = "SET_FOUNDATION";
-export const SET_ROOF = "SET_ROOF";
-export const SET_STAIRS = "SET_STAIRS";
-export const SET_WINDOWS = "SET_WINDOWS";
-export const SET_LINES = "SET_LINES";
-export const SET_COLUMNS = "SET_COLUMNS";
-export const SET_GLASSES = "SET_GLASSES";
-export const SET_SUBDOORS = "SET_SUBDOORS";
-export const SET_SUBWALLS = "SET_SUBWALLS";
+export const SET_VIEW = 'SET_VIEW';
+export const SET_BLOCKS = 'SET_BLOCKS';
+export const SET_FLOORBASES = 'SET_FLOORBASES';
+export const SET_SURFACES = 'SET_SURFACES';
+export const SET_LAYERS = 'SET_LAYERS';
+export const SET_FOUNDATION = 'SET_FOUNDATION';
+export const SET_ROOF = 'SET_ROOF';
+export const SET_STAIRS = 'SET_STAIRS';
+export const SET_WINDOWS = 'SET_WINDOWS';
+export const SET_LINES = 'SET_LINES';
+export const SET_COLUMNS = 'SET_COLUMNS';
+export const SET_GLASSES = 'SET_GLASSES';
+export const SET_SUBDOORS = 'SET_SUBDOORS';
+export const SET_SUBWALLS = 'SET_SUBWALLS';

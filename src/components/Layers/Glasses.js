@@ -66,7 +66,7 @@ export default function Glasses(props) {
   };
 
   const calDMove = (shrink, floor) => {
-    return shrink ? (floor === 2 ? 15 : 2) : floor === 1 ? 2 : 15;
+    return shrink ? (floor === 1 ? 15 : 2) : floor === 1 ? 2 : 15;
   };
 
   const checkSegment = (segment) => {
