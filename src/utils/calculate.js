@@ -66,6 +66,16 @@ export const renderSubPoints = (startPoint, endPoint, numPart) => {
   return [startPoint, ...subPoints, endPoint];
 };
 
+export const moveMultiplePoint = (listPoint, vector, distance, direction) => {
+  const points = [];
+  listPoint.forEach((p) => {
+    const point = calPoint([...p], [...vector], distance, direction, true);
+    point[2] = p[2];
+    points.push(point);
+  });
+  return points;
+};
+
 export const calVector = (o1, o2, isSquare = false) => {
   return isSquare
     ? [o2[1] - o1[1], -o2[0] + o1[0]]
