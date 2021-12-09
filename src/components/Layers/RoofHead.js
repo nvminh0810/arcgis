@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import {
   calLineSegment,
   calVector,
   movePoint,
   renderSubPoints,
-} from '../../utils/calculate';
-import { createPolygon } from '../../utils/util';
+} from "../../utils/calculate";
+import { createPolygon } from "../../utils/util";
 
 export default function RoofHead(props) {
   const { roofHeads } = props;
@@ -13,22 +13,22 @@ export default function RoofHead(props) {
   const rightPoints = [];
 
   for (var key in roofHeads) {
-    if ('R3R4R5R6'.includes(key)) {
+    if ("R3R4R5R6".includes(key)) {
       rightPoints.push([...roofHeads[key], 34.5]);
     } else {
       leftPoints.push([...roofHeads[key], 34.5]);
     }
   }
 
-  createPolygon(props, {
+  createPolygon({
     height: 0.5,
     nodes: leftPoints,
-    color: 'wheat',
+    color: "wheat",
   });
-  createPolygon(props, {
+  createPolygon({
     height: 0.5,
     nodes: rightPoints,
-    color: 'wheat',
+    color: "wheat",
   });
 
   useEffect(() => {}, [props.view]);

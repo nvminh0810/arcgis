@@ -1,11 +1,13 @@
 import { loadModules } from "esri-loader";
+import { store } from "../store/index";
 
 /**
  * Divide 2 points to many points which distance are equal
  * numPart: number of part
  * @returns list of points
  */
-export const createPolygon = async (view, data) => {
+export const createPolygon = async (data) => {
+  const { view } = store.getState().commons;
   const [Graphic] = await loadModules(["esri/Graphic"]);
   const { nodes, color, height } = data;
   var polygon = {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { POINT } from "../../constants/commons";
 import {
   calLineSegment,
   calLineSegmentBaseVector,
@@ -49,7 +48,7 @@ export default function SubWall(props) {
       );
       const segment2 = calLineSegment(segment[0], segment[1], width, direct);
       const segment3 = calLineSegment(segment2[0], segment2[1], width, direct);
-      createPolygon(props, {
+      createPolygon({
         nodes: isIndent
           ? [...segment2, ...segment3]
           : [...segment, ...segment2],

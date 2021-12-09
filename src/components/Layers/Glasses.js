@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { calLineSegment, calVector, movePoint } from '../../utils/calculate';
-import { createPolygon } from '../../utils/util';
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { calLineSegment, calVector, movePoint } from "../../utils/calculate";
+import { createPolygon } from "../../utils/draw";
 
 export default function Glasses(props) {
   const { view } = useSelector((state) => state.commons);
@@ -29,7 +29,7 @@ export default function Glasses(props) {
     var segment1 = calLineSegment(p1, p2, info.back, direct);
     var segment2 = calLineSegment(segment1[0], segment1[1], dGlass, direct);
 
-    createPolygon(view, {
+    createPolygon({
       height: info.height,
       nodes: [...segment1, ...segment2],
       color: [100, 100, 100, 0.6],
@@ -72,7 +72,7 @@ export default function Glasses(props) {
   };
 
   const checkSegment = (segment) => {
-    return segment === 'EF' || segment === 'MN';
+    return segment === "EF" || segment === "MN";
   };
   return null;
 }

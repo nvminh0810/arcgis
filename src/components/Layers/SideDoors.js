@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import {
   calLineSegment,
   calLineSegmentBaseVector,
   calVector,
   movePoint,
   renderSubPoints,
-} from '../../utils/calculate';
-import { createPolygon } from '../../utils/util';
+} from "../../utils/calculate";
+import { createPolygon } from "../../utils/util";
 
 export default function SideDoors(props) {
   const { view } = useSelector((state) => state.commons);
@@ -34,7 +34,7 @@ export default function SideDoors(props) {
 
   const drawGlass = (fPoint, lPoint, direct) => {
     const segment = calLineSegment(fPoint, lPoint, 1, direct);
-    createPolygon(view, {
+    createPolygon({
       height: 5,
       nodes: [fPoint, lPoint, ...segment],
       color: [0, 0, 0, 0.6],
@@ -45,10 +45,10 @@ export default function SideDoors(props) {
     fPoint[2] = 23.5;
     lPoint[2] = 23.5;
     const segment = calLineSegment(fPoint, lPoint, 5, direct);
-    createPolygon(view, {
+    createPolygon({
       height: 1.5,
       nodes: [fPoint, lPoint, ...segment],
-      color: 'white',
+      color: "white",
     });
   };
 
@@ -64,10 +64,10 @@ export default function SideDoors(props) {
         index !== subPoints.length - 1
       );
       const segment2 = calLineSegment(segment1[0], segment1[1], 5, direct);
-      createPolygon(view, {
+      createPolygon({
         height: 5,
         nodes: [...segment1, ...segment2],
-        color: 'white',
+        color: "white",
       });
     });
   };

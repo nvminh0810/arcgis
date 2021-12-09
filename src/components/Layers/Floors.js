@@ -48,7 +48,7 @@ export default function Floors(props) {
       return node;
     });
     // console.log(data);
-    createPolygon(props, {
+    createPolygon({
       height: 0.1,
       nodes: data,
       color: "white",

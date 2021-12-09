@@ -1,21 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Surfaces from '../Surfaces/Surfaces';
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import Surfaces from "../Surfaces/Surfaces";
 
 export default function Block() {
-  const { blocks, surfaces } = useSelector((state) => state.commons);
+  const { surfaces } = useSelector((state) => state.commons);
 
   const renderSurfaces = () => {
-    return blocks.map((block, index) => {
-      const surfacesFilter = surfaces.filter(
-        (surface) => surface.idBlock === block.id
-      );
-
-      return surfacesFilter.map((surface, i) => (
-        <Surfaces surface={surface} key={(index + 1) * (i + 1)} />
-      ));
-    });
+    return surfaces.map((surface, index) => (
+      <Surfaces surface={surface} key={index} />
+    ));
   };
 
-  return <>{blocks && surfaces && renderSurfaces()}</>;
+  return <>{surfaces && surfaces.length && renderSurfaces()}</>;
 }

@@ -1,6 +1,6 @@
-import { Fragment, useEffect } from 'react';
-import Foundation from './Foundation';
-import Block from './Blocks/Block';
+import { Fragment, useEffect } from "react";
+import Foundation from "./Foundation";
+import Block from "./Blocks/Block";
 
 import {
   setFoundation,
@@ -12,7 +12,9 @@ import {
   setGlasses,
   setLines,
   setColumns,
-} from '../actions/action_commons';
+  setSubWalls,
+  setSubDoors,
+} from "../actions/action_commons";
 import {
   getFoundation,
   getBlocks,
@@ -22,8 +24,10 @@ import {
   getGlasses,
   getColumns,
   getLines,
-} from '../utils/api';
-import { useDispatch } from 'react-redux';
+  getSubDoors,
+  getSubWalls,
+} from "../services/api";
+import { useDispatch } from "react-redux";
 
 const Building = (props) => {
   const dispatch = useDispatch();
@@ -40,6 +44,8 @@ const Building = (props) => {
         glasses,
         lines,
         columns,
+        subDoors,
+        subwalls,
       ] = await Promise.all([
         getFoundation(),
         getBlocks(),
@@ -49,6 +55,8 @@ const Building = (props) => {
         getGlasses(),
         getLines(),
         getColumns(),
+        getSubDoors(),
+        getSubWalls(),
       ]);
       dispatch(setView({ view }));
       dispatch(setFoundation({ foundation }));
@@ -59,6 +67,8 @@ const Building = (props) => {
       dispatch(setGlasses({ glasses }));
       dispatch(setLines({ lines }));
       dispatch(setColumns({ columns }));
+      dispatch(setSubDoors({ subDoors }));
+      dispatch(setSubWalls({ subwalls }));
     })();
     return () => {};
   }, []);

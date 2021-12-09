@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import Layers from '../Layers/Layers';
-export default function Surfaces({ surface }) {
-  const { layers } = useSelector((state) => state.commons);
-  const [layersFilter, setLayersFilter] = useState([]);
+import React, { useEffect } from "react";
+import { findSurfaceData } from "../../services/filterData";
+import Layers from "../Layers/Layers";
 
-  useEffect(() => {
-    layers &&
-      setLayersFilter(layers.filter((layer) => layer.idSurface === surface.id));
-  }, [layers]);
-
-  const rederLayers = () => {
-    return layersFilter.map((layer, index) => (
+export default function Surfaces(props) {
+  const { surface } = props;
+  const renderLayers = () => {
+    const layers = findSurfaceData(surface.id);
+    if (!layers) return;
+    return layers.map((layer, index) => (
       <Layers layer={layer} segment={surface.segment} key={index} />
     ));
   };
 
-  return <>{layersFilter.length && rederLayers()}</>;
+  return <>{surface && renderLayers()}</>;
 }

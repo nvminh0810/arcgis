@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { calLineSegment, renderSubPoints } from '../../utils/calculate';
-import { createPolygon } from '../../utils/util';
+import { useEffect } from "react";
+import { calLineSegment, renderSubPoints } from "../../utils/calculate";
+import { createPolygon } from "../../utils/util";
 
 const I1 = [106.69510210348398, 10.776606795826826];
 const I2 = [106.69500241578363, 10.776697858851977];
@@ -27,10 +27,10 @@ export default function BackDoor(props) {
     p2[2] = oz;
     const segment2 = calLineSegment(p1, p2, distace, true);
 
-    createPolygon(props, {
+    createPolygon({
       height,
       nodes: [p1, p2, ...segment2],
-      color: 'wheat',
+      color: "wheat",
     });
   };
 

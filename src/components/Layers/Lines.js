@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import {
   calLineSegment,
   renderSubPoints,
   calVector,
   movePoint,
   calLineSegmentBaseVector,
-} from '../../utils/calculate';
-import { createPolygon } from '../../utils/util';
+} from "../../utils/calculate";
+import { createPolygon } from "../../utils/draw";
 
 export default function Lines(props) {
   const { view } = useSelector((state) => state.commons);
@@ -49,10 +49,10 @@ export default function Lines(props) {
         isLong ? 30 : 0.5,
         !direct
       );
-      createPolygon(view, {
+      createPolygon({
         height: 1,
         nodes: [...segment1, ...segment2],
-        color: 'white',
+        color: "white",
       });
     }
   };
@@ -62,7 +62,7 @@ export default function Lines(props) {
     const C = [...lPoint, 23.5];
 
     let segment1 = calLineSegment(B, C, 0.5, direct);
-    createPolygon(view, {
+    createPolygon({
       height: 0.5,
       nodes: [B, C, ...segment1],
       color: [201, 201, 201],
@@ -77,7 +77,7 @@ export default function Lines(props) {
     const p1 = movePoint(B, vector, 1, mDirect);
     const p2 = movePoint(C, vector, 1, mDirect);
     let segment2 = calLineSegment(p1, p2, 0.5, direct);
-    createPolygon(view, {
+    createPolygon({
       height: 0.5,
       nodes: [p1, p2, ...segment2],
       color: [201, 201, 201],
@@ -91,7 +91,7 @@ export default function Lines(props) {
     const p2 = movePoint([...lPoint, 23], vector, 13, mDirect);
 
     let segment1 = calLineSegment(p1, p2, 1, direct);
-    createPolygon(view, {
+    createPolygon({
       height: 1,
       nodes: [p1, p2, ...segment1],
       color: [201, 201, 201],

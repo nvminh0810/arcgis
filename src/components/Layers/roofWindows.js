@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import {
   calLineSegment,
   calVector,
   movePoint,
   calLineSegmentBaseVector,
-} from '../../utils/calculate';
-import { createPolygon } from '../../utils/util';
+} from "../../utils/calculate";
+import { createPolygon } from "../../utils/util";
 
 export default function RoofWindows(props) {
   useEffect(() => {
@@ -24,10 +24,10 @@ export default function RoofWindows(props) {
     const p2 = movePoint(lPoint, vector, 1, mDirect);
 
     const segment = calLineSegment(p1, p2, 2.25, direct);
-    createPolygon(props, {
+    createPolygon({
       height: 1,
       nodes: [p1, p2, ...segment],
-      color: 'gray',
+      color: "gray",
     });
     drawPolygon(p1, segment[1], check, !mDirect);
     drawPolygon(p2, segment[0], check, mDirect);
@@ -35,10 +35,10 @@ export default function RoofWindows(props) {
 
   const drawPolygon = (p1, p2, check, mDirect) => {
     const segment = calLineSegment(p1, p2, 8, check ? mDirect : !mDirect);
-    createPolygon(props, {
+    createPolygon({
       height: 2.5,
       nodes: [p2, p2, ...segment],
-      color: 'gray',
+      color: "gray",
     });
   };
 

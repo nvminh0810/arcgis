@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { POINT } from "../../constants/commons";
+import React, { useEffect } from "react";
 import {
   calLineSegment,
   calLineSegmentBaseVector,
@@ -11,10 +10,8 @@ import { createPolygon } from "../../utils/util";
 
 export default function SubDoor(props) {
   useEffect(() => {
-    const { subDoors } = props;
-    subDoors.map((door) => {
-      drawSubDoor(door);
-    });
+    const { subDoor } = props;
+    subDoor && drawSubDoor(subDoor);
     return () => {};
   }, [props]);
 
@@ -75,7 +72,7 @@ export default function SubDoor(props) {
         width,
         index !== 0
       );
-      createPolygon(props, {
+      createPolygon({
         nodes:
           expand && (index == 0 || index == subDoor.length - 1)
             ? [...data, ...segment2, ...segment3]
