@@ -119,8 +119,8 @@
       "id": 13,
       "idBlock": 6,
       "segment": "TU",
-      "fPoint": [106.69516138477954, 10.776938059185138],
-      "lPoint": [106.69530005194365, 10.777088053002764]
+      "fPoint": [106.69530005194365, 10.777088053002764],
+      "lPoint": [106.69516138477954, 10.776938059185138]
     },
     {
       "id": 14,
@@ -140,8 +140,8 @@
       "id": 16,
       "idBlock": 7,
       "segment": "RS",
-      "fPoint": [106.69493595731674, 10.776758567535412],
-      "lPoint": [106.69512778476862, 10.776968563167625]
+      "fPoint": [106.69512778476862, 10.776968563167625],
+      "lPoint": [106.69493595731674, 10.776758567535412]
     }
   ],
 
@@ -209,13 +209,13 @@
     {
       "id": 10,
       "idFloor": 0,
-      "idSurface": 4,
-      "idSubDoor": 1
+      "idSurface": 4
     },
     {
       "id": 11,
       "idFloor": 1,
-      "idSurface": 4
+      "idSurface": 4,
+      "idSubDoor": 1
     },
     {
       "id": 12,
@@ -230,7 +230,8 @@
     {
       "id": 14,
       "idFloor": 1,
-      "idSurface": 5
+      "idSurface": 5,
+      "idSubDoor": 9
     },
     {
       "id": 15,
@@ -276,7 +277,8 @@
     {
       "id": 23,
       "idFloor": 1,
-      "idSurface": 8
+      "idSurface": 8,
+      "idSubDoor": 3
     },
     {
       "id": 24,
@@ -336,7 +338,8 @@
     {
       "id": 35,
       "idFloor": 1,
-      "idSurface": 12
+      "idSurface": 12,
+      "idSubDoor": 4
     },
     {
       "id": 36,
@@ -351,7 +354,8 @@
     {
       "id": 38,
       "idFloor": 1,
-      "idSurface": 13
+      "idSurface": 13,
+      "idSubDoor": 8
     },
     {
       "id": 39,
@@ -366,7 +370,8 @@
     {
       "id": 41,
       "idFloor": 1,
-      "idSurface": 14
+      "idSurface": 14,
+      "idSubDoor": 5
     },
     {
       "id": 42,
@@ -381,7 +386,8 @@
     {
       "id": 44,
       "idFloor": 1,
-      "idSurface": 15
+      "idSurface": 15,
+      "idSubDoor": 6
     },
     {
       "id": 45,
@@ -396,7 +402,8 @@
     {
       "id": 47,
       "idFloor": 1,
-      "idSurface": 16
+      "idSurface": 16,
+      "idSubDoor": 7
     },
     {
       "id": 48,
@@ -525,6 +532,90 @@
       "numPart": 6,
       "isMiddle": true,
       "expand": false
+    },
+    {
+      "id": 3,
+      "segment": "KL",
+      "indexs": [0, 1, 3, 5, 6],
+      "width": 9.5,
+      "height": 4,
+      "direct": false,
+      "color": "gray",
+      "numPart": 6,
+      "isMiddle": true,
+      "expand": true
+    },
+    {
+      "id": 4,
+      "segment": "LM",
+      "indexs": [0, 2, 4, 6],
+      "width": 9.5,
+      "height": 4,
+      "direct": false,
+      "color": "gray",
+      "numPart": 6,
+      "isMiddle": true,
+      "expand": true
+    },
+    {
+      "id": 5,
+      "segment": "NO",
+      "indexs": [1, 3, 4, 6],
+      "width": 12,
+      "height": 4,
+      "direct": false,
+      "color": "gray",
+      "numPart": 7,
+      "isMiddle": false,
+      "expand": false
+    },
+    {
+      "id": 6,
+      "segment": "OR",
+      "indexs": [1, 3, 4, 6],
+      "width": 12,
+      "height": 4,
+      "direct": false,
+      "color": "gray",
+      "numPart": 7,
+      "isMiddle": false,
+      "expand": false
+    },
+    {
+      "id": 7,
+      "segment": "RS",
+      "indexs": [1, 3, 4, 6],
+      "width": 12,
+      "height": 4,
+      "direct": true,
+      "color": "gray",
+      "numPart": 7,
+      "isMiddle": false,
+      "expand": false
+    },
+    {
+      "id": 8,
+      "segment": "TU",
+      "indexs": [0, 2, 4, 6],
+      "width": 9.5,
+      "height": 4,
+      "direct": true,
+      "color": "gray",
+      "numPart": 6,
+      "isMiddle": true,
+      "expand": true
+    },
+    {
+      "id": 9,
+      "segment": "UV",
+      "indexs": [0, 1, 3, 5, 6],
+      "width": 9.5,
+      "height": 4,
+      "direct": false,
+      "color": "gray",
+      "numPart": 6,
+      "isMiddle": true,
+      "expand": true
     }
   ],
 
