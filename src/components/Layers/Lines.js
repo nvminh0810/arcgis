@@ -1,13 +1,13 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import {
   calLineSegment,
   renderSubPoints,
   calVector,
   movePoint,
   calLineSegmentBaseVector,
-} from "../../utils/calculate";
-import { createPolygon } from "../../utils/draw";
+} from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function Lines(props) {
   const { view } = useSelector((state) => state.commons);
@@ -52,7 +52,7 @@ export default function Lines(props) {
       createPolygon({
         height: 1,
         nodes: [...segment1, ...segment2],
-        color: "white",
+        color: 'white',
       });
     }
   };

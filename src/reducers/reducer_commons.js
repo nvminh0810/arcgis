@@ -1,4 +1,4 @@
-import * as Def from "../constants/constant_commons";
+import * as Def from '../constants/constant_commons';
 
 let initialState = {
   view: null,

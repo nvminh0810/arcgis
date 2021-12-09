@@ -1,13 +1,13 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { calLineSegment, calVector, movePoint } from "../../utils/calculate";
-import { createPolygon } from "../../utils/draw";
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { calLineSegment, calVector, movePoint } from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function Glasses(props) {
   const { view } = useSelector((state) => state.commons);
   useEffect(() => {
-    const { glass, segment } = props;
-    const { fPoint, lPoint, direct, shrink, mDirect, idFloor: floor } = glass;
+    const { glass, floor, segment } = props;
+    const { fPoint, lPoint, direct, shrink, mDirect } = glass;
 
     const info = handleGlassFloor(floor, segment);
     const dGlass = 3;
@@ -72,7 +72,7 @@ export default function Glasses(props) {
   };
 
   const checkSegment = (segment) => {
-    return segment === "EF" || segment === "MN";
+    return segment === 'EF' || segment === 'MN';
   };
   return null;
 }

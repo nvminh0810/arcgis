@@ -1,13 +1,12 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from 'react';
 import {
   calLineSegment,
   calLineSegmentBaseVector,
   calVector,
   movePoint,
   renderSubPoints,
-} from "../../utils/calculate";
-import { createPolygon } from "../../utils/draw";
+} from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function Columns(props) {
   useEffect(() => {
@@ -22,7 +21,7 @@ export default function Columns(props) {
 
     const vector = calVector(fPoint, lPoint, false);
     subPoints.forEach((point, index) => {
-      if (segment === "CD") {
+      if (segment === 'CD') {
         [...Array(2)].forEach((item, i) => {
           const isBorder = index === 0 || index === subPoints.length - 1;
 
@@ -34,8 +33,8 @@ export default function Columns(props) {
         });
       } else {
         if (
-          !(segment === "BC" && index === subPoints.length - 1) &&
-          !(segment === "DE" && index === 0)
+          !(segment === 'BC' && index === subPoints.length - 1) &&
+          !(segment === 'DE' && index === 0)
         )
           drawColumn(point, vector, 1, isLong ? 10.5 : 8, direct);
       }
@@ -50,12 +49,12 @@ export default function Columns(props) {
     createPolygon({
       height,
       nodes: [...segment1, ...segment2],
-      color: "white",
+      color: 'white',
     });
     createPolygon({
       height,
       nodes: [...segment1, ...segment3],
-      color: "white",
+      color: 'white',
     });
   };
   return null;
