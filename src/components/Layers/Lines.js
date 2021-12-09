@@ -16,9 +16,8 @@ export default function Lines(props) {
 
     drawCol(fPoint, lPoint, direct, count, isLong);
     drawFrontWall(fPoint, lPoint, direct);
-    isLong
-      ? drawBackall(fPoint, lPoint, direct, mDirect)
-      : drawMidWall(fPoint, lPoint, direct, mDirect);
+    !isLong && drawMidWall(fPoint, lPoint, direct, mDirect);
+    // : drawBackall(fPoint, lPoint, direct, mDirect)
   }, []);
 
   const drawCol = (fPoint, lPoint, direct, count, isLong) => {
