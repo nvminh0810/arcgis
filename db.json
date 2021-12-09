@@ -169,7 +169,8 @@
     {
       "id": 2,
       "idFloor": 1,
-      "idSurface": 1
+      "idSurface": 1,
+      "idSubWall": 1
     },
     {
       "id": 3,
@@ -199,7 +200,8 @@
     {
       "id": 8,
       "idFloor": 1,
-      "idSurface": 3
+      "idSurface": 3,
+      "idSubWall": 6
     },
     {
       "id": 9,
@@ -293,7 +295,8 @@
     {
       "id": 26,
       "idFloor": 1,
-      "idSurface": 9
+      "idSurface": 9,
+      "idSubWall": 2
     },
     {
       "id": 27,
@@ -323,7 +326,8 @@
     {
       "id": 32,
       "idFloor": 1,
-      "idSurface": 11
+      "idSurface": 11,
+      "idSubWall": 3
     },
     {
       "id": 33,
@@ -371,7 +375,8 @@
       "id": 41,
       "idFloor": 1,
       "idSurface": 14,
-      "idSubDoor": 5
+      "idSubDoor": 5,
+      "idSubWall": 4
     },
     {
       "id": 42,
@@ -403,7 +408,8 @@
       "id": 47,
       "idFloor": 1,
       "idSurface": 16,
-      "idSubDoor": 7
+      "idSubDoor": 7,
+      "idSubWall": 5
     },
     {
       "id": 48,
@@ -619,7 +625,80 @@
     }
   ],
 
-  "subWalls": [],
+  "subWalls": [
+    {
+      "id": 1,
+      "segment": "AB",
+      "numPart": 3,
+      "indexs": [3],
+      "direct": true,
+      "color": "gray",
+      "height": 4,
+      "width": 30,
+      "isIndent": false,
+      "wallDirect": true
+    },
+    {
+      "id": 2,
+      "segment": "EF",
+      "numPart": 21,
+      "indexs": [0],
+      "direct": true,
+      "color": "gray",
+      "height": 4,
+      "width": 30,
+      "isIndent": false,
+      "wallDirect": true
+    },
+    {
+      "id": 3,
+      "segment": "IJ",
+      "numPart": 3,
+      "indexs": [3],
+      "direct": false,
+      "color": "gray",
+      "height": 4,
+      "width": 60,
+      "isIndent": false,
+      "wallDirect": false
+    },
+    {
+      "id": 4,
+      "segment": "NO",
+      "numPart": 7,
+      "indexs": [1],
+      "direct": false,
+      "color": "gray",
+      "height": 4,
+      "width": 30,
+      "isIndent": true,
+      "wallDirect": false
+    },
+    {
+      "id": 5,
+      "segment": "RS",
+      "numPart": 7,
+      "indexs": [1],
+      "direct": true,
+      "color": "gray",
+      "height": 4,
+      "width": 30,
+      "isIndent": true,
+      "wallDirect": false
+    },
+    {
+      "id": 6,
+      "segment": "XW",
+      "numPart": 3,
+      "indexs": [0],
+      "direct": false,
+      "color": "gray",
+      "height": 4,
+      "width": 60,
+      "isIndent": false,
+      "wallDirect": true
+    }
+  ],
 
   "foundation": [
     {

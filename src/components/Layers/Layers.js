@@ -26,9 +26,9 @@ export default function Layers(props) {
     if (!subWalls || subWalls.length <= 0) return;
     return subWalls.map((subWall, index) => {
       subWall = { ...subWall, fPoint, lPoint };
-      <SubWall subWall={subWall} key={index} />;
+      return <SubWall subWall={subWall} key={index} />;
     });
   };
 
-  return <Fragment>{renderSubDoors()}</Fragment>;
+  return <Fragment>{[renderSubDoors(), renderSubWalls()]}</Fragment>;
 }
