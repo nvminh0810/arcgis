@@ -133,7 +133,10 @@
       "id": 0,
       "idFloor": 0,
       "idSurface": 1,
-      "idSubDoor": 1
+      "idSubDoor": 1,
+      "idGlass": 1,
+      "idLine": 1,
+      "idColumn": 1
     }
   ],
 
@@ -175,7 +178,6 @@
   "glasses": [
     {
       "id": 1,
-      "idFloor": 0,
       "fPoint": [106.69525036854375, 10.777439394786926],
       "lPoint": [106.69533311915342, 10.777363738407193],
       "direct": true,

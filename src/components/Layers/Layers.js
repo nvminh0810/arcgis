@@ -1,18 +1,29 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { findLayerData } from "../../services/filterData";
-import SubDoor from "./SubDoor";
-import SubWall from "./SubWall";
+import React, { Fragment, useEffect, useState } from 'react';
+import { findLayerData } from '../../services/filterData';
+import Columns from './Columns';
+import Glasses from './Glasses';
+import Lines from './Lines';
+import SubDoor from './SubDoor';
+import SubWall from './SubWall';
 
 export default function Layers(props) {
+  const [glasses, setGlasses] = useState([]);
+  const [columns, setColumns] = useState([]);
+  const [lines, setLines] = useState([]);
   const [subDoors, setSubDoors] = useState([]);
   const [subWalls, setSubWalls] = useState([]);
 
+  const { layer, segment } = props;
+  const { idFloor } = layer;
   useEffect(() => {
-    const { layer } = props;
-    const { subDoors, subWalls } = findLayerData(layer.id);
+    const { subDoors, subWalls, glasses, columns, lines } = findLayerData(
+      layer.id
+    );
     setSubDoors(subDoors);
-    setSubWalls(subWalls);
-  }, [props]);
+    setGlasses(glasses);
+    setColumns(columns);
+    setLines(lines);
+  }, []);
 
   const renderSubDoors = () => {
     if (!subDoors || subDoors.length <= 0) return;
@@ -25,5 +36,26 @@ export default function Layers(props) {
     return subWalls.map((subWall) => <SubWall subDoor={subWall} />);
   };
 
-  return <Fragment>{renderSubDoors()}</Fragment>;
+  const renderGlasses = () => {
+    if (!glasses || glasses.length <= 0) return;
+    return glasses.map((glass) => (
+      <Glasses glass={glass} floor={idFloor} segment={segment} />
+    ));
+  };
+
+  const renderColumns = () => {
+    if (!columns || columns.length <= 0) return;
+    return columns.map((column) => (
+      <Columns column={column} segment={segment} />
+    ));
+  };
+
+  const renderLines = () => {
+    if (!lines || lines.length <= 0) return;
+    return lines.map((line) => <Lines line={line} segment={segment} />);
+  };
+
+  return (
+    <>{[renderSubDoors(), renderGlasses(), renderColumns(), renderLines()]}</>
+  );
 }
