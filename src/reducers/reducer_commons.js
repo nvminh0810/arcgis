@@ -4,6 +4,7 @@ let initialState = {
   view: null,
   foundation: null,
   blocks: null,
+  floorBases: null,
   surfaces: null,
   layers: null,
   windows: null,
@@ -27,6 +28,10 @@ export default function commons(state = initialState, { type, payload }) {
     case Def.SET_BLOCKS:
       const { blocks } = payload;
       return { ...state, blocks };
+
+    case Def.SET_FLOORBASES:
+      const { floorBases } = payload;
+      return { ...state, floorBases };
 
     case Def.SET_SURFACES:
       const { surfaces } = payload;

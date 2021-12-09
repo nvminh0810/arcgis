@@ -119,3 +119,12 @@ export const getSubWalls = async () => {
     console.log(error);
   }
 };
+
+export const getFloorBases = async () => {
+  try {
+    const response = await axios.get('/floorBases');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

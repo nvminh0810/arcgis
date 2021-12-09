@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { calLineSegment, calVector, movePoint } from '../../utils/calculate';
 import { createPolygon } from '../../utils/util';
 
 export default function Glasses(props) {
-  const { view } = useSelector((state) => state.commons);
   useEffect(() => {
     const { glass, floor, segment } = props;
     const { fPoint, lPoint, direct, shrink, mDirect } = glass;
@@ -32,7 +30,7 @@ export default function Glasses(props) {
     createPolygon({
       height: info.height,
       nodes: [...segment1, ...segment2],
-      color: [100, 100, 100, 0.6],
+      color: [100, 100, 100, 0.8],
     });
   }, []);
 
@@ -40,25 +38,25 @@ export default function Glasses(props) {
     switch (floor) {
       case 0:
         return {
-          back: 3,
+          back: 1,
           height: 14,
           oz: 20,
         };
       case 1:
         return {
-          back: 32,
-          height: 3,
+          back: 30,
+          height: 4,
           oz: 20,
         };
       case 2:
         return {
-          back: 3,
+          back: 1,
           height: checkSegment(segment) ? 9.5 : 7,
           oz: 24.5,
         };
       case 3:
         return {
-          back: 3,
+          back: 1,
           height: 2.5,
           oz: 31.5,
         };
@@ -68,7 +66,7 @@ export default function Glasses(props) {
   };
 
   const calDMove = (shrink, floor) => {
-    return shrink ? (floor === 1 ? 15 : 1) : floor === 1 ? 1 : 15;
+    return shrink ? (floor === 1 ? 15 : 2) : floor === 1 ? 2 : 15;
   };
 
   const checkSegment = (segment) => {

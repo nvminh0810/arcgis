@@ -1,6 +1,6 @@
-import { Fragment, useEffect } from "react";
-import Foundation from "./Foundation";
-import Block from "./Blocks/Block";
+import { Fragment, useEffect } from 'react';
+import Foundation from './Foundation';
+import Block from './Blocks/Block';
 
 import {
   setFoundation,
@@ -14,7 +14,8 @@ import {
   setColumns,
   setSubWalls,
   setSubDoors,
-} from "../actions/action_commons";
+  setFloorBases,
+} from '../actions/action_commons';
 import {
   getFoundation,
   getBlocks,
@@ -26,8 +27,10 @@ import {
   getLines,
   getSubDoors,
   getSubWalls,
-} from "../services/api";
-import { useDispatch } from "react-redux";
+  getFloorBases,
+} from '../services/api';
+import { useDispatch } from 'react-redux';
+import Floors from './Layers/Floors';
 
 const Building = (props) => {
   const dispatch = useDispatch();
@@ -38,6 +41,7 @@ const Building = (props) => {
       const [
         foundation,
         blocks,
+        floorBases,
         surfaces,
         layers,
         windows,
@@ -49,6 +53,7 @@ const Building = (props) => {
       ] = await Promise.all([
         getFoundation(),
         getBlocks(),
+        getFloorBases(),
         getSurfaces(),
         getLayers(),
         getWindows(),
@@ -61,6 +66,7 @@ const Building = (props) => {
       dispatch(setView({ view }));
       dispatch(setFoundation({ foundation }));
       dispatch(setBlocks({ blocks }));
+      dispatch(setFloorBases({ floorBases }));
       dispatch(setSurfaces({ surfaces }));
       dispatch(setLayers({ layers }));
       dispatch(setWindows({ windows }));
@@ -77,6 +83,7 @@ const Building = (props) => {
     <Fragment>
       <Foundation />
       <Block />
+      <Floors />
     </Fragment>
   );
 };

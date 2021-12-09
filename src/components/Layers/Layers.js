@@ -1,7 +1,8 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { findLayerData } from '../../services/filterData';
 import Columns from './Columns';
 import FirstFloorWindows from './FirstFloorWindows';
+import Floors from './Floors';
 import Glasses from './Glasses';
 import Lines from './Lines';
 import SecondFloorWindows from './SecondFloorWindows';
