@@ -10,8 +10,6 @@ import {
 import { createPolygon } from '../../utils/util';
 
 export default function Lines(props) {
-  const { view } = useSelector((state) => state.commons);
-
   useEffect(() => {
     const { line } = props;
     const { fPoint, lPoint, count, direct, isLong, mDirect } = line;

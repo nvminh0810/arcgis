@@ -1,11 +1,8 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { calLineSegment, renderSubPoints } from "../../utils/calculate";
-import { createPolygon } from "../../utils/draw";
+import { useEffect } from 'react';
+import { calLineSegment, renderSubPoints } from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function SecondFloorWindows(props) {
-  const { view } = useSelector((state) => state.commons);
-
   useEffect(() => {
     const { window, segment: sg } = props;
     const { fPoint, lPoint, count, direct } = window;
@@ -16,7 +13,7 @@ export default function SecondFloorWindows(props) {
       count
     );
 
-    const ignore = sg === "OR" ? [2, 3, 4] : [];
+    const ignore = sg === 'OR' ? [2, 3, 4] : [];
 
     for (let index = 0; index < subPoints.length - 1; index++) {
       if (!ignore.includes(index)) {
@@ -32,7 +29,7 @@ export default function SecondFloorWindows(props) {
       }
     }
 
-    if (sg === "OR") {
+    if (sg === 'OR') {
       const f1 = subPoints[2];
       const f2 = subPoints[5];
 
@@ -68,7 +65,7 @@ export default function SecondFloorWindows(props) {
     createPolygon({
       height,
       nodes: [p1, p2, ...segment],
-      color: "gray",
+      color: 'gray',
     });
   };
 
@@ -89,7 +86,7 @@ export default function SecondFloorWindows(props) {
       createPolygon({
         height: 0.7,
         nodes: [p1, p2, ...segment],
-        color: "white",
+        color: 'white',
       });
       if (!hasTwoRow) break;
     }

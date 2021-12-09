@@ -96,7 +96,11 @@
                 "mDirect": false,
                 "isLong": false
               },
-              "column": { "count": 3, "direct": true, "isLong": true }
+              "column": {
+                "count": 3,
+                "direct": true,
+                "isLong": true
+              }
             },
             {
               "id": 1,
@@ -116,6 +120,7 @@
         }
       ]
     },
+
     {
       "name": "BCUV",
       "surfaces": [
@@ -171,6 +176,7 @@
         }
       ]
     },
+
     {
       "name": "CDLU",
       "surfaces": [
@@ -201,6 +207,7 @@
         }
       ]
     },
+
     {
       "name": "DEKL",
       "surfaces": [
@@ -256,6 +263,7 @@
         }
       ]
     },
+
     {
       "name": "EFIJ",
       "surfaces": [
@@ -443,7 +451,11 @@
                 "mDirect": true,
                 "isLong": true
               },
-              "column": { "count": 7, "direct": true, "isLong": false }
+              "column": {
+                "count": 7,
+                "direct": true,
+                "isLong": false
+              }
             },
             {
               "id": 1,
@@ -501,7 +513,11 @@
           "floors": [
             {
               "id": 0,
-              "column": { "count": 7, "direct": false, "isLong": false },
+              "column": {
+                "count": 7,
+                "direct": false,
+                "isLong": false
+              },
               "lineBetweenFloor": {
                 "count": 7,
                 "direct": false,

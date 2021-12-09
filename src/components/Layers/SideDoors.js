@@ -1,17 +1,15 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import {
   calLineSegment,
   calLineSegmentBaseVector,
   calVector,
   movePoint,
   renderSubPoints,
-} from "../../utils/calculate";
-import { createPolygon } from "../../utils/util";
+} from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function SideDoors(props) {
-  const { view } = useSelector((state) => state.commons);
-
   useEffect(() => {
     const { door, data } = props;
     let { fPoint, lPoint } = data;
@@ -48,7 +46,7 @@ export default function SideDoors(props) {
     createPolygon({
       height: 1.5,
       nodes: [fPoint, lPoint, ...segment],
-      color: "white",
+      color: 'white',
     });
   };
 
@@ -67,7 +65,7 @@ export default function SideDoors(props) {
       createPolygon({
         height: 5,
         nodes: [...segment1, ...segment2],
-        color: "white",
+        color: 'white',
       });
     });
   };

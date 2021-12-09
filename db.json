@@ -173,42 +173,55 @@
     {
       "id": 2,
       "idFloor": 1,
-      "idSurface": 1
+      "idSurface": 1,
+      "idWindow": 1
     },
     {
       "id": 3,
       "idFloor": 2,
-      "idSurface": 1
+      "idSurface": 1,
+      "idWindow": 2
     },
     {
       "id": 4,
       "idFloor": 0,
-      "idSurface": 2
+      "idSurface": 2,
+      "idGlass": 2,
+      "idLine": 2,
+      "idColumn": 2
     },
     {
       "id": 5,
       "idFloor": 1,
-      "idSurface": 2
+      "idSurface": 2,
+      "idWindow": 3,
+      "idDoor": 1
     },
     {
       "id": 6,
       "idFloor": 2,
-      "idSurface": 2
+      "idSurface": 2,
+      "idWindow": 4
     },
     {
       "id": 7,
       "idFloor": 0,
-      "idSurface": 3
+      "idSurface": 3,
+      "idGlass": 3,
+      "idLine": 3,
+      "idColumn": 3
     },
     {
       "id": 8,
       "idFloor": 1,
-      "idSurface": 3
+      "idSurface": 3,
+      "idWindow": 5
     },
     {
       "id": 9,
       "idFloor": 2,
-      "idSurface": 3
+      "idSurface": 3,
+      "idWindow": 6
     },
     {
       "id": 10,
@@ -289,50 +302,66 @@
       "idFloor": 2,
       "idSurface": 8
     },
+
     {
       "id": 25,
       "idFloor": 0,
-      "idSurface": 9
+      "idSurface": 9,
+      "idGlass": 4,
+      "idLine": 4,
+      "idColumn": 4
     },
     {
       "id": 26,
       "idFloor": 1,
-      "idSurface": 9
+      "idSurface": 9,
+      "idWindow": 7
     },
     {
       "id": 27,
       "idFloor": 2,
-      "idSurface": 9
+      "idSurface": 9,
+      "idWindow": 8
     },
     {
       "id": 28,
       "idFloor": 0,
-      "idSurface": 10
+      "idSurface": 10,
+      "idGlass": 5,
+      "idLine": 5,
+      "idColumn": 5
     },
     {
       "id": 29,
       "idFloor": 1,
-      "idSurface": 10
+      "idSurface": 10,
+      "idWindow": 9
     },
     {
       "id": 30,
       "idFloor": 2,
-      "idSurface": 10
+      "idSurface": 10,
+      "idWindow": 10
     },
     {
       "id": 31,
       "idFloor": 0,
-      "idSurface": 11
+      "idSurface": 11,
+      "idGlass": 6,
+      "idLine": 6,
+      "idColumn": 6
     },
     {
       "id": 32,
       "idFloor": 1,
-      "idSurface": 11
+      "idSurface": 11,
+      "idWindow": 11
     },
     {
       "id": 33,
       "idFloor": 2,
-      "idSurface": 11
+      "idSurface": 11,
+      "idWindow": 12
     },
     {
       "id": 34,
@@ -366,87 +395,137 @@
       "idFloor": 2,
       "idSurface": 13
     },
+
     {
       "id": 40,
       "idFloor": 0,
-      "idSurface": 14
+      "idSurface": 14,
+      "idLine": 7,
+      "idColumn": 7
     },
     {
       "id": 41,
       "idFloor": 1,
       "idSurface": 14,
-      "idSubDoor": 5
+      "idSubDoor": 5,
+      "idGlass": 7
     },
     {
       "id": 42,
       "idFloor": 2,
-      "idSurface": 14
+      "idSurface": 14,
+      "idWindow": 13,
+      "idGlass": 8
     },
     {
       "id": 43,
       "idFloor": 0,
-      "idSurface": 15
+      "idSurface": 15,
+      "idColumn": 8,
+      "idLine": 8
     },
     {
       "id": 44,
       "idFloor": 1,
       "idSurface": 15,
-      "idSubDoor": 6
+      "idSubDoor": 6,
+      "idGlass": 9
     },
     {
       "id": 45,
       "idFloor": 2,
-      "idSurface": 15
+      "idSurface": 15,
+      "idWindow": 14,
+      "idGlass": 10
     },
     {
       "id": 46,
       "idFloor": 0,
-      "idSurface": 16
+      "idSurface": 16,
+      "idColumn": 9,
+      "idLine": 9
     },
     {
       "id": 47,
       "idFloor": 1,
       "idSurface": 16,
-      "idSubDoor": 7
+      "idSubDoor": 7,
+      "idGlass": 11
     },
     {
       "id": 48,
       "idFloor": 2,
-      "idSurface": 16
+      "idSurface": 16,
+      "idWindow": 15,
+      "idGlass": 12
     }
   ],
 
   "windows": [
     {
       "id": 1,
-      "idFloor": 1,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69533311915342, 10.777363738407193],
       "count": 3,
       "direct": true
     },
     {
       "id": 2,
-      "idFloor": 2,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69533311915342, 10.777363738407193],
       "count": 3,
       "direct": true
     },
     {
       "id": 3,
-      "idFloor": 1,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69506874283468, 10.777240428730483],
       "count": 6,
       "direct": true
     },
     {
       "id": 4,
-      "idFloor": 2,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69506874283468, 10.777240428730483],
       "count": 6,
+      "direct": true
+    },
+    { "id": 5, "count": 3, "direct": false },
+    { "id": 6, "count": 3, "direct": false },
+    {
+      "id": 7,
+      "count": 3,
+      "direct": true
+    },
+    {
+      "id": 8,
+      "count": 3,
+      "direct": true
+    },
+    {
+      "id": 9,
+      "count": 6,
+      "direct": false
+    },
+    {
+      "id": 10,
+      "count": 6,
+      "direct": false
+    },
+    {
+      "id": 11,
+      "count": 3,
+      "direct": false
+    },
+    {
+      "id": 12,
+      "count": 3,
+      "direct": false
+    },
+    { "id": 13, "count": 7, "direct": false },
+    { "id": 14, "count": 7, "direct": false },
+    { "id": 15, "count": 7, "direct": true }
+  ],
+
+  "doors": [
+    {
+      "id": 1,
+      "direct": false
+    },
+    {
+      "id": 1,
       "direct": true
     }
   ],
@@ -454,17 +533,72 @@
   "glasses": [
     {
       "id": 1,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69533311915342, 10.777363738407193],
       "direct": true,
       "shrink": true,
       "mDirect": true
     },
     {
       "id": 2,
-      "idFloor": 0,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69506874283468, 10.777240428730483],
+      "direct": true,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 3,
+      "direct": false,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 4,
+      "direct": true,
+      "shrink": true,
+      "mDirect": true
+    },
+    {
+      "id": 5,
+      "direct": false,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 6,
+      "direct": false,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 7,
+      "direct": false,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 8,
+      "direct": false,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 9,
+      "direct": false,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 10,
+      "direct": false,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 11,
+      "direct": true,
+      "shrink": true,
+      "mDirect": false
+    },
+    {
+      "id": 12,
       "direct": true,
       "shrink": true,
       "mDirect": false
@@ -474,8 +608,6 @@
   "lines": [
     {
       "id": 1,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69533311915342, 10.777363738407193],
       "count": 3,
       "direct": false,
       "mDirect": true,
@@ -483,31 +615,115 @@
     },
     {
       "id": 2,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69506874283468, 10.777240428730483],
       "count": 6,
       "direct": false,
       "mDirect": false,
       "isLong": false
+    },
+    {
+      "id": 3,
+      "count": 3,
+      "direct": true,
+      "mDirect": false,
+      "isLong": false
+    },
+    {
+      "id": 4,
+      "count": 3,
+      "direct": false,
+      "mDirect": true,
+      "isLong": false
+    },
+    {
+      "id": 5,
+      "count": 6,
+      "direct": true,
+      "mDirect": true,
+      "isLong": false
+    },
+    {
+      "id": 6,
+      "count": 3,
+      "direct": true,
+      "mDirect": false,
+      "isLong": false
+    },
+    {
+      "id": 7,
+      "count": 7,
+      "direct": true,
+      "mDirect": true,
+      "isLong": true
+    },
+    {
+      "id": 8,
+      "count": 7,
+      "direct": true,
+      "mDirect": false,
+      "isLong": true
+    },
+    {
+      "id": 9,
+      "count": 7,
+      "direct": false,
+      "mDirect": false,
+      "isLong": true
     }
   ],
 
   "columns": [
     {
       "id": 1,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69533311915342, 10.777363738407193],
       "count": 3,
       "direct": false,
       "isLong": true
     },
     {
       "id": 2,
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.69506874283468, 10.777240428730483],
       "count": 6,
       "direct": false,
       "isLong": true
+    },
+    {
+      "id": 3,
+      "count": 3,
+      "direct": true,
+      "isLong": true
+    },
+    {
+      "id": 4,
+      "count": 3,
+      "direct": false,
+      "isLong": true
+    },
+    {
+      "id": 5,
+      "count": 6,
+      "direct": true,
+      "isLong": true
+    },
+    {
+      "id": 6,
+      "count": 3,
+      "direct": true,
+      "isLong": true
+    },
+    {
+      "id": 7,
+      "count": 7,
+      "direct": true,
+      "isLong": false
+    },
+    {
+      "id": 8,
+      "count": 1,
+      "_comment": "chưa làm"
+    },
+    {
+      "id": 9,
+      "count": 7,
+      "direct": false,
+      "isLong": false
     }
   ],
 
