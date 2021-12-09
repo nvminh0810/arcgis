@@ -34,82 +34,114 @@
     {
       "id": 1,
       "idBlock": 1,
-      "segment": "AB"
+      "segment": "AB",
+      "fPoint": [106.69525036854375, 10.777439394786926],
+      "lPoint": [106.69533311915342, 10.777363738407193]
     },
     {
       "id": 2,
       "idBlock": 1,
-      "segment": "AX"
+      "segment": "AX",
+      "fPoint": [106.69525036854375, 10.777439394786926],
+      "lPoint": [106.69506874283468, 10.777240428730483]
     },
     {
       "id": 3,
       "idBlock": 1,
-      "segment": "XW"
+      "segment": "XW",
+      "fPoint": [106.69515764102977, 10.777160014981181],
+      "lPoint": [106.69506874283468, 10.777240428730483]
     },
     {
       "id": 4,
       "idBlock": 2,
-      "segment": "BC"
+      "segment": "BC",
+      "fPoint": [106.69533311915342, 10.777363738407193],
+      "lPoint": [106.69549862037275, 10.777212425647726]
     },
     {
       "id": 5,
       "idBlock": 2,
-      "segment": "UV"
+      "segment": "UV",
+      "fPoint": [106.69530005194365, 10.777088053002764],
+      "lPoint": [106.69518658871506, 10.777191986534389]
     },
     {
       "id": 6,
       "idBlock": 3,
-      "segment": "CD"
+      "segment": "CD",
+      "fPoint": [106.69549862037275, 10.777212425647726],
+      "lPoint": [106.69558137098241, 10.77713676926799]
     },
     {
       "id": 7,
       "idBlock": 4,
-      "segment": "DE"
+      "segment": "DE",
+      "fPoint": [106.69558137098241, 10.77713676926799],
+      "lPoint": [106.69574687220174, 10.776985456508523]
     },
     {
       "id": 8,
       "idBlock": 4,
-      "segment": "KL"
+      "segment": "KL",
+      "fPoint": [106.69558845188774, 10.776823712210602],
+      "lPoint": [106.69546522998012, 10.776935348242986]
     },
     {
       "id": 9,
       "idBlock": 5,
-      "segment": "EF"
+      "segment": "EF",
+      "fPoint": [106.69574687220174, 10.776985456508523],
+      "lPoint": [106.6958296228114, 10.77690980012879]
     },
     {
       "id": 10,
       "idBlock": 5,
-      "segment": "FI"
+      "segment": "FI",
+      "fPoint": [106.6958296228114, 10.77690980012879],
+      "lPoint": [106.69564771432609, 10.776710834324252]
     },
     {
       "id": 11,
       "idBlock": 5,
-      "segment": "IJ"
+      "segment": "IJ",
+      "fPoint": [106.69564771432609, 10.776710834324252],
+      "lPoint": [106.69555922142621, 10.7767917409093]
     },
     {
       "id": 12,
       "idBlock": 6,
-      "segment": "LM"
+      "segment": "LM",
+      "fPoint": [106.69546522998012, 10.776935348242986],
+      "lPoint": [106.695326562816, 10.776785354425362]
     },
     {
       "id": 13,
       "idBlock": 6,
-      "segment": "TU"
+      "segment": "TU",
+      "fPoint": [106.69530005194365, 10.777088053002764],
+      "lPoint": [106.69516138477954, 10.776938059185138]
     },
     {
       "id": 14,
       "idBlock": 7,
-      "segment": "NO"
+      "segment": "NO",
+      "fPoint": [106.69536038940274, 10.776756082775604],
+      "lPoint": [106.69516856195087, 10.776546087143391]
     },
     {
       "id": 15,
       "idBlock": 7,
-      "segment": "OR"
+      "segment": "OR",
+      "fPoint": [106.69516856195087, 10.776546087143391],
+      "lPoint": [106.69493595731674, 10.776758567535412]
     },
     {
       "id": 16,
       "idBlock": 7,
-      "segment": "RS"
+      "segment": "RS",
+      "fPoint": [106.69512778476862, 10.776968563167625],
+      "lPoint": [106.69493595731674, 10.776758567535412]
     }
   ],
 
@@ -130,13 +162,257 @@
 
   "layers": [
     {
-      "id": 0,
+      "id": 1,
       "idFloor": 0,
       "idSurface": 1,
       "idSubDoor": 1,
       "idGlass": 1,
       "idLine": 1,
       "idColumn": 1
+    },
+    {
+      "id": 2,
+      "idFloor": 1,
+      "idSurface": 1
+    },
+    {
+      "id": 3,
+      "idFloor": 2,
+      "idSurface": 1
+    },
+    {
+      "id": 4,
+      "idFloor": 0,
+      "idSurface": 2
+    },
+    {
+      "id": 5,
+      "idFloor": 1,
+      "idSurface": 2
+    },
+    {
+      "id": 6,
+      "idFloor": 2,
+      "idSurface": 2
+    },
+    {
+      "id": 7,
+      "idFloor": 0,
+      "idSurface": 3
+    },
+    {
+      "id": 8,
+      "idFloor": 1,
+      "idSurface": 3
+    },
+    {
+      "id": 9,
+      "idFloor": 2,
+      "idSurface": 3
+    },
+    {
+      "id": 10,
+      "idFloor": 0,
+      "idSurface": 4
+    },
+    {
+      "id": 11,
+      "idFloor": 1,
+      "idSurface": 4,
+      "idSubDoor": 1
+    },
+    {
+      "id": 12,
+      "idFloor": 2,
+      "idSurface": 4
+    },
+    {
+      "id": 13,
+      "idFloor": 0,
+      "idSurface": 5
+    },
+    {
+      "id": 14,
+      "idFloor": 1,
+      "idSurface": 5,
+      "idSubDoor": 9
+    },
+    {
+      "id": 15,
+      "idFloor": 2,
+      "idSurface": 5
+    },
+    {
+      "id": 16,
+      "idFloor": 0,
+      "idSurface": 6
+    },
+    {
+      "id": 17,
+      "idFloor": 1,
+      "idSurface": 6
+    },
+    {
+      "id": 18,
+      "idFloor": 2,
+      "idSurface": 6
+    },
+    {
+      "id": 19,
+      "idFloor": 0,
+      "idSurface": 7
+    },
+    {
+      "id": 20,
+      "idFloor": 1,
+      "idSurface": 7,
+      "idSubDoor": 2
+    },
+    {
+      "id": 21,
+      "idFloor": 2,
+      "idSurface": 7
+    },
+    {
+      "id": 22,
+      "idFloor": 0,
+      "idSurface": 8
+    },
+    {
+      "id": 23,
+      "idFloor": 1,
+      "idSurface": 8,
+      "idSubDoor": 3
+    },
+    {
+      "id": 24,
+      "idFloor": 2,
+      "idSurface": 8
+    },
+    {
+      "id": 25,
+      "idFloor": 0,
+      "idSurface": 9
+    },
+    {
+      "id": 26,
+      "idFloor": 1,
+      "idSurface": 9
+    },
+    {
+      "id": 27,
+      "idFloor": 2,
+      "idSurface": 9
+    },
+    {
+      "id": 28,
+      "idFloor": 0,
+      "idSurface": 10
+    },
+    {
+      "id": 29,
+      "idFloor": 1,
+      "idSurface": 10
+    },
+    {
+      "id": 30,
+      "idFloor": 2,
+      "idSurface": 10
+    },
+    {
+      "id": 31,
+      "idFloor": 0,
+      "idSurface": 11
+    },
+    {
+      "id": 32,
+      "idFloor": 1,
+      "idSurface": 11
+    },
+    {
+      "id": 33,
+      "idFloor": 2,
+      "idSurface": 11
+    },
+    {
+      "id": 34,
+      "idFloor": 0,
+      "idSurface": 12
+    },
+    {
+      "id": 35,
+      "idFloor": 1,
+      "idSurface": 12,
+      "idSubDoor": 4
+    },
+    {
+      "id": 36,
+      "idFloor": 2,
+      "idSurface": 12
+    },
+    {
+      "id": 37,
+      "idFloor": 0,
+      "idSurface": 13
+    },
+    {
+      "id": 38,
+      "idFloor": 1,
+      "idSurface": 13,
+      "idSubDoor": 8
+    },
+    {
+      "id": 39,
+      "idFloor": 2,
+      "idSurface": 13
+    },
+    {
+      "id": 40,
+      "idFloor": 0,
+      "idSurface": 14
+    },
+    {
+      "id": 41,
+      "idFloor": 1,
+      "idSurface": 14,
+      "idSubDoor": 5
+    },
+    {
+      "id": 42,
+      "idFloor": 2,
+      "idSurface": 14
+    },
+    {
+      "id": 43,
+      "idFloor": 0,
+      "idSurface": 15
+    },
+    {
+      "id": 44,
+      "idFloor": 1,
+      "idSurface": 15,
+      "idSubDoor": 6
+    },
+    {
+      "id": 45,
+      "idFloor": 2,
+      "idSurface": 15
+    },
+    {
+      "id": 46,
+      "idFloor": 0,
+      "idSurface": 16
+    },
+    {
+      "id": 47,
+      "idFloor": 1,
+      "idSurface": 16,
+      "idSubDoor": 7
+    },
+    {
+      "id": 48,
+      "idFloor": 2,
+      "idSurface": 16
     }
   ],
 
@@ -238,22 +514,31 @@
   "subDoors": [
     {
       "id": 1,
-      "segment": "AB",
-      "fPoint": [106.69525036854375, 10.777439394786926],
-      "lPoint": [106.6958296228114, 10.77690980012879],
-      "indexs": [3, 5, 7, 9, 12, 14, 16, 18],
+      "segment": "BC",
+      "indexs": [0, 2, 4, 6],
       "width": 9.5,
       "height": 4,
       "direct": true,
       "color": "gray",
-      "numPart": 21,
+      "numPart": 6,
       "isMiddle": true,
       "expand": false
     },
     {
-      "segment": "EF",
-      "fPoint": [106.69558845188774, 10.776823712210602],
-      "lPoint": [106.69546522998012, 10.776935348242986],
+      "id": 2,
+      "segment": "DE",
+      "indexs": [0, 2, 4, 6],
+      "width": 9.5,
+      "height": 4,
+      "direct": true,
+      "color": "gray",
+      "numPart": 6,
+      "isMiddle": true,
+      "expand": false
+    },
+    {
+      "id": 3,
+      "segment": "KL",
       "indexs": [0, 1, 3, 5, 6],
       "width": 9.5,
       "height": 4,
@@ -264,61 +549,56 @@
       "expand": true
     },
     {
-      "segment": "FG",
-      "fPoint": [106.69546522998012, 10.776935348242986],
-      "lPoint": [106.695326562816, 10.776785354425362],
-      "indexs": [0, 2, 4, 6],
-      "width": 9.5,
-      "height": 4,
-      "direct": false,
-      "color": "gray",
-      "numPart": 6,
-      "isMiddle": true,
-      "expand": true
-    },
-    {
-      "segment": "HI",
-      "fPoint": [106.69536038940274, 10.776756082775604],
-      "lPoint": [106.69516856195087, 10.776546087143391],
-      "indexs": [1, 3, 4, 6],
-      "width": 12,
-      "height": 4,
-      "direct": false,
-      "color": "gray",
-      "numPart": 7,
-      "isMiddle": false,
-      "expand": false
-    },
-    {
-      "segment": "IJ",
-      "fPoint": [106.69516856195087, 10.776546087143391],
-      "lPoint": [106.69493595731674, 10.776758567535412],
-      "indexs": [1, 3, 4, 6],
-      "width": 12,
-      "height": 4,
-      "direct": false,
-      "color": "gray",
-      "numPart": 7,
-      "isMiddle": false,
-      "expand": false
-    },
-    {
-      "segment": "JK",
-      "fPoint": [106.69512778476862, 10.776968563167625],
-      "lPoint": [106.69493595731674, 10.776758567535412],
-      "indexs": [1, 3, 4, 6],
-      "width": 12,
-      "height": 4,
-      "direct": true,
-      "color": "gray",
-      "numPart": 7,
-      "isMiddle": false,
-      "expand": false
-    },
-    {
+      "id": 4,
       "segment": "LM",
-      "fPoint": [106.69530005194365, 10.777088053002764],
-      "lPoint": [106.69516138477954, 10.776938059185138],
+      "indexs": [0, 2, 4, 6],
+      "width": 9.5,
+      "height": 4,
+      "direct": false,
+      "color": "gray",
+      "numPart": 6,
+      "isMiddle": true,
+      "expand": true
+    },
+    {
+      "id": 5,
+      "segment": "NO",
+      "indexs": [1, 3, 4, 6],
+      "width": 12,
+      "height": 4,
+      "direct": false,
+      "color": "gray",
+      "numPart": 7,
+      "isMiddle": false,
+      "expand": false
+    },
+    {
+      "id": 6,
+      "segment": "OR",
+      "indexs": [1, 3, 4, 6],
+      "width": 12,
+      "height": 4,
+      "direct": false,
+      "color": "gray",
+      "numPart": 7,
+      "isMiddle": false,
+      "expand": false
+    },
+    {
+      "id": 7,
+      "segment": "RS",
+      "indexs": [1, 3, 4, 6],
+      "width": 12,
+      "height": 4,
+      "direct": true,
+      "color": "gray",
+      "numPart": 7,
+      "isMiddle": false,
+      "expand": false
+    },
+    {
+      "id": 8,
+      "segment": "TU",
       "indexs": [0, 2, 4, 6],
       "width": 9.5,
       "height": 4,
@@ -329,9 +609,8 @@
       "expand": true
     },
     {
-      "segment": "MN",
-      "fPoint": [106.69530005194365, 10.777088053002764],
-      "lPoint": [106.69518658871506, 10.777191986534389],
+      "id": 9,
+      "segment": "UV",
       "indexs": [0, 1, 3, 5, 6],
       "width": 9.5,
       "height": 4,

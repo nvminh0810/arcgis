@@ -53,16 +53,6 @@ export const movePoint = (p1, vector, distance, direction) => {
   return point;
 };
 
-export const moveMultiplePoint = (listPoint, vector, distance, direction) => {
-  const points = [];
-  listPoint.forEach((p) => {
-    const point = calPoint([...p], [...vector], distance, direction, true);
-    point[2] = p[2];
-    points.push(point);
-  });
-  return points;
-};
-
 export const renderSubPoints = (startPoint, endPoint, numPart) => {
   let subPoints = [];
   let dx = (endPoint[0] - startPoint[0]) / numPart;
@@ -74,6 +64,16 @@ export const renderSubPoints = (startPoint, endPoint, numPart) => {
       startPoint[2],
     ]);
   return [startPoint, ...subPoints, endPoint];
+};
+
+export const moveMultiplePoint = (listPoint, vector, distance, direction) => {
+  const points = [];
+  listPoint.forEach((p) => {
+    const point = calPoint([...p], [...vector], distance, direction, true);
+    point[2] = p[2];
+    points.push(point);
+  });
+  return points;
 };
 
 export const calVector = (o1, o2, isSquare = false) => {

@@ -13,7 +13,9 @@ export default function Layers(props) {
   const [subDoors, setSubDoors] = useState([]);
   const [subWalls, setSubWalls] = useState([]);
 
-  const { layer, segment } = props;
+  const { layer, surface } = props;
+  const { segment, fPoint, lPoint } = surface;
+
   const { idFloor } = layer;
   useEffect(() => {
     const { subDoors, subWalls, glasses, columns, lines } = findLayerData(
@@ -23,17 +25,21 @@ export default function Layers(props) {
     setGlasses(glasses);
     setColumns(columns);
     setLines(lines);
-  }, []);
+  }, [props]);
 
   const renderSubDoors = () => {
     if (!subDoors || subDoors.length <= 0) return;
-    return subDoors.map((subDoor, index) => (
-      <SubDoor subDoor={subDoor} key={index} />
-    ));
+    return subDoors.map((subDoor, index) => {
+      subDoor = { ...subDoor, fPoint, lPoint };
+      return <SubDoor subDoor={subDoor} key={index} />;
+    });
   };
   const renderSubWalls = () => {
     if (!subWalls || subWalls.length <= 0) return;
-    return subWalls.map((subWall) => <SubWall subDoor={subWall} />);
+    return subWalls.map((subWall, index) => {
+      subWall = { ...subWall, fPoint, lPoint };
+      return <SubWall subWall={subWall} key={index} />;
+    });
   };
 
   const renderGlasses = () => {
@@ -55,6 +61,10 @@ export default function Layers(props) {
     return lines.map((line) => <Lines line={line} segment={segment} />);
   };
 
+  // const renderWindows = () => {
+  //   if (!windows || windows.length <= 0) return;
+  //   return windows.map((window) => <windows window={window} segment={segment} />);
+  // }
   return (
     <>{[renderSubDoors(), renderGlasses(), renderColumns(), renderLines()]}</>
   );
