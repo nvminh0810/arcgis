@@ -8,7 +8,7 @@ export default function Surfaces(props) {
     const layers = findSurfaceData(surface.id);
     if (!layers) return;
     return layers.map((layer, index) => (
-      <Layers layer={layer} segment={surface.segment} key={index} />
+      <Layers layer={layer} surface={surface} key={index} />
     ));
   };
 
