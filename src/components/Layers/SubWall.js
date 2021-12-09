@@ -9,10 +9,8 @@ import { createPolygon } from "../../utils/util";
 
 export default function SubWall(props) {
   useEffect(() => {
-    const { subWalls } = props;
-    subWalls.map((wall) => {
-      drawSubWall(wall);
-    });
+    const { subWall } = props;
+    subWall && drawSubWall(subWall);
     return () => {};
   }, [props]);
 

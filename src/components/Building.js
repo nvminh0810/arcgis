@@ -45,7 +45,7 @@ const Building = (props) => {
         lines,
         columns,
         subDoors,
-        subwalls,
+        subWalls,
       ] = await Promise.all([
         getFoundation(),
         getBlocks(),
@@ -68,7 +68,7 @@ const Building = (props) => {
       dispatch(setLines({ lines }));
       dispatch(setColumns({ columns }));
       dispatch(setSubDoors({ subDoors }));
-      dispatch(setSubWalls({ subwalls }));
+      dispatch(setSubWalls({ subWalls }));
     })();
     return () => {};
   }, []);

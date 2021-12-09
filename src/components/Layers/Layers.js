@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { findLayerData } from '../../services/filterData';
 import Columns from './Columns';
 import FirstFloorWindows from './FirstFloorWindows';
@@ -24,6 +24,7 @@ export default function Layers(props) {
     const { subDoors, subWalls, glasses, columns, lines, windows } =
       findLayerData(id);
     setSubDoors(subDoors);
+    setSubWalls(subWalls);
     setGlasses(glasses);
     setColumns(columns);
     setLines(lines);
@@ -95,6 +96,7 @@ export default function Layers(props) {
         renderColumns(),
         renderLines(),
         renderWindows(),
+        renderSubWalls(),
       ]}
     </>
   );
