@@ -1,6 +1,6 @@
-import { Fragment, useEffect } from 'react';
-import Foundation from './Foundation';
-import Block from './Blocks/Block';
+import { useEffect } from "react";
+import Foundation from "./Foundation";
+import Block from "./Blocks/Block";
 
 import {
   setFoundation,
@@ -18,7 +18,8 @@ import {
   setPillars,
   setLineSurrounds,
   setRoofWindows,
-} from '../actions/action_commons';
+  setRoof,
+} from "../actions/action_commons";
 import {
   getFoundation,
   getBlocks,
@@ -34,11 +35,13 @@ import {
   getPillars,
   getLineSurrounds,
   getRoofWindows,
-} from '../services/api';
-import { useDispatch, useSelector } from 'react-redux';
-import Floors from './Layers/Floors';
-import BackDoor from './Layers/BackDoor';
-import RoofWindows from './Layers/roofWindows';
+  getRoof,
+} from "../services/api";
+import { useDispatch, useSelector } from "react-redux";
+import Floors from "./Layers/Floors";
+import BackDoor from "./Layers/BackDoor";
+import RoofWindows from "./Layers/roofWindows";
+import Roof from "./Roof";
 
 const Building = (props) => {
   const dispatch = useDispatch();
@@ -62,6 +65,7 @@ const Building = (props) => {
         pillars,
         lineSurrounds,
         roofWindows,
+        roof,
       ] = await Promise.all([
         getFoundation(),
         getBlocks(),
@@ -77,6 +81,7 @@ const Building = (props) => {
         getPillars(),
         getLineSurrounds(),
         getRoofWindows(),
+        getRoof(),
       ]);
       dispatch(setView({ view }));
       dispatch(setFoundation({ foundation }));
@@ -93,6 +98,7 @@ const Building = (props) => {
       dispatch(setPillars({ pillars }));
       dispatch(setLineSurrounds({ lineSurrounds }));
       dispatch(setRoofWindows({ roofWindows }));
+      dispatch(setRoof({ roof }));
     })();
     return () => {};
   }, []);
@@ -106,9 +112,10 @@ const Building = (props) => {
           <Floors />
           <BackDoor />
           <RoofWindows />
+          <Roof />
         </>
       );
-    } else console.log('fail');
+    } else console.log("fail");
   };
 
   return <>{render()}</>;

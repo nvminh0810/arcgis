@@ -1475,8 +1475,6 @@
 
   "stairs": [],
 
-  "roof": [],
-
   "roofWindows": [
     {
       "segment": "AF",
@@ -1535,5 +1533,39 @@
       "direct": false,
       "mDirect": false
     }
-  ]
+  ],
+  "roof": {
+    "frontRoof": {
+      "polygon": "AFIX",
+      "nodes": [
+        [106.69525036854375, 10.777439394786926],
+        [106.6958296228114, 10.77690980012879],
+        [106.69564771432609, 10.776710834324252],
+        [106.69506874283468, 10.777240428730483]
+      ],
+      "baseRoof": {
+        "color": "gray",
+        "oz": 34.3,
+        "width": 43,
+        "length": 43,
+        "height": 1
+      },
+      "l1Roof": {
+        "color": "white",
+        "oz": 35.3,
+        "width": 40,
+        "length": 40,
+        "height": 0.1
+      },
+      "l2Roof": {
+        "color": "#dfc186",
+        "oz": 35.4,
+        "width": 43,
+        "length": 43,
+        "height": 0.1
+      }
+    },
+    "centerRoof": {},
+    "behindRoof": {}
+  }
 }

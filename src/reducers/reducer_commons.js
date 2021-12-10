@@ -1,4 +1,4 @@
-import * as Def from '../constants/constant_commons';
+import * as Def from "../constants/constant_commons";
 
 let initialState = {
   view: null,
@@ -15,6 +15,7 @@ let initialState = {
   subWalls: null,
   lineSurrounds: null,
   roofWindows: null,
+  roof: null,
 };
 
 export default function commons(state = initialState, { type, payload }) {
@@ -78,6 +79,11 @@ export default function commons(state = initialState, { type, payload }) {
     case Def.SET_ROOF_WINDOWS:
       const { roofWindows } = payload;
       return { ...state, roofWindows };
+
+    case Def.SET_ROOF:
+      const { roof } = payload;
+      return { ...state, roof };
+
     default:
       return { ...state };
   }
