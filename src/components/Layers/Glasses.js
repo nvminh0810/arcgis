@@ -39,7 +39,7 @@ export default function Glasses(props) {
       case 0:
         return {
           back: 1,
-          height: 14,
+          height: 11.5,
           oz: 20,
         };
       case 1:
@@ -51,7 +51,7 @@ export default function Glasses(props) {
       case 2:
         return {
           back: checkSeg(segment) ? 10 : 1,
-          height: segment === 'EF' || segment === 'MN' ? 9.5 : 7,
+          height: 7,
           oz: 24.5,
         };
       case 3:

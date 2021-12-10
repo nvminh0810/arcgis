@@ -15,16 +15,20 @@ export default function Floors() {
       const data2 = floorBases.map((floorBase) => handleData(floorBase, true));
 
       Object.keys(POINT).forEach((key) => {
-        const seg1 = data1.find((obj) => key in obj);
-        seg1 && nodes.push(seg1[key]);
+        if (key !== 'P1' && key !== 'Q1') {
+          const seg1 = data1.find((obj) => key in obj);
+          seg1 && nodes.push(seg1[key]);
+        }
+
         const seg2 = data2.find((obj) => key in obj);
         seg2 && fNodes.push(seg2[key]);
       });
 
       drawFloor([...fNodes], 20);
       drawFloor([...nodes], 24.5);
+      drawFloor([...fNodes], 31.5, true);
       drawFloor([...nodes], 31.5);
-      drawFloor([...nodes], 34);
+      drawFloor([...fNodes], 34);
     }
   }, [floorBases]);
 
@@ -45,13 +49,18 @@ export default function Floors() {
       seg = calLineSegment(p1, p2, 6, !direct);
     }
 
-    const points = segment.split('');
+    let points = segment.split('');
+    if (segment === 'Q1P1') points = ['Q1', 'P1'];
     return { [points[0]]: seg[1], [points[1]]: seg[0] };
   };
 
-  const drawFloor = (nodes, oz) => {
+  const drawFloor = (nodes, oz, flag) => {
+    if (oz === 31.5 && flag) {
+      nodes = nodes.splice(5, 12);
+      nodes.splice(5, 2);
+    }
     if (oz === 34) {
-      nodes.splice(5, 8);
+      nodes.splice(5, 12);
     }
     const data = nodes.map((item) => {
       var node = [...item];

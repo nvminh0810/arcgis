@@ -1,18 +1,15 @@
-import { useEffect } from "react";
-import {
-  calLineSegment,
-  calVector,
-  movePoint,
-  calLineSegmentBaseVector,
-} from "../../utils/calculate";
-import { createPolygon } from "../../utils/util";
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { calLineSegment, calVector, movePoint } from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
-export default function RoofWindows(props) {
+export default function RoofWindows() {
+  const { roofWindows } = useSelector((state) => state.commons);
   useEffect(() => {
-    props.roofWindows.forEach((roofWindow) => {
+    roofWindows?.forEach((roofWindow) => {
       drawRoofWindow(roofWindow);
     });
-  }, [props.view]);
+  }, [roofWindows]);
 
   const drawRoofWindow = (roofWindow) => {
     const { fPoint, lPoint, direct, mDirect, check } = roofWindow;
@@ -27,19 +24,28 @@ export default function RoofWindows(props) {
     createPolygon({
       height: 1,
       nodes: [p1, p2, ...segment],
-      color: "gray",
+      color: 'gray',
     });
-    drawPolygon(p1, segment[1], check, !mDirect);
-    drawPolygon(p2, segment[0], check, mDirect);
+
+    const f1 = drawPolygon(p1, segment[1], check, !mDirect, direct);
+    const f2 = drawPolygon(p2, segment[0], check, mDirect, direct);
+
+    const segment2 = calLineSegment(f1, f2, 2.25, !direct);
+    createPolygon({
+      height: 2.5,
+      nodes: [p1, p2, ...segment2],
+      color: [0, 0, 0, 0.5],
+    });
   };
 
-  const drawPolygon = (p1, p2, check, mDirect) => {
+  const drawPolygon = (p1, p2, check, mDirect, direct) => {
     const segment = calLineSegment(p1, p2, 8, check ? mDirect : !mDirect);
     createPolygon({
       height: 2.5,
-      nodes: [p2, p2, ...segment],
-      color: "gray",
+      nodes: [p1, p2, ...segment],
+      color: 'gray',
     });
+    return segment[1];
   };
 
   return null;
