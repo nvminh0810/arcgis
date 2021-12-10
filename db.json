@@ -147,15 +147,15 @@
       "id": 17,
       "idBlock": 7,
       "segment": "MN",
-      "fPoint": [106.69512778476862, 10.776968563167625],
-      "lPoint": [106.69493595731674, 10.776758567535412]
+      "fPoint": [106.695326562816, 10.776785354425362],
+      "lPoint": [106.69536038940274, 10.776756082775604]
     },
     {
       "id": 18,
       "idBlock": 7,
       "segment": "ST",
       "fPoint": [106.69512778476862, 10.776968563167625],
-      "lPoint": [106.69493595731674, 10.776758567535412]
+      "lPoint": [106.69516138477954, 10.776938059185138]
     }
   ],
 
@@ -585,6 +585,38 @@
       "idSurface": 16,
       "idWindow": 15,
       "idGlass": 12
+    },
+    {
+      "id": 49,
+      "idFloor": 0,
+      "idSurface": 17
+    },
+    {
+      "id": 50,
+      "idFloor": 1,
+      "idSurface": 17,
+      "idLineSurround": 10
+    },
+    {
+      "id": 51,
+      "idFloor": 2,
+      "idSurface": 18
+    },
+    {
+      "id": 52,
+      "idFloor": 0,
+      "idSurface": 18
+    },
+    {
+      "id": 53,
+      "idFloor": 1,
+      "idSurface": 18,
+      "idLineSurround": 11
+    },
+    {
+      "id": 54,
+      "idFloor": 2,
+      "idSurface": 17
     }
   ],
 
@@ -1350,12 +1382,12 @@
     {
       "id": 10,
       "segment": "MN",
-      "direct": false
+      "direct": true
     },
     {
       "id": 11,
       "segment": "ST",
-      "direct": false
+      "direct": true
     }
   ],
 
