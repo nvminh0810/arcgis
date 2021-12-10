@@ -1,4 +1,4 @@
-import * as Def from '../constants/constant_commons';
+import * as Def from "../constants/constant_commons";
 
 let initialState = {
   view: null,
@@ -13,6 +13,7 @@ let initialState = {
   lines: null,
   subDoors: null,
   subWalls: null,
+  lineSurrounds: null,
 };
 
 export default function commons(state = initialState, { type, payload }) {
@@ -64,6 +65,14 @@ export default function commons(state = initialState, { type, payload }) {
     case Def.SET_SUBWALLS:
       const { subWalls } = payload;
       return { ...state, subWalls };
+
+    case Def.SET_PILLAR:
+      const { pillars } = payload;
+      return { ...state, pillars };
+
+    case Def.SET_LINE_SURROUNDS:
+      const { lineSurrounds } = payload;
+      return { ...state, lineSurrounds };
 
     default:
       return { ...state };

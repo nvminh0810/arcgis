@@ -142,6 +142,20 @@
       "segment": "RS",
       "fPoint": [106.69512778476862, 10.776968563167625],
       "lPoint": [106.69493595731674, 10.776758567535412]
+    },
+    {
+      "id": 17,
+      "idBlock": 7,
+      "segment": "MN",
+      "fPoint": [106.69512778476862, 10.776968563167625],
+      "lPoint": [106.69493595731674, 10.776758567535412]
+    },
+    {
+      "id": 18,
+      "idBlock": 7,
+      "segment": "ST",
+      "fPoint": [106.69512778476862, 10.776968563167625],
+      "lPoint": [106.69493595731674, 10.776758567535412]
     }
   ],
 
@@ -296,7 +310,9 @@
       "idFloor": 1,
       "idSurface": 4,
       "idSubDoor": 1,
-      "idGlass": 13
+      "idGlass": 13,
+      "idPillar": 1,
+      "idLineSurround": 1
     },
     {
       "id": 12,
@@ -316,7 +332,9 @@
       "idFloor": 1,
       "idSurface": 5,
       "idSubDoor": 9,
-      "idGlass": 15
+      "idGlass": 15,
+      "idPillar": 9,
+      "idLineSurround": 9
     },
     {
       "id": 15,
@@ -356,7 +374,9 @@
       "idFloor": 1,
       "idSurface": 7,
       "idSubDoor": 2,
-      "idGlass": 19
+      "idGlass": 19,
+      "idPillar": 2,
+      "idLineSurround": 2
     },
     {
       "id": 21,
@@ -376,7 +396,9 @@
       "idFloor": 1,
       "idSurface": 8,
       "idSubDoor": 3,
-      "idGlass": 21
+      "idGlass": 21,
+      "idPillar": 3,
+      "idLineSurround": 3
     },
     {
       "id": 24,
@@ -460,7 +482,9 @@
       "idFloor": 1,
       "idSurface": 12,
       "idSubDoor": 4,
-      "idGlass": 23
+      "idGlass": 23,
+      "idPillar": 4,
+      "idLineSurround": 4
     },
     {
       "id": 36,
@@ -480,7 +504,9 @@
       "idFloor": 1,
       "idSurface": 13,
       "idSubDoor": 8,
-      "idGlass": 25
+      "idGlass": 25,
+      "idPillar": 8,
+      "idLineSurround": 8
     },
     {
       "id": 39,
@@ -502,7 +528,9 @@
       "idSurface": 14,
       "idSubDoor": 5,
       "idGlass": 7,
-      "idSubWall": 4
+      "idSubWall": 4,
+      "idPillar": 5,
+      "idLineSurround": 5
     },
     {
       "id": 42,
@@ -523,7 +551,9 @@
       "idFloor": 1,
       "idSurface": 15,
       "idSubDoor": 6,
-      "idGlass": 9
+      "idGlass": 9,
+      "idPillar": 6,
+      "idLineSurround": 6
     },
     {
       "id": 45,
@@ -545,7 +575,9 @@
       "idSurface": 16,
       "idSubDoor": 7,
       "idGlass": 11,
-      "idSubWall": 5
+      "idSubWall": 5,
+      "idPillar": 7,
+      "idLineSurround": 7
     },
     {
       "id": 48,
@@ -1200,6 +1232,130 @@
       "width": 60,
       "isIndent": false,
       "wallDirect": true
+    }
+  ],
+
+  "pillars": [
+    {
+      "id": 1,
+      "segment": "BC",
+      "indexs": [2, 4],
+      "numPart": 6,
+      "direct": true
+    },
+    {
+      "id": 2,
+      "segment": "DE",
+      "indexs": [2, 4],
+      "numPart": 6,
+      "direct": true
+    },
+    {
+      "id": 3,
+      "segment": "KL",
+      "indexs": [1, 2, 3, 4, 5],
+      "numPart": 5,
+      "direct": false
+    },
+    {
+      "id": 4,
+      "segment": "LM",
+      "indexs": [2, 4, 6],
+      "numPart": 6,
+      "direct": true
+    },
+    {
+      "id": 5,
+      "segment": "NO",
+      "indexs": [0, 2, 4, 6],
+      "numPart": 7,
+      "direct": false
+    },
+    {
+      "id": 6,
+      "segment": "OR",
+      "indexs": [0, 1, 2, 5, 6, 7],
+      "numPart": 7,
+      "direct": false
+    },
+    {
+      "id": 7,
+      "segment": "RS",
+      "indexs": [0, 2, 4, 6],
+      "numPart": 7,
+      "direct": true
+    },
+    {
+      "id": 8,
+      "segment": "TU",
+      "indexs": [2, 4, 6],
+      "numPart": 6,
+      "direct": true
+    },
+    {
+      "id": 9,
+      "segment": "UV",
+      "indexs": [0, 1, 2, 3, 4],
+      "numPart": 5,
+      "direct": false
+    }
+  ],
+
+  "lineSurrounds": [
+    {
+      "id": 1,
+      "segment": "BC",
+      "direct": true
+    },
+    {
+      "id": 2,
+      "segment": "DE",
+      "direct": true
+    },
+    {
+      "id": 3,
+      "segment": "KL",
+      "direct": false
+    },
+    {
+      "id": 4,
+      "segment": "LM",
+      "direct": false
+    },
+    {
+      "id": 5,
+      "segment": "NO",
+      "direct": false
+    },
+    {
+      "id": 6,
+      "segment": "OR",
+      "direct": false
+    },
+    {
+      "id": 7,
+      "segment": "RS",
+      "direct": true
+    },
+    {
+      "id": 8,
+      "segment": "TU",
+      "direct": true
+    },
+    {
+      "id": 9,
+      "segment": "UV",
+      "direct": false
+    },
+    {
+      "id": 10,
+      "segment": "MN",
+      "direct": false
+    },
+    {
+      "id": 11,
+      "segment": "ST",
+      "direct": false
     }
   ],
 

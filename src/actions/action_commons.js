@@ -1,5 +1,5 @@
-import { createAction } from 'redux-actions';
-import * as Def from '../constants/constant_commons';
+import { createAction } from "redux-actions";
+import * as Def from "../constants/constant_commons";
 
 export const setView = createAction(Def.SET_VIEW);
 export const setFoundation = createAction(Def.SET_FOUNDATION);
@@ -13,3 +13,5 @@ export const setGlasses = createAction(Def.SET_GLASSES);
 export const setColumns = createAction(Def.SET_COLUMNS);
 export const setSubDoors = createAction(Def.SET_SUBDOORS);
 export const setSubWalls = createAction(Def.SET_SUBWALLS);
+export const setPillars = createAction(Def.SET_PILLAR);
+export const setLineSurrounds = createAction(Def.SET_LINE_SURROUNDS);

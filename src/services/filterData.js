@@ -1,4 +1,4 @@
-import { store } from '../store/index';
+import { store } from "../store/index";
 
 export const findSurfaceData = (idSurface) => {
   const { layers } = store.getState().commons;
@@ -8,8 +8,17 @@ export const findSurfaceData = (idSurface) => {
 
 export const findLayerData = (idLayer) => {
   const { layers } = store.getState().commons;
-  const { idSubDoor, idSubWall, idGlass, idColumn, idLine, idWindow, idDoor } =
-    layers.find((layer) => idLayer === layer.id);
+  const {
+    idSubDoor,
+    idSubWall,
+    idGlass,
+    idColumn,
+    idLine,
+    idWindow,
+    idDoor,
+    idPillar,
+    idLineSurround,
+  } = layers.find((layer) => idLayer === layer.id);
   const subDoors = findSubDoorData(idSubDoor);
   const subWalls = findSubWallData(idSubWall);
   const glasses = findGlassData(idGlass);
@@ -17,7 +26,19 @@ export const findLayerData = (idLayer) => {
   const lines = findLineData(idLine);
   const windows = findWindowData(idWindow);
   const doors = findDoorData(idDoor);
-  return { subDoors, subWalls, glasses, columns, lines, windows, doors };
+  const pillars = findPillarsData(idPillar);
+  const lineSurrounds = findLineSurroundData(idLineSurround);
+  return {
+    subDoors,
+    subWalls,
+    glasses,
+    columns,
+    lines,
+    windows,
+    doors,
+    pillars,
+    lineSurrounds,
+  };
 };
 
 export const findSubDoorData = (idSubDoor) => {
@@ -60,4 +81,18 @@ export const findDoorData = (idDoor) => {
   const { doors } = store.getState().commons;
   if (!doors) return;
   return doors.filter((door) => idDoor === door.id);
+};
+
+export const findPillarsData = (idPillar) => {
+  const { pillars } = store.getState().commons;
+  if (!pillars) return;
+  return pillars.filter((pillar) => idPillar === pillar.id);
+};
+
+export const findLineSurroundData = (idLineSurround) => {
+  const { lineSurrounds } = store.getState().commons;
+  if (!lineSurrounds) return;
+  return lineSurrounds.filter(
+    (lineSurround) => idLineSurround === lineSurround.id
+  );
 };
