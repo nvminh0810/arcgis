@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { findLayerData } from '../../services/filterData';
-import Columns from './Columns';
-import FirstFloorWindows from './FirstFloorWindows';
-import Floors from './Floors';
-import Glasses from './Glasses';
-import Lines from './Lines';
-import SecondFloorWindows from './SecondFloorWindows';
-import SubDoor from './SubDoor';
-import SubWall from './SubWall';
+import React, { useEffect, useState } from "react";
+import { findLayerData } from "../../services/filterData";
+import Columns from "./Columns";
+import FirstFloorWindows from "./FirstFloorWindows";
+import Glasses from "./Glasses";
+import Lines from "./Lines";
+import Pillars from "./Pillars";
+import SecondFloorWindows from "./SecondFloorWindows";
+import SubDoor from "./SubDoor";
+import SubWall from "./SubWall";
+import LineSurrounds from "./LineSurround";
 
 export default function Layers(props) {
   const [glasses, setGlasses] = useState([]);
@@ -16,20 +17,32 @@ export default function Layers(props) {
   const [subDoors, setSubDoors] = useState([]);
   const [subWalls, setSubWalls] = useState([]);
   const [windows, setWindows] = useState([]);
+  const [pillars, setPillars] = useState([]);
+  const [lineSurrounds, setLineSurrounds] = useState([]);
 
   const { layer, surface } = props;
   const { segment, fPoint, lPoint } = surface;
   const { id, idFloor } = layer;
 
   useEffect(() => {
-    const { subDoors, subWalls, glasses, columns, lines, windows } =
-      findLayerData(id);
+    const {
+      subDoors,
+      subWalls,
+      glasses,
+      columns,
+      lines,
+      windows,
+      pillars,
+      lineSurrounds,
+    } = findLayerData(id);
     setSubDoors(subDoors);
     setSubWalls(subWalls);
     setGlasses(glasses);
     setColumns(columns);
     setLines(lines);
     setWindows(windows);
+    setPillars(pillars);
+    setLineSurrounds(lineSurrounds);
   }, [props]);
 
   const renderSubDoors = () => {
@@ -89,6 +102,22 @@ export default function Layers(props) {
     );
   };
 
+  const renderPillars = () => {
+    if (!pillars || pillars.length <= 0) return;
+    return pillars.map((pillar, index) => {
+      pillar = { ...pillar, fPoint, lPoint };
+      return <Pillars pillar={pillar} key={index} />;
+    });
+  };
+
+  const renderLineSurrounds = () => {
+    if (!lineSurrounds || lineSurrounds.length <= 0) return;
+    return lineSurrounds.map((lineSurround, index) => {
+      lineSurround = { ...lineSurround, fPoint, lPoint };
+      return <LineSurrounds lineSurround={lineSurround} key={index} />;
+    });
+  };
+
   return (
     <>
       {[
@@ -98,6 +127,8 @@ export default function Layers(props) {
         renderLines(),
         renderWindows(),
         renderSubWalls(),
+        renderPillars(),
+        renderLineSurrounds(),
       ]}
     </>
   );

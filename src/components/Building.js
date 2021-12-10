@@ -15,6 +15,8 @@ import {
   setSubWalls,
   setSubDoors,
   setFloorBases,
+  setPillars,
+  setLineSurrounds,
 } from '../actions/action_commons';
 import {
   getFoundation,
@@ -28,6 +30,8 @@ import {
   getSubDoors,
   getSubWalls,
   getFloorBases,
+  getPillars,
+  getLineSurrounds,
 } from '../services/api';
 import { useDispatch, useSelector } from 'react-redux';
 import Floors from './Layers/Floors';
@@ -52,6 +56,8 @@ const Building = (props) => {
         columns,
         subDoors,
         subWalls,
+        pillars,
+        lineSurrounds,
       ] = await Promise.all([
         getFoundation(),
         getBlocks(),
@@ -64,6 +70,8 @@ const Building = (props) => {
         getColumns(),
         getSubDoors(),
         getSubWalls(),
+        getPillars(),
+        getLineSurrounds(),
       ]);
       dispatch(setView({ view }));
       dispatch(setFoundation({ foundation }));
@@ -77,6 +85,8 @@ const Building = (props) => {
       dispatch(setColumns({ columns }));
       dispatch(setSubDoors({ subDoors }));
       dispatch(setSubWalls({ subWalls }));
+      dispatch(setPillars({ pillars }));
+      dispatch(setLineSurrounds({ lineSurrounds }));
     })();
     return () => {};
   }, []);
