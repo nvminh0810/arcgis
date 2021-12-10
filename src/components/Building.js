@@ -29,12 +29,14 @@ import {
   getSubWalls,
   getFloorBases,
 } from '../services/api';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Floors from './Layers/Floors';
+import BackDoor from './Layers/BackDoor';
 
 const Building = (props) => {
   const dispatch = useDispatch();
   const { view } = props;
+  const { view: v } = useSelector((state) => state.commons);
 
   useEffect(() => {
     (async () => {
@@ -79,13 +81,20 @@ const Building = (props) => {
     return () => {};
   }, []);
 
-  return (
-    <Fragment>
-      <Foundation />
-      <Block />
-      <Floors />
-    </Fragment>
-  );
+  const render = () => {
+    if (v) {
+      return (
+        <>
+          <Foundation />
+          <Block />
+          <Floors />
+          <BackDoor />
+        </>
+      );
+    } else console.log('fail');
+  };
+
+  return <>{render()}</>;
 };
 
 export default Building;

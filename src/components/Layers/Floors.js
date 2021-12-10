@@ -9,26 +9,42 @@ export default function Floors() {
   useEffect(() => {
     if (floorBases) {
       const nodes = [];
-      const data = floorBases.map((floorBase) => handleData(floorBase));
+      const fNodes = [];
+
+      const data1 = floorBases.map((floorBase) => handleData(floorBase, false));
+      const data2 = floorBases.map((floorBase) => handleData(floorBase, true));
+
       Object.keys(POINT).forEach((key) => {
-        const seg = data.find((obj) => key in obj);
-        seg && nodes.push(seg[key]);
+        const seg1 = data1.find((obj) => key in obj);
+        seg1 && nodes.push(seg1[key]);
+        const seg2 = data2.find((obj) => key in obj);
+        seg2 && fNodes.push(seg2[key]);
       });
-      drawFloor([...nodes], 20);
+
+      drawFloor([...fNodes], 20);
       drawFloor([...nodes], 24.5);
       drawFloor([...nodes], 31.5);
       drawFloor([...nodes], 34);
     }
   }, [floorBases]);
 
-  const handleData = (floorBase) => {
+  const handleData = (floorBase, isFoundation) => {
     const { fPoint, lPoint, direct, shink, segment } = floorBase;
     const vector = calVector(fPoint, lPoint, false);
+    let p1 = [];
+    let p2 = [];
+    let seg = [];
 
-    const p1 = movePoint(fPoint, vector, 1, !shink);
-    const p2 = movePoint(lPoint, vector, 1, shink);
+    if (!isFoundation) {
+      p1 = movePoint(fPoint, vector, 1, !shink);
+      p2 = movePoint(lPoint, vector, 1, shink);
+      seg = calLineSegment(p1, p2, 3, direct);
+    } else {
+      p1 = movePoint(fPoint, vector, 3, shink);
+      p2 = movePoint(lPoint, vector, 3, !shink);
+      seg = calLineSegment(p1, p2, 6, !direct);
+    }
 
-    const seg = calLineSegment(p1, p2, 3, direct);
     const points = segment.split('');
     return { [points[0]]: seg[1], [points[1]]: seg[0] };
   };
@@ -43,7 +59,7 @@ export default function Floors() {
       return node;
     });
     createPolygon({
-      height: 0.1,
+      height: 0.25,
       nodes: data,
       color: [179, 179, 179],
     });

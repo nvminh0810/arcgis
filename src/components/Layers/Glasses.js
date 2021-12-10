@@ -50,8 +50,8 @@ export default function Glasses(props) {
         };
       case 2:
         return {
-          back: 1,
-          height: checkSegment(segment) ? 9.5 : 7,
+          back: checkSeg(segment) ? 10 : 1,
+          height: segment === 'EF' || segment === 'MN' ? 9.5 : 7,
           oz: 24.5,
         };
       case 3:
@@ -66,11 +66,17 @@ export default function Glasses(props) {
   };
 
   const calDMove = (shrink, floor) => {
-    return shrink ? (floor === 1 ? 15 : 2) : floor === 1 ? 2 : 15;
+    return shrink ? (floor === 1 ? 15 : 1) : floor === 1 ? 1 : 15;
   };
 
-  const checkSegment = (segment) => {
-    return segment === 'EF' || segment === 'MN';
+  const checkSeg = (seg) => {
+    return (
+      seg.includes('C') ||
+      seg.includes('D') ||
+      seg.includes('U') ||
+      seg.includes('L')
+    );
   };
+
   return null;
 }

@@ -1,11 +1,22 @@
 import { useEffect } from 'react';
-import { calLineSegment, renderSubPoints } from '../../utils/calculate';
-import { createPolygon } from '../../utils/util';
+import { POINT } from '../../constants/constant_commons';
+import {
+  calLineSegment,
+  calLineSegmentBaseVector,
+  calVector,
+  renderSubPoints,
+} from '../../utils/calculate';
+import { createLine, createPolygon } from '../../utils/util';
 
 export default function SecondFloorWindows(props) {
   useEffect(() => {
     const { window, segment: sg } = props;
     const { fPoint, lPoint, count, direct } = window;
+
+    if (checkSeg(sg)) {
+      drawWindow2(window);
+      return;
+    }
 
     const subPoints = renderSubPoints(
       [...fPoint, 24.5],
@@ -69,6 +80,48 @@ export default function SecondFloorWindows(props) {
     });
   };
 
+  const drawWindow2 = ({ fPoint, lPoint, direct, count }) => {
+    const subPoints = renderSubPoints(
+      [...fPoint, 24.5],
+      [...lPoint, 24.5],
+      count
+    );
+    const vector = calVector(fPoint, lPoint, false);
+    for (let i = 0; i < subPoints.length; i++) {
+      const seg1 = calLineSegmentBaseVector([...subPoints[i]], vector, 2, true);
+
+      const seg2 = calLineSegment(seg1[0], seg1[1], 15, direct);
+      createPolygon({
+        height: 7,
+        nodes: [...seg1, ...seg2],
+        color: 'gray',
+      });
+
+      if (i !== subPoints.length - 1) {
+        const points = renderSubPoints(
+          [...subPoints[i]],
+          [...subPoints[i + 1]],
+          5
+        );
+        for (let index = 1; index < points.length - 1; index++) {
+          const seg3 = calLineSegmentBaseVector(
+            [...points[index]],
+            vector,
+            1.5,
+            true
+          );
+          const seg4 = calLineSegment(seg3[0], seg3[1], 3, direct);
+
+          createPolygon({
+            height: 7,
+            nodes: [...seg3, ...seg4],
+            color: 'wheat',
+          });
+        }
+      }
+    }
+  };
+
   const drawWoodsInWindow = (point1, point2, direct, hasTwoRow) => {
     let segment = [];
     for (let index = 0; index < 2; index++) {
@@ -90,6 +143,15 @@ export default function SecondFloorWindows(props) {
       });
       if (!hasTwoRow) break;
     }
+  };
+
+  const checkSeg = (seg) => {
+    return (
+      seg.includes('C') ||
+      seg.includes('D') ||
+      seg.includes('U') ||
+      seg.includes('L')
+    );
   };
   return null;
 }

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import {
   calLineSegment,
   renderSubPoints,
@@ -16,8 +15,9 @@ export default function Lines(props) {
 
     drawCol(fPoint, lPoint, direct, count, isLong);
     drawFrontWall(fPoint, lPoint, direct);
-    !isLong && drawMidWall(fPoint, lPoint, direct, mDirect);
-    // : drawBackall(fPoint, lPoint, direct, mDirect)
+    !isLong
+      ? drawMidWall(fPoint, lPoint, direct, mDirect)
+      : drawBackall(fPoint, lPoint, direct, mDirect);
   }, []);
 
   const drawCol = (fPoint, lPoint, direct, count, isLong) => {
@@ -84,14 +84,14 @@ export default function Lines(props) {
   const drawBackall = (fPoint, lPoint, direct, mDirect) => {
     const vector = calVector(fPoint, lPoint, true);
 
-    const p1 = movePoint([...fPoint, 23], vector, 13, mDirect);
-    const p2 = movePoint([...lPoint, 23], vector, 13, mDirect);
+    const p1 = movePoint([...fPoint, 23], vector, 12, mDirect);
+    const p2 = movePoint([...lPoint, 23], vector, 12, mDirect);
 
     let segment1 = calLineSegment(p1, p2, 1, direct);
     createPolygon({
-      height: 1,
+      height: 2,
       nodes: [p1, p2, ...segment1],
-      color: [201, 201, 201],
+      color: 'gray',
     });
   };
   return null;
