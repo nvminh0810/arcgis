@@ -1,30 +1,36 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { createPolygon } from "../utils/util";
 import { useSelector } from "react-redux";
 import { calLineSegment } from "../utils/calculate";
+import LineSurrounds from "./Layers/LineSurround";
 
 export default function Roof() {
   const { roof } = useSelector((state) => state.commons);
   useEffect(() => {
-    if (roof) {
-      const { frontRoof, centerRoof, behindRoof } = roof;
-      renderFrontRoof(frontRoof);
-    }
+    if (!roof) return;
+    Object.keys(roof).map((subRoof) => {
+      renderSubRoof(roof[subRoof]);
+    });
     return () => {};
   }, [roof]);
 
-  const renderFrontRoof = (frontRoof) => {
-    const { nodes, baseRoof, l1Roof, l2Roof } = frontRoof;
+  const renderSubRoof = (subRoof) => {
+    const { nodes, baseRoof, l1Roof, l2Roof } = subRoof;
     [baseRoof, l1Roof, l2Roof].map((layer) => {
-      renderLayerRoof(layer, nodes);
+      layer && renderLayerRoof(layer, nodes);
     });
   };
 
   const renderLayerRoof = (layer, nodes) => {
-    const { color, width, length, height, oz } = layer;
+    const { color, width, length, height, oz, isIndent } = layer;
     nodes = nodes.map((node) => [...node, oz]);
 
-    const segment = calLineSegment(nodes[0], nodes[1], width - 20, true);
+    const segment = calLineSegment(
+      nodes[0],
+      nodes[1],
+      isIndent ? width - 20 : width,
+      true
+    );
     const segment2 = calLineSegment(nodes[2], nodes[3], width, false);
 
     const segment3 = calLineSegment(segment[0], segment2[1], length, false);

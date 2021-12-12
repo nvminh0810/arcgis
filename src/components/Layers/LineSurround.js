@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  calLineSegment,
-  calLineSegmentBaseVector,
-  calVector,
-  renderSubPoints,
-} from "../../utils/calculate";
+import { calLineSegment } from "../../utils/calculate";
 import { createPolygon } from "../../utils/util";
 
 export default function LineSurround(props) {

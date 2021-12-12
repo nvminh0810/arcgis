@@ -1554,6 +1554,7 @@
       "mDirect": false
     }
   ],
+
   "roof": {
     "frontRoof": {
       "polygon": "AFIX",
@@ -1564,6 +1565,7 @@
         [106.69506874283468, 10.777240428730483]
       ],
       "baseRoof": {
+        "isIndent": true,
         "color": "gray",
         "oz": 34.3,
         "width": 43,
@@ -1571,6 +1573,7 @@
         "height": 1
       },
       "l1Roof": {
+        "isIndent": true,
         "color": "white",
         "oz": 35.3,
         "width": 40,
@@ -1578,14 +1581,48 @@
         "height": 0.1
       },
       "l2Roof": {
+        "isIndent": true,
         "color": "#dfc186",
         "oz": 35.4,
         "width": 43,
         "length": 43,
         "height": 0.1
+      },
+      "lineSurrounds": []
+    },
+    "centerRoof": {
+      "polygon": "ULMT",
+      "nodes": [
+        [106.69530005194365, 10.777088053002764],
+        [106.69546522998012, 10.776935348242986],
+        [106.695326562816, 10.776785354425362],
+        [106.69516138477954, 10.776938059185138]
+      ],
+      "baseRoof": {
+        "isIndent": false,
+        "color": "#dfc186",
+        "oz": 31.8,
+        "width": 0,
+        "length": 0,
+        "height": 0.1
       }
     },
-    "centerRoof": {},
-    "behindRoof": {}
+    "behindRoof": {
+      "polygon": "SNOR",
+      "nodes": [
+        [106.69512778476862, 10.776968563167625],
+        [106.69536038940274, 10.776756082775604],
+        [106.69516856195087, 10.776546087143391],
+        [106.69493595731674, 10.776758567535412]
+      ],
+      "baseRoof": {
+        "isIndent": false,
+        "color": "#dfc186",
+        "oz": 31.8,
+        "width": 0,
+        "length": 0,
+        "height": 0.1
+      }
+    }
   }
 }
