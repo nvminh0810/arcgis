@@ -89,7 +89,7 @@ export default function Lines(props) {
 
     let segment1 = calLineSegment(p1, p2, 1, direct);
     createPolygon({
-      height: 2,
+      height: 1.5,
       nodes: [p1, p2, ...segment1],
       color: 'gray',
     });

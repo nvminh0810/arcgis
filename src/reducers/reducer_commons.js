@@ -15,6 +15,7 @@ let initialState = {
   subWalls: null,
   lineSurrounds: null,
   roofWindows: null,
+  doors: null,
 };
 
 export default function commons(state = initialState, { type, payload }) {
@@ -78,6 +79,10 @@ export default function commons(state = initialState, { type, payload }) {
     case Def.SET_ROOF_WINDOWS:
       const { roofWindows } = payload;
       return { ...state, roofWindows };
+
+    case Def.SET_DOORS:
+      const { doors } = payload;
+      return { ...state, doors };
     default:
       return { ...state };
   }

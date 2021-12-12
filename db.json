@@ -459,7 +459,8 @@
       "id": 29,
       "idFloor": 1,
       "idSurface": 10,
-      "idWindow": 9
+      "idWindow": 9,
+      "idDoor": 2
     },
     {
       "id": 30,
@@ -761,7 +762,7 @@
       "direct": false
     },
     {
-      "id": 1,
+      "id": 2,
       "direct": true
     }
   ],

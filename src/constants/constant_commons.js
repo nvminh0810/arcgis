@@ -46,3 +46,4 @@ export const SET_SUBWALLS = 'SET_SUBWALLS';
 export const SET_PILLAR = 'SET_PILLAR';
 export const SET_LINE_SURROUNDS = 'SET_LINE_SURROUNDS';
 export const SET_ROOF_WINDOWS = 'SET_ROOF_WINDOWS';
+export const SET_DOORS = 'SET_DOORS';
