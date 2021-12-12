@@ -19,6 +19,8 @@ import {
   setLineSurrounds,
   setRoofWindows,
   setRoof,
+  setDoors,
+  setStairs,
 } from "../actions/action_commons";
 import {
   getFoundation,
@@ -36,12 +38,16 @@ import {
   getLineSurrounds,
   getRoofWindows,
   getRoof,
+  getDoors,
+  getStairs,
 } from "../services/api";
 import { useDispatch, useSelector } from "react-redux";
 import Floors from "./Layers/Floors";
 import BackDoor from "./Layers/BackDoor";
-import RoofWindows from "./Layers/roofWindows";
+import MainDoor from "./Layers/MainDoor";
 import Roof from "./Roof";
+import RoofWindows from "./Layers/roofWindows";
+import Stair from "./Stair";
 
 const Building = (props) => {
   const dispatch = useDispatch();
@@ -66,6 +72,8 @@ const Building = (props) => {
         lineSurrounds,
         roofWindows,
         roof,
+        doors,
+        stairs,
       ] = await Promise.all([
         getFoundation(),
         getBlocks(),
@@ -82,6 +90,8 @@ const Building = (props) => {
         getLineSurrounds(),
         getRoofWindows(),
         getRoof(),
+        getDoors(),
+        getStairs(),
       ]);
       dispatch(setView({ view }));
       dispatch(setFoundation({ foundation }));
@@ -99,6 +109,8 @@ const Building = (props) => {
       dispatch(setLineSurrounds({ lineSurrounds }));
       dispatch(setRoofWindows({ roofWindows }));
       dispatch(setRoof({ roof }));
+      dispatch(setDoors({ doors }));
+      dispatch(setStairs({ stairs }));
     })();
     return () => {};
   }, []);
@@ -111,8 +123,10 @@ const Building = (props) => {
           <Block />
           <Floors />
           <BackDoor />
+          <MainDoor />
           <RoofWindows />
           <Roof />
+          <Stair />
         </>
       );
     } else console.log("fail");

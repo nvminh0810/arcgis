@@ -9,6 +9,7 @@ import SecondFloorWindows from './SecondFloorWindows';
 import SubDoor from './SubDoor';
 import SubWall from './SubWall';
 import LineSurrounds from './LineSurround';
+import SideDoors from './SideDoors';
 
 export default function Layers(props) {
   const [glasses, setGlasses] = useState([]);
@@ -19,6 +20,7 @@ export default function Layers(props) {
   const [windows, setWindows] = useState([]);
   const [pillars, setPillars] = useState([]);
   const [lineSurrounds, setLineSurrounds] = useState([]);
+  const [doors, setDoors] = useState([]);
 
   const { layer, surface } = props;
   const { segment, fPoint, lPoint } = surface;
@@ -34,6 +36,7 @@ export default function Layers(props) {
       windows,
       pillars,
       lineSurrounds,
+      doors,
     } = findLayerData(id);
     setSubDoors(subDoors);
     setSubWalls(subWalls);
@@ -43,6 +46,7 @@ export default function Layers(props) {
     setWindows(windows);
     setPillars(pillars);
     setLineSurrounds(lineSurrounds);
+    setDoors(doors);
   }, [props]);
 
   const renderSubDoors = () => {
@@ -118,6 +122,14 @@ export default function Layers(props) {
     });
   };
 
+  const renderDoors = () => {
+    if (!doors || doors.length <= 0) return;
+    return doors.map((door, index) => {
+      door = { ...door, fPoint, lPoint };
+      return <SideDoors door={door} key={index} />;
+    });
+  };
+
   return (
     <>
       {[
@@ -129,6 +141,7 @@ export default function Layers(props) {
         renderSubWalls(),
         renderPillars(),
         renderLineSurrounds(),
+        renderDoors(),
       ]}
     </>
   );

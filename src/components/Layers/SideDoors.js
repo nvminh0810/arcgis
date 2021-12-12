@@ -11,9 +11,9 @@ import { createPolygon } from '../../utils/util';
 
 export default function SideDoors(props) {
   useEffect(() => {
-    const { door, data } = props;
-    let { fPoint, lPoint } = data;
-    const { direct } = door;
+    const { door } = props;
+    let { fPoint, lPoint, direct } = door;
+    console.log(door);
 
     const subPoints = renderSubPoints(fPoint, lPoint, 6);
     fPoint = subPoints[2];

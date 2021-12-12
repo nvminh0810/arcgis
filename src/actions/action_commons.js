@@ -17,3 +17,5 @@ export const setPillars = createAction(Def.SET_PILLAR);
 export const setLineSurrounds = createAction(Def.SET_LINE_SURROUNDS);
 export const setRoofWindows = createAction(Def.SET_ROOF_WINDOWS);
 export const setRoof = createAction(Def.SET_ROOF);
+export const setDoors = createAction(Def.SET_DOORS);
+export const setStairs = createAction(Def.SET_STAIRS);
