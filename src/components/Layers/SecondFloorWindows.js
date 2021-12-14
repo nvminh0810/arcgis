@@ -110,7 +110,7 @@ export default function SecondFloorWindows(props) {
         p[2] = 24.5;
         height = 7;
       } else {
-        p[2] = 30;
+        p[2] = 29;
         height = 1.5;
       }
 

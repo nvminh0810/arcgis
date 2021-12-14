@@ -1,17 +1,14 @@
-import React, { Fragment, useEffect } from "react";
-import { createPolygon } from "../utils/util";
-import { useSelector } from "react-redux";
-import { calLineSegment } from "../utils/calculate";
-import LineSurrounds from "./Layers/LineSurround";
+import React, { Fragment, useEffect } from 'react';
+import { createPolygon } from '../utils/util';
+import { useSelector } from 'react-redux';
+import { calLineSegment } from '../utils/calculate';
+import LineSurrounds from './Layers/LineSurround';
 
 export default function Roof() {
   const { roof } = useSelector((state) => state.commons);
   useEffect(() => {
     if (!roof) return;
-    Object.keys(roof).map((subRoof) => {
-      renderSubRoof(roof[subRoof]);
-    });
-    return () => {};
+    renderSubRoof(roof.frontRoof);
   }, [roof]);
 
   const renderSubRoof = (subRoof) => {

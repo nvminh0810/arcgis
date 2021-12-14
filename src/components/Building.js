@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import Foundation from "./Foundation";
-import Block from "./Blocks/Block";
+import { useEffect } from 'react';
+import Foundation from './Foundation';
+import Block from './Blocks/Block';
 
 import {
   setFoundation,
@@ -21,7 +21,7 @@ import {
   setRoof,
   setDoors,
   setStairs,
-} from "../actions/action_commons";
+} from '../actions/action_commons';
 import {
   getFoundation,
   getBlocks,
@@ -40,14 +40,15 @@ import {
   getRoof,
   getDoors,
   getStairs,
-} from "../services/api";
-import { useDispatch, useSelector } from "react-redux";
-import Floors from "./Layers/Floors";
-import BackDoor from "./Layers/BackDoor";
-import MainDoor from "./Layers/MainDoor";
-import Roof from "./Roof";
-import RoofWindows from "./Layers/roofWindows";
-import Stair from "./Stair";
+} from '../services/api';
+import { useDispatch, useSelector } from 'react-redux';
+import Floors from './Layers/Floors';
+import BackDoor from './Layers/BackDoor';
+import MainDoor from './Layers/MainDoor';
+import Roof from './Roof';
+import RoofWindows from './Layers/roofWindows';
+import Stair from './Stair';
+import BehindRoof from './BehindRoof';
 
 const Building = (props) => {
   const dispatch = useDispatch();
@@ -126,10 +127,11 @@ const Building = (props) => {
           <MainDoor />
           <RoofWindows />
           <Roof />
+          <BehindRoof />
           <Stair />
         </>
       );
-    } else console.log("fail");
+    } else console.log('fail');
   };
 
   return <>{render()}</>;
