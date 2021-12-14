@@ -38,7 +38,7 @@ export default function Glasses(props) {
     switch (floor) {
       case 0:
         return {
-          back: 1,
+          back: 2,
           height: 11.5,
           oz: 20,
         };
@@ -50,13 +50,13 @@ export default function Glasses(props) {
         };
       case 2:
         return {
-          back: checkSeg(segment) ? 10 : 1,
+          back: checkSeg(segment) ? 10 : 2,
           height: 7,
           oz: 24.5,
         };
       case 3:
         return {
-          back: 1,
+          back: 2,
           height: 2.5,
           oz: 31.5,
         };

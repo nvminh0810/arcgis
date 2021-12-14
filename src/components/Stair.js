@@ -22,7 +22,7 @@ export default function Stair() {
       createPolygon({
         height,
         nodes: [p1, p2, ...sg],
-        color: 'wheat',
+        color: '#bebebe',
       });
       if (count < max && (height === 5.2 || height === 2.7)) {
         count++;

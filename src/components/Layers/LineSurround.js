@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { calLineSegment } from "../../utils/calculate";
-import { createPolygon } from "../../utils/util";
+import React, { useEffect } from 'react';
+import { calLineSegment } from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function LineSurround(props) {
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function LineSurround(props) {
     createPolygon({
       nodes: [...segment, fPoint, lPoint],
       height: 0.5,
-      color: "gray",
+      color: '#a7a7a7',
     });
   };
 

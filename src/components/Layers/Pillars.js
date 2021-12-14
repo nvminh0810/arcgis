@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import {
   calLineSegment,
   calLineSegmentBaseVector,
   calVector,
   renderSubPoints,
-} from "../../utils/calculate";
-import { createPolygon } from "../../utils/util";
+} from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function Pillars(props) {
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function Pillars(props) {
       createPolygon({
         nodes: [...segment2, ...segment3],
         height: 3.5,
-        color: "#2c2c2b",
+        color: '#4b4a4a',
       });
     });
   };

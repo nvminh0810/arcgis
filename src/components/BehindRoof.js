@@ -8,8 +8,8 @@ export default function BehindRoof() {
   useEffect(() => {
     if (roof) {
       const { baseRoof } = roof.behindRoof;
-      drawBaseRoof(baseRoof, 31.5, 0.25, [179, 179, 179], true);
-      drawLayerRoof(baseRoof, 31.5, 0.5, 'wheat', false);
+      drawBaseRoof(baseRoof, 31.5, 0.25, 'white', true);
+      drawLayerRoof(baseRoof, 31.5, 0.5, '#dfc186', false);
     }
   }, [roof]);
 

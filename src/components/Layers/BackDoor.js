@@ -6,7 +6,7 @@ import { createPolygon } from '../../utils/util';
 export default function BackDoor() {
   useEffect(() => {
     const { P, Q } = POINT;
-    drawPolygon([...P], [...Q], 15, 5, 50);
+    drawPolygon([...P], [...Q], 15, 5, 50, [139, 128, 104]);
     drawPolygon([...P], [...Q], 23.5, 0.5, 50);
     drawPolygon([...P], [...Q], 24.5, 0.6, 30);
 
@@ -21,14 +21,14 @@ export default function BackDoor() {
     drawPolygon([...segement[1]], [...segement[0]], 25.2, 0.5, 10);
   }, []);
 
-  const drawPolygon = (p1, p2, oz, height, distace) => {
+  const drawPolygon = (p1, p2, oz, height, distace, color = 'white') => {
     p1[2] = oz;
     p2[2] = oz;
     const segment2 = calLineSegment(p1, p2, distace, true);
     createPolygon({
       height,
       nodes: [p1, p2, ...segment2],
-      color: 'wheat',
+      color,
     });
   };
 

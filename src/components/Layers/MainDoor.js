@@ -28,11 +28,11 @@ export default function MainDoor() {
     drawPolygon([...segement[1]], [...segement[0]], 25.2, 0.5, 10);
 
     const sp2 = renderSubPoints(p1, p2, 5);
-    drawPolygon([...sp2[0]], [...sp2[1]], 24.5, 5, 3, 'gray');
-    drawPolygon([...sp2[4]], [...sp2[5]], 24.5, 5, 3, 'gray');
+    drawPolygon([...sp2[0]], [...sp2[1]], 24.5, 5, 3, '#a7a7a7');
+    drawPolygon([...sp2[4]], [...sp2[5]], 24.5, 5, 3, '#a7a7a7');
     drawWheelchairStair([...C, 15], [...D, 15]);
   }, []);
-  const drawPolygon = (p1, p2, oz, height, distace, color = 'wheat') => {
+  const drawPolygon = (p1, p2, oz, height, distace, color = 'white') => {
     p1[2] = oz;
     p2[2] = oz;
 
@@ -49,7 +49,7 @@ export default function MainDoor() {
     createPolygon({
       height: 5.25,
       nodes: [p1, p2, ...sg],
-      color: 'wheat',
+      color: '#bebebe',
     });
 
     const sg1 = calLineSegment(p1, sg[1], 125, false);
@@ -63,7 +63,7 @@ export default function MainDoor() {
           return item;
         }),
       ],
-      color: 'wheat',
+      color: '#bebebe',
     });
 
     const sg2 = calLineSegment(p2, sg[0], 125, true);
@@ -77,7 +77,7 @@ export default function MainDoor() {
           return item;
         }),
       ],
-      color: 'wheat',
+      color: '#bebebe',
     });
   };
 

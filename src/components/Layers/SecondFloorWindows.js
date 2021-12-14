@@ -34,7 +34,7 @@ export default function SecondFloorWindows(props) {
         for (let i = 0; i < points.length - 1; i++) {
           const p1 = [...points[i]];
           const p2 = [...points[i + 1]];
-          drawWindow(p1, p2, true, i, direct, true);
+          drawWindow(p1, p2, true, i, direct, true, sg);
         }
       }
     }
@@ -53,11 +53,11 @@ export default function SecondFloorWindows(props) {
     }
   }, []);
 
-  const drawWindow = (point1, point2, flag, i, direct, hasTwoRow) => {
+  const drawWindow = (point1, point2, flag, i, direct, hasTwoRow, sg) => {
     let height = 0;
     const p1 = [...point1];
     const p2 = [...point2];
-    if (i % 2 === 0) {
+    if (i % 2 === 0 || sg === 'MN' || sg === 'ST') {
       height = 7;
     } else {
       if (flag) {
@@ -75,24 +75,24 @@ export default function SecondFloorWindows(props) {
     createPolygon({
       height,
       nodes: [p1, p2, ...segment],
-      color: 'gray',
+      color: '#a7a7a7',
     });
   };
 
   const drawWindow2 = (window, sg) => {
     const { fPoint, lPoint, direct, count } = window;
 
-    [24.5, 30.5].forEach((item, index) => {
+    [24.5, 31.3].forEach((item, index) => {
       const p1 = [...fPoint];
       const p2 = [...lPoint];
       const segment = calLineSegment(p1, p2, 15, direct);
       createPolygon({
-        height: index === 0 ? 0.5 : 1,
+        height: index === 0 ? 0.5 : 0.2,
         nodes: [p1, p2, ...segment].map((node) => {
           node[2] = item;
           return node;
         }),
-        color: 'gray',
+        color: '#a7a7a7',
       });
     });
 
@@ -119,8 +119,9 @@ export default function SecondFloorWindows(props) {
       createPolygon({
         height,
         nodes: [...seg1, ...seg2],
-        color: 'gray',
+        color: '#a7a7a7',
       });
+
       if (i !== subPoints.length - 1) {
         const points = renderSubPoints(
           [...subPoints[i]],
@@ -137,10 +138,10 @@ export default function SecondFloorWindows(props) {
                 (i === subPoints.length - 2 && index === points.length - 2)))
           ) {
             p1[2] = 25;
-            height = 5.5;
+            height = 6.3;
           } else {
             p1[2] = 29.5;
-            height = 1;
+            height = 1.8;
           }
           const seg3 = calLineSegmentBaseVector(p1, vector, 1.5, true);
           const seg4 = calLineSegment(seg3[0], seg3[1], 3, direct);
@@ -148,7 +149,7 @@ export default function SecondFloorWindows(props) {
           createPolygon({
             height,
             nodes: [...seg3, ...seg4],
-            color: 'wheat',
+            color: '#afafaf',
           });
         }
       }
@@ -172,7 +173,7 @@ export default function SecondFloorWindows(props) {
       createPolygon({
         height: 0.7,
         nodes: [p1, p2, ...segment],
-        color: 'white',
+        color: '#a89565',
       });
       if (!hasTwoRow) break;
     }

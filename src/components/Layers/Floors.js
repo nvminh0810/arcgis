@@ -24,7 +24,7 @@ export default function Floors() {
         seg2 && fNodes.push(seg2[key]);
       });
 
-      drawFloor([...fNodes], 20);
+      drawFloor([...fNodes], 20, false, [179, 179, 179]);
       drawFloor([...nodes], 24.5);
       drawFloor([...fNodes], 31.5, true);
       drawFloor([...nodes], 31.5);
@@ -54,7 +54,7 @@ export default function Floors() {
     return { [points[0]]: seg[1], [points[1]]: seg[0] };
   };
 
-  const drawFloor = (nodes, oz, flag) => {
+  const drawFloor = (nodes, oz, flag, color = 'white') => {
     if (oz === 31.5 && flag) {
       nodes = nodes.splice(5, 12);
       nodes.splice(5, 2);
@@ -70,7 +70,7 @@ export default function Floors() {
     createPolygon({
       height: 0.25,
       nodes: data,
-      color: [179, 179, 179],
+      color,
     });
   };
 

@@ -46,7 +46,7 @@ export default function SideDoors(props) {
     createPolygon({
       height: 1.5,
       nodes: [fPoint, lPoint, ...segment],
-      color: 'white',
+      color: '#bebebe',
     });
   };
 
@@ -65,7 +65,7 @@ export default function SideDoors(props) {
       createPolygon({
         height: 5,
         nodes: [...segment1, ...segment2],
-        color: 'white',
+        color: '#bebebe',
       });
     });
   };

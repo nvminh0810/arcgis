@@ -24,7 +24,7 @@ export default function RoofWindows() {
     createPolygon({
       height: 1,
       nodes: [p1, p2, ...segment],
-      color: 'gray',
+      color: '#a7a7a7',
     });
 
     const f1 = drawPolygon(p1, segment[1], check, !mDirect, direct);
@@ -43,7 +43,7 @@ export default function RoofWindows() {
     createPolygon({
       height: 2.5,
       nodes: [p1, p2, ...segment],
-      color: 'gray',
+      color: '#a7a7a7',
     });
     return segment[1];
   };

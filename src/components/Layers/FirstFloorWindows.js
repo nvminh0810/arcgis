@@ -1,13 +1,13 @@
-import { useEffect } from "react";
-import { calLineSegment, renderSubPoints } from "../../utils/calculate";
-import { createPolygon } from "../../utils/util";
+import { useEffect } from 'react';
+import { calLineSegment, renderSubPoints } from '../../utils/calculate';
+import { createPolygon } from '../../utils/util';
 
 export default function FirstFloorWindows(props) {
   useEffect(() => {
     const { window, segment } = props;
     const { fPoint, lPoint, count, direct } = window;
 
-    const ignore = segment === "AX" || segment === "FI" ? [2, 3] : [];
+    const ignore = segment === 'AX' || segment === 'FI' ? [2, 3] : [];
     const subPoints = renderSubPoints([...fPoint, 20], [...lPoint, 20], count);
 
     for (let index = 0; index < subPoints.length - 1; index++) {
@@ -44,7 +44,7 @@ export default function FirstFloorWindows(props) {
           createPolygon({
             height,
             nodes: [p1, p2, ...segment],
-            color: "gray",
+            color: '#a7a7a7',
           });
         }
       }

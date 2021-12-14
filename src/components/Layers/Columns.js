@@ -49,12 +49,12 @@ export default function Columns(props) {
     createPolygon({
       height,
       nodes: [...segment1, ...segment2],
-      color: 'white',
+      color: '#ababab',
     });
     createPolygon({
       height,
       nodes: [...segment1, ...segment3],
-      color: 'white',
+      color: '#ababab',
     });
   };
   return null;

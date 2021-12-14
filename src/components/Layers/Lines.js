@@ -49,7 +49,7 @@ export default function Lines(props) {
       createPolygon({
         height: 1,
         nodes: [...segment1, ...segment2],
-        color: 'white',
+        color: '#ababab',
       });
     }
   };
@@ -62,7 +62,7 @@ export default function Lines(props) {
     createPolygon({
       height: 0.5,
       nodes: [B, C, ...segment1],
-      color: [201, 201, 201],
+      color: '#ababab',
     });
   };
 
@@ -77,7 +77,7 @@ export default function Lines(props) {
     createPolygon({
       height: 0.5,
       nodes: [p1, p2, ...segment2],
-      color: [201, 201, 201],
+      color: '#ababab',
     });
   };
 
@@ -91,7 +91,7 @@ export default function Lines(props) {
     createPolygon({
       height: 1.5,
       nodes: [p1, p2, ...segment1],
-      color: 'gray',
+      color: '#ababab',
     });
   };
   return null;
