@@ -4,6 +4,6 @@ Project will be run in Nodejs environment. Please install npm or yarn before run
 ### `Install dependencies: `
 -   npm install / yarn install: Install all of package need to run this project.
 ### `Start server: ` 
--   npm run serve / yarn serve: Open json server in http://localhost:3000
+-   npm run serve / yarn serve: Start a virtual server with backend REST services
 ### `Start website: ` 
--   npm start / yarn start: Open website in http://localhost:3001
+-   npm start / yarn start: Open website
